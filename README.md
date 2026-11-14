@@ -16,4 +16,17 @@ by its admin because of its outdated PHP stack.
 - **Theme.** A modern stylesheet inspired by the original skin (blue header, lime accent). Original skin files are kept in
   `assets/original/` for reference. Search is client-side (`search-data.js` / `search.json`), no server needed.
 
-No build step: serve the folder as is (GitHub Pages, `.nojekyll` included), or open `index.html` locally.
+## Viewing
+
+No build step: serve the folder as is (GitHub Pages from the `main` branch root, `.nojekyll` included), or preview locally:
+
+```
+python3 -m http.server 8000   # then open http://localhost:8000/
+```
+
+Opening `index.html` straight from disk also works, except that some browsers block the search index over `file://`.
+
+## Corrections
+
+Missing pages, broken images or wrong captures: open an issue naming the page. A better source than the Wayback Machine
+(for example a MediaWiki XML export of the original wiki) would replace this copy wholesale.
