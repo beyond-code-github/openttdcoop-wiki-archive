@@ -1,0 +1,602 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Merging Tracks - #openttdcoop wiki (archive)</title><link rel="icon" href="assets/original/favicon.ico"><link rel="stylesheet" href="style.css"><script src="search-data.js" defer></script><script src="search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> wiki <em>archive</em></span></a><div id="searchbox"><input id="q" type="search" placeholder="Search pages (press /)" autocomplete="off" aria-label="Search"><ul id="results" hidden></ul></div></header><div id="layout"><nav id="sidebar" aria-label="Site navigation"><h2>Main pages</h2><ul><li><a href="Main_Page.html">Main Page</a></li><li><a href="Guides.html">Guides</a></li><li><a href="Membership.html">Membership</a></li><li><a href="Ruleset.html">Ruleset</a></li><li><a href="Servers.html">Servers</a></li><li><a href="Public_Server.html">Public Server</a></li><li><a href="Pro_Zone.html">Pro Zone</a></li><li><a href="Junctionary.html">Junctionary</a></li><li><a href="Coopetition.html">Coopetition</a></li><li><a href="Game_Proposals.html">Game Proposals</a></li><li><a href="Glossary.html">Glossary</a></li><li><a href="GRF.html">GRF</a></li><li><a href="Stations.html">Stations</a></li><li><a href="Trains.html">Trains</a></li><li><a href="Signals.html">Signals</a></li><li><a href="index.html">All pages (A-Z)</a></li></ul><h2>Categories</h2><ul class="cats"><li><a href="index.html#cat-Guides">Guides <span class="n">110</span></a></li><li><a href="index.html#cat-Basic_networking">Basic networking <span class="n">45</span></a></li><li><a href="index.html#cat-PublicServerArchive">PublicServerArchive <span class="n">40</span></a></li><li><a href="index.html#cat-Advanced_Networking">Advanced Networking <span class="n">38</span></a></li><li><a href="index.html#cat-Junctionary">Junctionary <span class="n">36</span></a></li><li><a href="index.html#cat-GRF">GRF <span class="n">26</span></a></li><li><a href="index.html#cat-Articles_in_need_of_updating">Articles in need of updating <span class="n">19</span></a></li><li><a href="index.html#cat-Obsolete_Articles">Obsolete Articles <span class="n">19</span></a></li><li><a href="index.html#cat-Gametypes">Gametypes <span class="n">17</span></a></li><li><a href="index.html#cat-Research">Research <span class="n">14</span></a></li><li><a href="index.html#cat-All_articles_proposed_for_deletion">All articles proposed for deletion <span class="n">10</span></a></li><li><a href="index.html#cat-Articles_proposed_for_deletion">Articles proposed for deletion <span class="n">10</span></a></li><li><a href="index.html#cat-Coopetition">Coopetition <span class="n">10</span></a></li><li><a href="index.html#cat-Stations">Stations <span class="n">10</span></a></li><li><a href="index.html#cat-Pages_with_broken_file_links">Pages with broken file links <span class="n">9</span></a></li><li><a href="index.html#cat-IRC">IRC <span class="n">7</span></a></li><li><a href="index.html#cat-All_pages_needing_cleanup">All pages needing cleanup <span class="n">6</span></a></li><li><a href="index.html#cat-History">History <span class="n">6</span></a></li><li><a href="index.html#cat-Wiki_cleanup">Wiki cleanup <span class="n">6</span></a></li><li><a href="index.html#cat-All_articles_to_be_merged">All articles to be merged <span class="n">4</span></a></li><li><a href="index.html#cat-Articles_to_be_merged">Articles to be merged <span class="n">4</span></a></li><li><a href="index.html#cat-OpenTTD_Web_Admin">OpenTTD Web Admin <span class="n">4</span></a></li><li><a href="index.html#cat-Screenshots_requested">Screenshots requested <span class="n">4</span></a></li><li><a href="index.html#cat-All_articles_to_be_expanded">All articles to be expanded <span class="n">3</span></a></li><li><a href="index.html#cat-Articles_to_be_expanded">Articles to be expanded <span class="n">3</span></a></li><li><a href="index.html#cat-BasicNetworking">BasicNetworking <span class="n">2</span></a></li><li><a href="index.html#cat-Active_Members">Active Members <span class="n">1</span></a></li><li><a href="index.html#cat-All_articles_with_out_of_date_information">All articles with out of date information <span class="n">1</span></a></li><li><a href="index.html#cat-Articles_with_out_of_date_information">Articles with out of date information <span class="n">1</span></a></li></ul></nav><main id="main"><article><h1>Merging Tracks</h1><div class="mw-body"><p><i>Written by <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:V453000" title="User:V453000">V453000</a></i>
+</p><p>There are many misleading names to this, I will however call them Merging with a sub-case of Joining.  I will try to explain not just how to call these things, but also how they work, why are they necessary and what to consider when building them.
+</p><p>This page is an explanation of merger theory and basics, for real game examples see the <a href="Junctionary_-_Mergers.html" title="Junctionary - Mergers">junctionary</a>. (Recommended after reading this page)
+</p><p><br>
+Many screenshots on this page are taken from this example savegame which also includes some signs with explanations. It is recommended to obtain it. Saved with r25071, Swedish Rails 0.7.4 and NUTS Unrealistic Train Set 0.4.7 both available on BaNaNaS.
+</p><p><b>All of the things are constructed for trains 3 tiles long!</b>
+</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Merging.sav" title="File:Merging.sav">File:Merging.sav</a>
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#What_is_a_merger.3F"><span class="tocnumber">1</span> <span class="toctext">What is a merger?</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_purpose"><span class="tocnumber">2</span> <span class="toctext">The purpose</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Terminology"><span class="tocnumber">3</span> <span class="toctext">Terminology</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Merger"><span class="tocnumber">3.1</span> <span class="toctext">Merger</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Joiner"><span class="tocnumber">3.2</span> <span class="toctext">Joiner</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Choice"><span class="tocnumber">3.3</span> <span class="toctext">Choice</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Input_tracks"><span class="tocnumber">3.4</span> <span class="toctext">Input tracks</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Output"><span class="tocnumber">3.5</span> <span class="toctext">Output</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Direction"><span class="tocnumber">3.6</span> <span class="toctext">Direction</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Line"><span class="tocnumber">3.7</span> <span class="toctext">Line</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Priority_.2F_check"><span class="tocnumber">3.8</span> <span class="toctext">Priority / check</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="#General_Merger_Logic"><span class="tocnumber">4</span> <span class="toctext">General Merger Logic</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#3-.3E2"><span class="tocnumber">4.1</span> <span class="toctext">3-&gt;2</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="#All_to_All"><span class="tocnumber">4.1.1</span> <span class="toctext">All to All</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="#1-.3E2"><span class="tocnumber">4.1.2</span> <span class="toctext">1-&gt;2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-16"><a href="#4-.3E2"><span class="tocnumber">4.2</span> <span class="toctext">4-&gt;2</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Expanding_more"><span class="tocnumber">4.3</span> <span class="toctext">Expanding more</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#Speed_of_the_merger"><span class="tocnumber">5</span> <span class="toctext">Speed of the merger</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="#Waiting_bays_.2F_spots_.2F_spaces"><span class="tocnumber">5.1</span> <span class="toctext">Waiting bays / spots / spaces</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="#Waiting_bay_length"><span class="tocnumber">5.1.1</span> <span class="toctext">Waiting bay length</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="#Waiting_bay_usage"><span class="tocnumber">5.1.2</span> <span class="toctext">Waiting bay usage</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="#Hint:_Marking_where_trains_stop"><span class="tocnumber">5.1.3</span> <span class="toctext">Hint: Marking where trains stop</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="#Choice_reactivity"><span class="tocnumber">6</span> <span class="toctext">Choice reactivity</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#Split_signalling"><span class="tocnumber">7</span> <span class="toctext">Split signalling</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="#One-way_pre-signals"><span class="tocnumber">7.1</span> <span class="toctext">One-way pre-signals</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#PBS_leading_into_1-way_signals"><span class="tocnumber">7.2</span> <span class="toctext">PBS leading into 1-way signals</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#2-way_pre-signals_and_PBS_leading_into_2-way_signals"><span class="tocnumber">7.3</span> <span class="toctext">2-way pre-signals and PBS leading into 2-way signals</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#PBS_and_prio_entry-signals"><span class="tocnumber">7.4</span> <span class="toctext">PBS and prio entry-signals</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="#Split_layout"><span class="tocnumber">8</span> <span class="toctext">Split layout</span></a>
+<ul>
+<li class="toclevel-2 tocsection-30"><a href="#Unified_split"><span class="tocnumber">8.1</span> <span class="toctext">Unified split</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#High_throughput_choice"><span class="tocnumber">8.2</span> <span class="toctext">High throughput choice</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-32"><a href="#Merging_point.28s.29"><span class="tocnumber">9</span> <span class="toctext">Merging point(s)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-33"><a href="#One_spot"><span class="tocnumber">9.1</span> <span class="toctext">One spot</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#Sequence_.E2.80.93_priority"><span class="tocnumber">9.2</span> <span class="toctext">Sequence – priority</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#Sequence_.E2.80.93_no_priority"><span class="tocnumber">9.3</span> <span class="toctext">Sequence – no priority</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#Sequence_.E2.80.93_small_priority"><span class="tocnumber">9.4</span> <span class="toctext">Sequence – small priority</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#Tree_structure"><span class="tocnumber">9.5</span> <span class="toctext">Tree structure</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#Downhill_merge"><span class="tocnumber">9.6</span> <span class="toctext">Downhill merge</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-39"><a href="#Bridges_.28also_tunnels.29_and_evil_mode"><span class="tocnumber">10</span> <span class="toctext">Bridges (also tunnels) and evil mode</span></a>
+<ul>
+<li class="toclevel-2 tocsection-40"><a href="#Self-unblockable_bridges"><span class="tocnumber">10.1</span> <span class="toctext">Self-unblockable bridges</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="#Full_priority"><span class="tocnumber">10.2</span> <span class="toctext">Full priority</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="#Prio_to_unbridged_lines"><span class="tocnumber">10.3</span> <span class="toctext">Prio to unbridged lines</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="#No_doubled_bridges"><span class="tocnumber">10.4</span> <span class="toctext">No doubled bridges</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div class="floatright"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_basic.png" class="image"><span class="missing-img">[Mergers basic.png]</span></a></div>
+<h3><span class="mw-headline" id="What_is_a_merger.3F">What is a merger?</span></h3>
+<p>A merger is a place where some amount of lines reduces to a smaller count. Most typically used in all kinds of <a href="Hub.html" title="Hub">hubs</a>, they (or their look-alikes) can also be used as <a href="Junctionary_-_Stations.html" title="Junctionary - Stations">station</a> exits, station entrances and/or just as standalone mergers without a hub (rare cases).
+</p>
+<div class="floatright"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_NoChoice.png" class="image"><span class="missing-img">[Mergers NoChoice.png]</span></a></div>
+<h3><span class="mw-headline" id="The_purpose">The purpose</span></h3>
+<p>The logic for people who do not know about proper Merging yet is theory that line A will have about 50% traffic going this way while line C will also have about 50%, therefore logically they give 100% in line 1, and the same applies for B + D = 2.
+The important thing to note is that the percentages are not entirely wrong, but they are first of all only theoretically expected traffic, and second – average theoretically expected traffic. With perfect randomness, trains will indeed go like that, but in a normal game they will not.
+One of the problems is that you cannot even expect the traffic correctly in the long term. Just slight changes or even expansions at some other hub will most likely mean that trains will come on different lines and in different ratios.
+Whenever trains come from multiple tracks and are meant to exit in multiple tracks, they need to be able to choose their exit in order to make all exiting tracks used effectively. This choice happens in a Merger.
+</p>
+<h2><span class="mw-headline" id="Terminology">Terminology</span></h2>
+<p>It is important to call things not just with an unified name, but also with a name which intuitively signifies what are we talking about.
+</p>
+<h4><span class="mw-headline" id="Merger">Merger</span></h4>
+<p>is the general name for the mess where tracks X output as tracks Y.
+</p>
+<h4><span class="mw-headline" id="Joiner">Joiner</span></h4>
+<p>is a specific case of merging where one direction gets priority, can also be called SLH-style merge.
+</p>
+<h4><span class="mw-headline" id="Choice">Choice</span></h4>
+<p>is the option given to trains to choose from the output tracks in a way that no matter from which input tracks do trains come, the input will not jam until all output tracks are full.
+</p>
+<h4><span class="mw-headline" id="Input_tracks">Input tracks</span></h4>
+<p>or entrance, also substituted with incoming tracks and similar terms, are tracks which go to the merger.
+</p>
+<h4><span class="mw-headline" id="Output">Output</span></h4>
+<p>outgoing tracks or exit are the reduced amount of tracks which leave the merger.
+</p>
+<h4><span class="mw-headline" id="Direction">Direction</span></h4>
+<p>is the stack of tracks which all go to the same destination, like a LLLL is a direction consisting of 4 lines.
+</p>
+<h4><span class="mw-headline" id="Line">Line</span></h4>
+<p>also rail or track is just one of the few (or many!) inside a direction.
+It is absolutely essential to treat all tracks of the same direction equally as they are in theory the same and traffic on each line can be completely random, totalling a maximum of the throughput of the whole Direction, regardless where the traffic actually is.
+</p>
+<h4><span class="mw-headline" id="Priority_.2F_check">Priority / check</span></h4>
+<p>A very crucial component of many points where tracks merge are <a href="Priorities.html" title="Priorities" class="mw-redirect">priorities</a>. As one of the first logic mechanisms our players learn, 99% of them understand it as trains A giving way to trains B, also explainable as trains B are prioritized over A, and that trains B are more valuable than A.
+That however is not true, the priority is like a check, or a question when trains ask „Which track is free?“ “Which track can I join?“.“
+A good example is a common question „How long should a priority be?“. The priority needs to be long enough to be able to detect if there is traffic and eventually not disrupt the traffic on the chosen line too much in case train joins that line. At the same time it needs to be short enough to let trains join frequently and efficiently enough enough. Saying an exact value is not related only to the type of trains, but also to the type of merger. If we have a SLH joiner which expects that the ML will not be slowed down, prio can be longer. If we have a check if the line is 100% full in a BBH merger, the prio will probably need to be very short.
+Look out for examples at each of the shown mergers.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:34px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_42innerOuter.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Typical merger.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:33px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_joiner.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Joiner, also SLH-styled merger.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:35.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_choice.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Choice to one of the outputs.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:35.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_input.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Input tracks.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:35.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_output.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Output tracks.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:44px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_direction.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Direction.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:44px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_line.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Line.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:35.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_prio.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Priority check.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p>You will often see other words which I will mention here but I strongly recommend not to use them as they are majorly misleading.
+</p><p><b>Balancing</b>, Balancer or Balanced traffic is probably the most used, and the worst term in this case. Most people then take Mergers as a mechanism which has an aim to spread traffic evenly over output lines, which is false.
+</p><p><b>Mixing</b> is not as bad but it seems to imply that the logic which line goes where is random, causing some confusion as well.
+</p><p><br>
+ 
+</p>
+<h2><span class="mw-headline" id="General_Merger_Logic">General Merger Logic</span></h2>
+<p>The most important part of a merger is the logical way how it works. This is the method of which lines get which choices and why. I will try to go through the general logic from the simplest, towards more complicated – pretending that we are expanding in the process.
+Lets take a simple example to start.
+</p>
+<h3><span class="mw-headline" id="3-.3E2">3-&gt;2</span></h3>
+<p>The simplest possible merger is 3-&gt;2 so let’s see what options we have there.
+</p>
+<h4><span class="mw-headline" id="All_to_All">All to All</span></h4>
+<p>The first and always valid option is to give all lines the Choice to join any exiting line. The problem obviously is that the many connections cause things to be large, for the cost of reliability.
+</p>
+<h4><span class="mw-headline" id="1-.3E2">1-&gt;2</span></h4>
+<p>We have another way how to deal with traffic here however. If trains from track C choose from any of the other two lines A or B, they will always find their place.
+We need to add Checks to each of the line to detect if a train can join there or not. This is because lines A and B have no choice so if trains from C just joined them at their free will, one of them would probably start jamming.
+Of course when that jamming would occur, trains would automatically move from jamming A to B, but only within the capabilities of C – A would still remain slow.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:31.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_32AlltoAll.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>All to all
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:35.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_32InnerOuter.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>1-&gt;2 for one of the lines
+</p>
+			</div>
+		</div></li>
+</ul>
+<p><br>
+</p>
+<h3><span class="mw-headline" id="4-.3E2">4-&gt;2</span></h3>
+<p>If we look at something like 4-&gt;2 which is only a little bit different from 3-&gt;2, we can apply the same logic as before.
+While all to all gives all possible choices, we cannot do a 1-&gt;2 anymore as it turned into 2 lines choosing from 2 outputs. And we will do exactly that, each of the two gets both choices.
+To make this more space efficient, it is a good idea to make the lines inside get choices – so we have less rail crossings in total. That is what I call the Inner Mix.	
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:28.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_42AlltoAll.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>All to all
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:34px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_42InnerOuter.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>2 of the lines choose from the other 2
+</p>
+			</div>
+		</div></li>
+</ul>
+<h3><span class="mw-headline" id="Expanding_more">Expanding more</span></h3>
+<p>Adding more inputs is simple, all-to-all just gets the same thing done more, where the inner mix suddenly gets 3-&gt;2 inside.
+Note that this 3-&gt;2 works differently than a standalone merger as each of the 3 needs both choices. If there would be just a 3-&gt;2 made of 1-&gt;2, it would mean that 2 of the inputs are forced without choice, therefore if traffic came from all those lines, it would inevitably jam.
+</p><p>Adding an output changes a lot more though as it gives us a lot more options.
+First of them could be that the inner lines just get an additional choice. Outer lines are happy as they are, and if they get full, trains from the inner lines can join the new third output.
+This can be insufficient for example if the choices to the new line are bridges, or just longer gaps – they might not be able to populate the new line fully.
+In such cases we just need to improve the choice throughput by doubling bridges or making unbridged choice with agressive signalling.
+</p><p>Another possibility would be reverse logic, where we would tell the outer lines „if trains need to join from the inner lines, try to send outer lines to the new line. Note that we removed the priorities as all trains have some choices. This solution can get messy, but is relatively effective.
+In case of all-to-all we need to add a lot of new choices, usually resulting in a complete rebuild. (unless the design has some free spots for the expansion) 
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:18px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_43AlltoAll.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Added output, All to all
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:36.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_43InnerOuter.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Added output, Inner choice
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:27px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_43InnerOuterExtra.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Added output, Inner choice "escapes" for outer
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:24px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_52InnerOuter.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Added input, Inner choice
+</p>
+			</div>
+		</div></li>
+</ul>
+<p><br>
+When we add even further, like output of 4 lines, we still follow the same logic, but with more lines. Same for the input. Lets just look at a few bigger examples.
+ 
+</p>
+<h2><span class="mw-headline" id="Speed_of_the_merger">Speed of the merger</span></h2>
+<p>While logical sense makes trains choose from lines and defines how the merger as a whole works, you might have noticed that there arent oh so many things to consider regarding the logic what is connected to what.
+The fun starts when you want to make the merger work well. There are many things to consider regarding throughput, let’s attempt to have a look at some of them.
+A lot of this is very related to throughput questions in general, described for example in ABR 07 Stations
+</p>
+<h3><span class="mw-headline" id="Waiting_bays_.2F_spots_.2F_spaces">Waiting bays / spots / spaces</span></h3>
+<p>As trains are obviously expected to stop in some spots, we need to make sure that stopped (waiting) trains do not block the access to the other choices as we want trains to choose a different line if the first one is full (and train is waiting for that line).
+It becomes a lot more interesting when trains can stop at various locations, which is usually the case.
+</p>
+<h4><span class="mw-headline" id="Waiting_bay_length">Waiting bay length</span></h4>
+<p>The waiting bays should always attempt to be as quick as possible, which requires agressive (dense) signalling. That however does not mean it means signals can be everywhere. You still need to be very careful about where trains can stop, for which it is very useful to mark those spots with entry signals and univ rail.
+</p>
+<div class="floatnone"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_WaitingBays_length.png" class="image"><span class="missing-img">[Mergers WaitingBays length.png]</span></a></div>
+<h4><span class="mw-headline" id="Waiting_bay_usage">Waiting bay usage</span></h4>
+<p>Note that waiting bays are necessary everywhere. For every choice of trains going somewhere they need to have the option of having a safe spot where they could eventually wait without blocking other traffic.
+In some cases it can be okay to apply PBS instead of the additional waiting bay for the price of throughput.
+It is however absolutely unacceptable to use block signals which lead to the same place without waiting bays as they can stop at wrong spots. This was typically used in some of the old games with combo signals.
+Both trains waiting for the choice – as soon as it turns green, both trains start at the same time and one of then gets stuck there until the second train is able to move.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:38px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_PBSbays.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Dual waiting bays with PBS.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:39px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Prebays.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Dual waiting bays with Pre-signals.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:36.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Prechoice.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Choice with combo signals.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:36.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Prechoice_stuck.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Stuck choice with combo signals.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:45px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Combobays.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Combo signals to same block, stuck.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h4><span class="mw-headline" id="Hint:_Marking_where_trains_stop">Hint: Marking where trains stop</span></h4>
+<p>As entry signal has only one job – to stop trains when pre-signal input is red – it can also sign the point where trains are meant to stop without the pre-signals. I use that to highlight those important spots as you can see in this image.
+Probably the best way to mark things is by PURR colours.
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:202px"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Marking.png" class="image"><span class="missing-img">[image unavailable]</span></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Marking.png" class="internal" title="Enlarge"></a></div>Clearly visible where trains are supposed to stop can be helpful.</div></div></div>
+<h2><span class="mw-headline" id="Choice_reactivity">Choice reactivity</span></h2>
+<p>The waiting bay needs to be long enough, but the shorter it is, the better. When  only one train is able to wait for one line, it means that the second train will already react and try to choose some other line. For that reason it is always better to make shorter waiting bays (but long enough to accomodate a train).
+It is typical for people to try building this in order not to move with the main line. Under whatever circumstances, the main line are just tracks too – do not be afraid to move with them!
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:37px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_3bays.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Unnecessarily long choice for 3 trains.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:27.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_moveML.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Do not be afraid to move the ML!
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Split_signalling">Split signalling</span></h2>
+<p>When splitting traffic into multiple choices, we always need some sort of check if there is any choice green.  For that we have following options: Pre-signals, PBS with 1-way signals, 2-way pre-signals, PBS with 2-way signals
+</p>
+<h4><span class="mw-headline" id="One-way_pre-signals">One-way pre-signals</span></h4>
+<p>are always the best option as they make trains choose their path quickly and easily (because the exit firstred penalty is like 40 000)(firstred penalty is the penalty a signal has when right in front of the train, and when the signal is red). At the same time they will not divert a lost train which is nice as it shows there is some missing connection somewhere.
+</p>
+<h4><span class="mw-headline" id="PBS_leading_into_1-way_signals">PBS leading into 1-way signals</span></h4>
+<p>is a bit space efficient, but as the normal signal firstred penalty is rather low, PBS can have some serious problems with choosing the right path, and some choices can seem to be ignored completely. This can be fixed with PBS leading into 2-way signals.
+</p>
+<h4><span class="mw-headline" id="2-way_pre-signals_and_PBS_leading_into_2-way_signals">2-way pre-signals and PBS leading into 2-way signals</span></h4>
+<p>both work almost the same way, they reliably choose from any of the options, but the 2-way signals can cause trains to get lost if your network has missing connections. (Not all Lines from a Direction have the same destination chances at splits)
+As missing connections should not happen in the first place, 2-way signals are acceptable and sometimes necessary, but where it is possible it is good to have 1-way pre-signals so we could uncover the eventual missing connections at the mergers. With 2-ways trains just get lost and turn around somewhere going through some ro-ro station which is a lot harder to notice.
+</p>
+<h4><span class="mw-headline" id="PBS_and_prio_entry-signals">PBS and prio entry-signals</span></h4>
+<p>the PBS sees the state of the priority when choosing – instead of choosing based on the state of the waiting bays. With this it is possible to make trains try to join the emptier lines even more. A downside of this is that the throughput of each choice gets to be very low so it is only affordable on main station exits or SLHs. 
+ 
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:27.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_pre1.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>1 way pre-signals are standard
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:29px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_PBS1.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>PBS into 1-way signals is bad
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:16.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_PBS2.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>PBS needs 2-way signals to choose well
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:22px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_pre2.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>2 way pre-signals should not be necessary
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:15px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_PBS2wayentry.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Advanced choosing for less throughput on choices
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="Split_layout">Split layout</span></h2>
+<p>The most important point which defines how quickly it all works is the first split – the place where the merger technically starts for that line.
+</p>
+<h3><span class="mw-headline" id="Unified_split">Unified split</span></h3>
+<p>The best option is to have all choices available at the first split.
+</p>
+<h3><span class="mw-headline" id="High_throughput_choice">High throughput choice</span></h3>
+<p>It is however possible to make one of the split parts have sufficient throughput to populate choices going from there. This requires agressive signalling or double bridges.
+Double bridges are not quite a good solution as it makes evil mode possible to happen, and gives more waiting spaces so it takes longer for trains to „realize“ they should try other choices instead.
+Usually having each bridge lead to a different choice is already a better solution, but this is an option as well.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:40.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_Unified.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Splitting all from one tile is fastest.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:46.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_Signals.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Allowing high throughput through the choice to make the next 2 choices well available.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:42.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_Split_Bridges.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Increasing throughput by bridges can be helpful when necessary.
+</p>
+			</div>
+		</div></li>
+</ul>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="Merging_point.28s.29">Merging point(s)</span></h2>
+<p>Significant improvements can also come from correctly investigating how do the trains merge together. Let’s give a few examples.
+</p>
+<h4><span class="mw-headline" id="One_spot">One spot</span></h4>
+<p>The best and most powerful result is to have trains join at only one (possibly prioritized) spot. That means all trains going to this line have about the same chance to join, and eventually disturb traffic on that line only once.
+</p>
+<h4><span class="mw-headline" id="Sequence_.E2.80.93_priority">Sequence – priority</span></h4>
+<p>What is very simple to do is a series of joins onto a single line, prioritizing each of them.
+The problem is that trains downstream will have a lot harder time joining than trains in the first spot, simply because all the choices for them are already checked first by other trains.
+</p>
+<h4><span class="mw-headline" id="Sequence_.E2.80.93_no_priority">Sequence – no priority</span></h4>
+<p>If we remove priority checks, we do not solve the problem but we get a different result. In this case the last line has the easiest time joining the line because it has 50:50 chance to join in relation to all others.
+</p>
+<h4><span class="mw-headline" id="Sequence_.E2.80.93_small_priority">Sequence – small priority</span></h4>
+<p>A middle way is a priority so short that it does not really make it too hard for any trains. Often used at station exits as station exits usually have many lines out and this design is very simple and repeatable.
+</p>
+<h4><span class="mw-headline" id="Tree_structure">Tree structure</span></h4>
+<p>As one spot can only take three rails maximum, other lines also need to be joining somewhere, so they just join on the other choices.
+</p>
+<h4><span class="mw-headline" id="Downhill_merge">Downhill merge</span></h4>
+<p>In some games it is very effective to abuse gravity and help trains accelerate in the merging point. This can improve the output of the merger drastically. Especially effective with weak trains, with strong trains you will barely see any difference.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:43px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_join_unified.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Joining the line once is best
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:41.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_join_sequence_prio.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Sequential join with prio is sub-optimal
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:37.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_join_sequence_noprio.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Sequential join without prio is not the best either
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:29.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_join_sequence_smallprio.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Sequential join with small prio works nicely
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:17px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_join_tree.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Merging lines together equally works great for BBH mergers
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:41.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_join_downhill.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Using gravity to your advantage can drastically increase output capacity. From psg213
+</p>
+			</div>
+		</div></li>
+</ul>
+<p> 
+</p>
+<h2><span class="mw-headline" id="Bridges_.28also_tunnels.29_and_evil_mode">Bridges (also tunnels) and evil mode</span></h2>
+<p>There exists a so-called <a href="Evil_mode.html" title="Evil mode" class="mw-redirect">evil mode</a> which is an action when trains endlessly slow each other down in a cycle on doubled bridges. Evil mode itself does not happen without a reason, it needs a slowdown – and slowdowns can happen in merges when trains join lines. That is why it is a thing to consider when building them, which has various solutions.
+</p>
+<h4><span class="mw-headline" id="Self-unblockable_bridges">Self-unblockable bridges</span></h4>
+<p>If you build bridges with standard block signals, they should be able to unblock themselves if evil mode happens. This is not a perfect solution, but helps greatly. Of course the eventual priority has to be adapted to that as you cannot use any entry check on the bridges (cant use PBS, nor entry signal to stop trains when both bridges are full).
+When both bridges are full, the third train will just go to one of them. There is a 50-50 chance that it will go to the „wrong“ bridge, therefore making the bridges work as a single bridge for a while, and reseting them.
+</p>
+<h4><span class="mw-headline" id="Full_priority">Full priority</span></h4>
+<p>Another option is to give priority to the bridges and hope that it does not do evil. This however has negative drawbacks like too long priority which causes less trains to join the line – while it still can cause the bridges to evilmode and jam. If you can get away with it and not face evil mode, it works too – but is a lot more dangerous especially with trains with mediocre acceleration.
+</p>
+<h4><span class="mw-headline" id="Prio_to_unbridged_lines">Prio to unbridged lines</span></h4>
+<p>If we choose from lines which do not have bridges, we automatically cannot get evil mode on those lines.
+</p>
+<h4><span class="mw-headline" id="No_doubled_bridges">No doubled bridges</span></h4>
+<p>If we have a split to two bridges, we can make each of the bridges lead to a different line. With that we reach a point where evil mode does not really happen.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:53px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_bridges_pre.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Pre-signals on slowed bridges keep evil mode.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:53px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_bridges_PBS.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>PBS on slowed bridges keep evil mode.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:46px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_bridges_basic.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Basic signals on slowed bridges can deal with evil mode.
+</p>
+			</div>
+		</div></li>
+</ul>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:36px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_bridges_shortprio.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>If the bridges can deal with it, we can use shorter priority.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:35.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_bridges_longprio.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>When bridges are fragile, they need long priority.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:33px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_joiner.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Not bridging the prioritized line overcomes this problem entirely.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:36px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mergers_bridges_nodouble.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Making no double bridges requires adapting the hub in general. From psg 255
+</p>
+			</div>
+		</div></li>
+</ul>
+
+
+
+
+
+
+</div><p class="pagecats">Categories: <a href="index.html#cat-Guides">Guides</a><a href="index.html#cat-Advanced_Networking">Advanced Networking</a></p></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/Balancing">http://wiki.openttdcoop.org:80/Balancing</a>. Captured 07 October 2024 (<a href="https://web.archive.org/web/20241007230542/http://wiki.openttdcoop.org:80/Balancing">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p><p class="lastmod">Original page: This page was last modified on 7 March 2014, at 13:28.</p></footer></main></div></body></html>

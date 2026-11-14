@@ -1,0 +1,402 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Self-regulating Network - #openttdcoop wiki (archive)</title><link rel="icon" href="assets/original/favicon.ico"><link rel="stylesheet" href="style.css"><script src="search-data.js" defer></script><script src="search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> wiki <em>archive</em></span></a><div id="searchbox"><input id="q" type="search" placeholder="Search pages (press /)" autocomplete="off" aria-label="Search"><ul id="results" hidden></ul></div></header><div id="layout"><nav id="sidebar" aria-label="Site navigation"><h2>Main pages</h2><ul><li><a href="Main_Page.html">Main Page</a></li><li><a href="Guides.html">Guides</a></li><li><a href="Membership.html">Membership</a></li><li><a href="Ruleset.html">Ruleset</a></li><li><a href="Servers.html">Servers</a></li><li><a href="Public_Server.html">Public Server</a></li><li><a href="Pro_Zone.html">Pro Zone</a></li><li><a href="Junctionary.html">Junctionary</a></li><li><a href="Coopetition.html">Coopetition</a></li><li><a href="Game_Proposals.html">Game Proposals</a></li><li><a href="Glossary.html">Glossary</a></li><li><a href="GRF.html">GRF</a></li><li><a href="Stations.html">Stations</a></li><li><a href="Trains.html">Trains</a></li><li><a href="Signals.html">Signals</a></li><li><a href="index.html">All pages (A-Z)</a></li></ul><h2>Categories</h2><ul class="cats"><li><a href="index.html#cat-Guides">Guides <span class="n">110</span></a></li><li><a href="index.html#cat-Basic_networking">Basic networking <span class="n">45</span></a></li><li><a href="index.html#cat-PublicServerArchive">PublicServerArchive <span class="n">40</span></a></li><li><a href="index.html#cat-Advanced_Networking">Advanced Networking <span class="n">38</span></a></li><li><a href="index.html#cat-Junctionary">Junctionary <span class="n">36</span></a></li><li><a href="index.html#cat-GRF">GRF <span class="n">26</span></a></li><li><a href="index.html#cat-Articles_in_need_of_updating">Articles in need of updating <span class="n">19</span></a></li><li><a href="index.html#cat-Obsolete_Articles">Obsolete Articles <span class="n">19</span></a></li><li><a href="index.html#cat-Gametypes">Gametypes <span class="n">17</span></a></li><li><a href="index.html#cat-Research">Research <span class="n">14</span></a></li><li><a href="index.html#cat-All_articles_proposed_for_deletion">All articles proposed for deletion <span class="n">10</span></a></li><li><a href="index.html#cat-Articles_proposed_for_deletion">Articles proposed for deletion <span class="n">10</span></a></li><li><a href="index.html#cat-Coopetition">Coopetition <span class="n">10</span></a></li><li><a href="index.html#cat-Stations">Stations <span class="n">10</span></a></li><li><a href="index.html#cat-Pages_with_broken_file_links">Pages with broken file links <span class="n">9</span></a></li><li><a href="index.html#cat-IRC">IRC <span class="n">7</span></a></li><li><a href="index.html#cat-All_pages_needing_cleanup">All pages needing cleanup <span class="n">6</span></a></li><li><a href="index.html#cat-History">History <span class="n">6</span></a></li><li><a href="index.html#cat-Wiki_cleanup">Wiki cleanup <span class="n">6</span></a></li><li><a href="index.html#cat-All_articles_to_be_merged">All articles to be merged <span class="n">4</span></a></li><li><a href="index.html#cat-Articles_to_be_merged">Articles to be merged <span class="n">4</span></a></li><li><a href="index.html#cat-OpenTTD_Web_Admin">OpenTTD Web Admin <span class="n">4</span></a></li><li><a href="index.html#cat-Screenshots_requested">Screenshots requested <span class="n">4</span></a></li><li><a href="index.html#cat-All_articles_to_be_expanded">All articles to be expanded <span class="n">3</span></a></li><li><a href="index.html#cat-Articles_to_be_expanded">Articles to be expanded <span class="n">3</span></a></li><li><a href="index.html#cat-BasicNetworking">BasicNetworking <span class="n">2</span></a></li><li><a href="index.html#cat-Active_Members">Active Members <span class="n">1</span></a></li><li><a href="index.html#cat-All_articles_with_out_of_date_information">All articles with out of date information <span class="n">1</span></a></li><li><a href="index.html#cat-Articles_with_out_of_date_information">Articles with out of date information <span class="n">1</span></a></li></ul></nav><main id="main"><article><h1>Self-regulating Network</h1><div class="mw-body"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#The_Purpose"><span class="tocnumber">1</span> <span class="toctext">The Purpose</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Technical_Requirements"><span class="tocnumber">2</span> <span class="toctext">Technical Requirements</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Sideline_waypoint_SRNW"><span class="tocnumber">3</span> <span class="toctext">Sideline waypoint SRNW</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Overflow_Release_Conditions"><span class="tocnumber">3.1</span> <span class="toctext">Overflow Release Conditions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Orderless_SRNW"><span class="tocnumber">4</span> <span class="toctext">Orderless SRNW</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Conditional_Order_SRNW"><span class="tocnumber">5</span> <span class="toctext">Conditional Order SRNW</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#TL1_Leader_.2F_Timed_SRNW"><span class="tocnumber">6</span> <span class="toctext">TL1 Leader / Timed SRNW</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Unreachable_waypoint_SRNW"><span class="tocnumber">7</span> <span class="toctext">Unreachable waypoint SRNW</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Refit_SRNW"><span class="tocnumber">8</span> <span class="toctext">Refit SRNW</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Using_MEOW_Speed_as_Control"><span class="tocnumber">8.1</span> <span class="toctext">Using MEOW Speed as Control</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="The_Purpose">The Purpose</span></h2>
+<p>The idea of Self-regulating network is to have an amount (eventually all) of pickup stations automatically used by one group of trains.
+</p><p>That way we can manage just one train group and service all industries in question automatically - regardless how much each of them produces.
+</p><p>There are many deviations and extra usages of SRNW as you will be able to read down below.
+</p>
+<h2><span class="mw-headline" id="Technical_Requirements">Technical Requirements</span></h2>
+<p>To get to know SRNW it is important to be aware of features like <a href="Two-way_end_of_line.html" title="Two-way end of line">2-way end of line</a> and related mechanisms such as <a href="Pathfinder_traps.html" title="Pathfinder traps" class="mw-redirect">pathfinder traps</a>.
+</p><p>Note: Sometimes implicit orders can create serious problems and the train order lists need to be filled with 255 orders in order to prevent creation of implicit orders!
+</p>
+<h2><span class="mw-headline" id="Sideline_waypoint_SRNW">Sideline waypoint SRNW</span></h2>
+<p>This is the most basic SRNW design and it is recommended to start with it as the other designs require knowledge of the basics. The basic SRNW will have those key segments:
+</p><p>1. SL works as a ring, while the only way out of the SL is through pickup stations
+</p><p>2. Trains use a waypoint order to be able to load in any of the stations they could possibly end up in, and to make them "want" to go through the stations.
+</p><p>3. As trains do not have a (full load) order in the stations - as they do not have any station orders - we need to make sure that trains get fully loaded. That is solved by various SRNW stations <a href="Junctionary_-_Stations_-_SRNW.html" title="Junctionary - Stations - SRNW">(see junctionary)</a> , most typically using dummy trains.
+</p><p>After the SL exit there can happen any other order, but most typically an unpload order.
+</p>
+<div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:502px"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Basic_SRNW.jpg" class="image"><span class="missing-img">[image unavailable]</span></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Basic_SRNW.jpg" class="internal" title="Enlarge"></a></div>Basic SRNW concept.</div></div></div></div>
+<p>In the beginnings of SRNW, in public server game 121 and later on 149, we used waypoints which made a border of a SL as a closed mechanism, and trains would regulate over the industries connected to that sideline.
+As a specific, every SL typically has an overflow which needs to be controlled by some sort of logic, be it timer, on-demand release or clock which detects how long has no train overflown.
+</p>
+<h3><span class="mw-headline" id="Overflow_Release_Conditions">Overflow Release Conditions</span></h3>
+<p>We generally recognize 3 main types of overflow release. Using a <b>timer interval</b>. Timer is probably the easiest way how to add any overflow control, you have to set it's trigger interval manually though.
+Secondly there is the option to<b> detect whether there are any free waiting bays</b>, and releasing trains there eventually. This generally gets to a problem where you release multipler trains towards one waiting bay, because it mostly does not detect trains which are on the way towards the waiting bay.
+A good solution could be a <b>clock</b> - which is made to detect whether any trains have overflown in the last period of time, and eventually release a new train into the circuit if none has overflown. This can work sub-optimally if there is a lot of train waves.
+The clock is red all the time, until all the memories become red - by the little running train making a complete loop without being interrupted. Interruption occurs by resetting all memories to green whenever a train overflows.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:34.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_Timer.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>A simple timer which blocks trains until going for the next order, usually set by a timetable.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:41px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_On_Demand_Release.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Waiting bay detection for a SL, just like in overflow stations.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:39px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Mark_Clock.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Mark's clock
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:62px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_121orders.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Typical SRNW orders. Pay special attention to the missing non-stop on the SL Exit order.
+</p>
+			</div>
+		</div></li>
+</ul>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 121
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_121_Final.sav">Public Server Game 121 Final</a> / <a href="PublicServer_Archive_-_Games_121_-_130.html#gameid_121" title="PublicServer:Archive - Games 121 - 130">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG121plan.png" class="image"><span class="missing-img">[SRNW PSG121plan.png]</span></a>
+</td>
+<td>The first really large scale SRNW game with a lot of experiments with stations. Many self-regulating twin-sidelines with 2 cargoes used on each.
+</td></tr></table>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 149
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_149_Final.sav">Public Server Game 149 Final</a> / <a href="PublicServer_Archive_-_Games_141_-_150.html#gameid_149" title="PublicServer:Archive - Games 141 - 150">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG149plan.png" class="image"><span class="missing-img">[SRNW PSG149plan.png]</span></a>
+</td>
+<td>Another attempt to make a system of multiple sidelines consisting of 2 cargoes.
+</td></tr></table>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 172
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_172_Final.sav">Public Server Game 172 Final</a> / <a href="PublicServer_Archive_-_Games_171_-_180.html#gameid_172" title="PublicServer:Archive - Games 171 - 180">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG172plan.png" class="image"><span class="missing-img">[SRNW PSG172plan.png]</span></a>
+</td>
+<td>Trying to build a SRNW using 4 cargoes, having a separate network for each cargo. We also noticed that massive stations create huge train waves which can be a problem.
+</td></tr></table>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="Orderless_SRNW">Orderless SRNW</span></h2>
+<p>Later on we tried to use SRNW globally so that trains would not regulate only within a single SL, but on the whole map. To reach absolute universalness of trains, we gave trains no orders (psg157 orders have no real role). That brought immense amount of new complications of constructing splits which tell trains where to actually go. This instance of self-regulation is limited to doing only one thing - pickup and drop at stations which supply/require the cargo. We also only did this with a single cargo type as that would require more split logic.
+<b>ML-&gt;SL Split</b> is a necessary mechanism which forces trains into the waiting bay if the bay is empty. Also note the necessity of fail-safe mechanism as the 2-way entry signal on the ML could get red at any time, possibly deadlocking a train.
+The biggest problem with orderless trains is that their pathfinding is extremely unpredictable as even 2way eol can easily break.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:46px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_157flipflop.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Flipflop to direct ML traffic.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:34.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_157split.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>A counting splitter which forces every 8th train to split.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:28px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_180split.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Forced split when waiting bay is empty, with fail-safe mechanism to avoild deadlocks.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:41.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_180trap.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Pathfinder traps neccesary to make 2way eol work with orderless trains.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:62px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG180orders.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>This SRNW has complicated orders.
+</p>
+			</div>
+		</div></li>
+</ul>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 157
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_157_Final.sav">Public Server Game 157 Final</a> / <a href="PublicServer_Archive_-_Games_151_-_160.html#gameid_157" title="PublicServer:Archive - Games 151 - 160">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG157plan.png" class="image"><span class="missing-img">[SRNW PSG157plan.png]</span></a>
+</td>
+<td>A specific passenger game which made trains split in equal ratios into all 16 ICE stations on the map, using flipflops, counter splits and similar logic mechanisms.
+</td></tr></table>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 180
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_180_Final.sav">Public Server Game 180 Final</a> / <a href="PublicServer_Archive_-_Games_171_-_180.html#gameid_180" title="PublicServer:Archive - Games 171 - 180">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG180plan.png" class="image"><span class="missing-img">[SRNW PSG180plan.png]</span></a>
+</td>
+<td>Truly global self-regulation split in two halves, each having access all sidelines, furtherly split in North/South drop using flipflops, so both ML ends had the same traffic coming out from the drop towards ML-&gt;SL splits. The split also helped to get rid of massive train waves from large synchronized stations.
+</td></tr></table>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 199
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_199_Final.sav">Public Server Game 199 Final</a> / <a href="PublicServer_Archive_-_Games_191_-_200.html#gameid_199" title="PublicServer:Archive - Games 191 - 200">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG199plan.png" class="image"><span class="missing-img">[SRNW PSG199plan.png]</span></a>
+</td>
+<td>A system of 8 rings which overflow into the n+1th, and stay within the ring if they succeed loading.
+</td></tr></table>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="Conditional_Order_SRNW">Conditional Order SRNW</span></h2>
+<p>We also tried to make a self-regulating network where trains would evaluate what to do based on what percentage of cargo they randomly collected. This is rather typically done in passenger games but we also tried it with cargo.
+</p><p>Closely related to this is also a technique of orders by which you can cycle the conditional orders, so that until a train is 100% full, it will be lost. This creates the same effect as orderless trains and can cause some serious issues with directing trains - unless trains go only in a loop of stations, nowhere else - but you still need them to go somewhere else to unload/transfer the cargo they collected. There is a closer article about this, but the technique is not very usable.
+</p><p><a rel="nofollow" class="external free" href="http://blog.openttdcoop.org/2010/12/17/a-different-srnw-sl-concept/">http://blog.openttdcoop.org/2010/12/17/a-different-srnw-sl-concept/</a>
+</p><p><b>Another option</b> is to make waypoints in a sequence and check train load after each waypoint. This can be necessary for refit SRNW because you still need to have some orders moving to tell trains when to refit - not just an unreachable order which would be "stuck".
+We did exactly this in pzg 22 where each SL had four waypoints on the ML, and on the SL exit. Each SL was a shortcut to the waypoint (as ML waypoint was heavily penalized) so trains prefered to try to pick the SL when empty (heading to that waypoint).
+</p><p>Once they reached that waypoint, a conditional order check was made:
+If train was full, it went directly to drop - ignoring all following sidelines.
+If it was empty, it just continued trying to join a SL and load there.
+</p><p>Obviously after that you are free to use any orders you want - so we used refit to complete the process, and then the trains tried to load primary cargo again.
+Trains which failed to load the primary cargo on all four SLs went to refit to the next cargo in the cycle.
+All of this allowed for 8 primary cargoes to be serviced, plus their products.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:62px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_200orders.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>The orders are rather simple, when the train reaches the end of the loop, it decides what to do.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:15px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_pzg22orders.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>A bit longer order list; trains making decisions at checkpoints (waypoints).
+</p>
+			</div>
+		</div></li>
+</ul>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 200
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_200_Final.sav">Public Server Game 200 Final</a> / <a href="PublicServer_Archive_-_Games_191_-_200.html#gameid_200" title="PublicServer:Archive - Games 191 - 200">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_200conditionals.png" class="image"><span class="missing-img">[SRNW 200conditionals.png]</span></a>
+</td>
+<td>As one of the many things we did in this game, we tried SRNW loop with using conditional orders.
+</td></tr></table>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 230
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_230_Final.sav">Public Server Game 230 Final</a> / <a href="PublicServer_Archive_-_Games_221_-_230.html#gameid_230" title="PublicServer:Archive - Games 221 - 230">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_230conditionals.png" class="image"><span class="missing-img">[SRNW 230conditionals.png]</span></a>
+</td>
+<td>One of the stations had a feeder with especially simple conditional orders which even have the exact stations in orders.
+</td></tr></table>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PZG 22
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/prozone_archive/ProZoneGame_22_Final.sav">Pro Zone Game 22 Final</a> / <a href="PublicServer_Archive_-_Games_21_-_30.html#gameid_22" title="PublicServer:Archive - Games 21 - 30">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_pzg22conditionals.png" class="image"><span class="missing-img">[SRNW pzg22conditionals.png]</span></a>
+</td>
+<td>A network which did literally everything with just one train group.
+</td></tr></table>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="TL1_Leader_.2F_Timed_SRNW">TL1 Leader / Timed SRNW</span></h2>
+<p>There were also attempts to make multi-cargo SRNW by making trains go in a certain pattern behind each other, so we would then be able to distinguis cargo type just by counting the TL1 indicator trains which created the spots.
+It was also tried with timing the trains instead of creating spots for real trains by TL1 separators.
+</p><p>There is a detailed article available on the blog: <a rel="nofollow" class="external free" href="http://blog.openttdcoop.org/2012/07/07/orderless-multi-cargo-srnw-my-first-article/">http://blog.openttdcoop.org/2012/07/07/orderless-multi-cargo-srnw-my-first-article/</a>
+</p><p>Timing the trains is also a possibility <a rel="nofollow" class="external free" href="https://web.archive.org/web/2/http://wiki.openttdcoop.org/images/f/f5/SRNW_NoOrders1_LoPo.sav">http://wiki.openttdcoop.org/images/f/f5/SRNW_NoOrders1_LoPo.sav</a>
+</p><p>This concept can however be done much simplier just by Unreachable waypoints below.
+</p>
+<h2><span class="mw-headline" id="Unreachable_waypoint_SRNW">Unreachable waypoint SRNW</span></h2>
+<p>The concept of this kind of SRNW is having trains chase a destination which they can never reach, but they still see the path to it through pathfinder traps.
+First off, unreachable waypoint SRNW was just a concept for psg207 which would make SML work as a SRNW mechanism - making trains want to go towards the center of the circle, able to split there, but never able to reach the waypoint thanks to pf traps.
+Later on we realized that trains heading towards a waypoint can be very easily directed, allowing for a very feasible multi-cargo SRNW and global SRNWs in general, which we also tried in psg 223. We found out that this idea completely overthrows Orderless SRNW due to vastly reduced complications and increased amount of possibilities. This concept was furtherly re-applied in psg239 where we did it with a total of 7 cargoes.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:40px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_207trap.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Trains believe they can find beer through the inner ring of the SML.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:44.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_223split.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Two separate splits for ore and coal, each having it's own waypoint.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:41.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_239split.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>A split which only makes trains splits if they are required by a certain cargo type.
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:32px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_207orders.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Trains heading towards station they can never reach. With 255 orders to prevent implicit order creation.
+</p>
+			</div>
+		</div></li>
+</ul>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 207
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_207_Final.sav">Public Server Game 207 Final</a> / <a href="PublicServer_Archive_-_Games_201_-_210.html#gameid_207" title="PublicServer:Archive - Games 201 - 210">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG207plan.png" class="image"><span class="missing-img">[SRNW PSG207plan.png]</span></a>
+</td>
+<td>Unique usage of SML, turning it into a SRNW where trains use the inner ring "bait" as exit, making sure trains will not be able to exit the ML until they manage to get to the inner ring - which adds distance and randomness to the splitting towards various ICE stations.
+</td></tr></table>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 223
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_223_Final.sav">Public Server Game 223 Final</a> / <a href="PublicServer_Archive_-_Games_221_-_230.html#gameid_223" title="PublicServer:Archive - Games 221 - 230">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG223plan.png" class="image"><span class="missing-img">[SRNW PSG223plan.png]</span></a>
+</td>
+<td>Two-cargo SRNW which directs trains based on two waypoints which could never be reached.
+</td></tr></table>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 239
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_239_Final.sav">Public Server Game 239 Final</a> / <a href="PublicServer_Archive_-_Games_231_-_240.html#gameid_239" title="PublicServer:Archive - Games 231 - 240">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG239plan.png" class="image"><span class="missing-img">[SRNW PSG239plan.png]</span></a>
+</td>
+<td>Having 7 cargoes brings some new problems as it is inconvenient to separate all 7 cargoes at each SL split, we even tried to make some splits which would be able to all that at once.
+</td></tr></table>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="Refit_SRNW">Refit SRNW</span></h2>
+<p>When it comes to multi-cargo SRNW, we wanted not only to have a few separate groups of trains running on the same network, each group taking care of their own primaries. We wanted to have all trains be able to adapt to what cargo is needed to be transported on that SL.
+Therefore we did a series of conditional orders and refits, refitting until trains find cargo to load. This is typically done by having a waypoint like "Fruit Check".  When trains go through the waypoint, they look if they have loaded or not - by conditional orders. If they did not load, they apparently need to refit and try again with another cargo. If they did load, they just proceed towards the drop. Making the "0% load" check behind a reverser is important in order to make trains prefer going towards the loading station (this could also be solved by massive penalties but reversers are more reliable).
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:37.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_214check.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>The decision point, did the train exit station and is full, or did it pass around empty and needs refit to next cargo?
+</p>
+			</div>
+		</div></li>
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:41px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_214orders.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Typical train orders for refit SRNW. If empty, refit to next cargo.
+</p>
+			</div>
+		</div></li>
+</ul>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 214
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_214_Final.sav">Public Server Game 214 Final</a> / <a href="PublicServer_Archive_-_Games_211_-_220.html#gameid_214" title="PublicServer:Archive - Games 211 - 220">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG214plan.png" class="image"><span class="missing-img">[SRNW PSG214plan.png]</span></a>
+</td>
+<td>Every SL has one group of trains which is able to take care of all the 4 cargoes there, no matter how much of which cargo is available.
+</td></tr></table>
+<p><br>
+</p>
+<h3><span class="mw-headline" id="Using_MEOW_Speed_as_Control">Using MEOW Speed as Control</span></h3>
+<p>A drawback of the above scheme is that trains have to cycle through all cargo types to find which cargo is available to load. In order to allow trains to enter whatever station that has an open platform, they have to be able to detect which station they entered. A way to do it, is to use MEOW trains that change maximum speed based on the purr color, and conditional orders with maximum speed as the condition.
+</p><p>SL4 in PSG297 used this idea. Every station on the SL has a WP that can be reached both on the station entrance and further up on the sideline. Going towards the station the red purr has higher speed, when the WP is passed, the conditional order jump is evaluated. If the maximum speed is high, it jumps to orders to refit to the appropriate cargo and deliver it, otherwise the train goes on to visit the next WP.
+</p>
+<table style="border: 1px solid black; margin: 5px; 0px" cellpadding="0" cellspacing="0" width="700">
+<tr>
+<td style="border-bottom: 1px solid black; background: #ffa200;;color:#1a1a1a" align="center" width="20%">PSG 297
+</td>
+<td style="border-bottom: 1px solid black" align="left"> <b>Download:</b> <a rel="nofollow" class="external text" href="http://www.openttdcoop.org/files/publicserver_archive/PublicServerGame_297_Final.sav">Public Server Game 297 Final</a> / <a href="PublicServer_Archive_-_Games_291_-_300.html#gameid_297" title="PublicServer:Archive - Games 291 - 300">Archive entry for this game</a>
+</td></tr>
+<tr>
+<td><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_PSG297.png" class="image"><span class="missing-img">[SRNW PSG297.png]</span></a>
+</td>
+<td>Every station on the SL has a WP, if the train manages to enter the station, it gets on the red purr, max speed is increased, and orders appropriate for that station are activated. Otherwise it continues to the next station on the SL.
+</td></tr></table>
+<p><br>
+A variation of this method is to essentially use the trains as "barcode scanners", to let them know which cargo type the station they are entering will have. A sideline uses only two waypoints (as many waypoints, a the number of dits required to identify the cargo type by a color code). This has the advantage that the order lists for trains on different sidelines can be almost identical, except for the WP name, adding new stations doesn't require any changes to the order list. A drawback is that all the station entrances on the SL have the same WP's, limiting the size. This can be circumvented by adding a color code to let the trains know that they are leaving the coverage area of a given WP, and switching to a new set of orders using different WP's.
+</p>
+<ul class="gallery mw-gallery-traditional">
+		<li class="gallerybox" style="width: 155px"><div style="width: 155px">
+			<div class="thumb" style="width: 150px"><div style="margin:40.5px auto"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:SRNW_multicargo_example.png" class="image"><span class="missing-img">[image unavailable]</span></a></div></div>
+			<div class="gallerytext">
+<p>Example refit SRNW with two stations with different color codes to identify the cargo type, the color code dictionary and order list.
+</p>
+			</div>
+		</div></li>
+</ul>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<ul><li><a href="Self-regulating_SBahn.html" title="Self-regulating SBahn">Self-regulating SBahn</a></li>
+<li><a href="SML.html" title="SML" class="mw-redirect">SML</a></li>
+<li><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:V453000/TLS" title="User:V453000/TLS">Train Length Splitters</a></li></ul>
+
+
+
+
+
+
+</div><p class="pagecats">Categories: <a href="index.html#cat-Gametypes">Gametypes</a><a href="index.html#cat-Advanced_Networking">Advanced Networking</a></p></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/Srnw">http://wiki.openttdcoop.org:80/Srnw</a>. Captured 10 May 2026 (<a href="https://web.archive.org/web/20260510202354/http://wiki.openttdcoop.org:80/Srnw">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p><p class="lastmod">Original page: This page was last modified on 6 June 2016, at 07:32.</p></footer></main></div></body></html>

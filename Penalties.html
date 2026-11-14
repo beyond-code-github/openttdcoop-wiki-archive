@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Penalties - #openttdcoop wiki (archive)</title><link rel="icon" href="assets/original/favicon.ico"><link rel="stylesheet" href="style.css"><script src="search-data.js" defer></script><script src="search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> wiki <em>archive</em></span></a><div id="searchbox"><input id="q" type="search" placeholder="Search pages (press /)" autocomplete="off" aria-label="Search"><ul id="results" hidden></ul></div></header><div id="layout"><nav id="sidebar" aria-label="Site navigation"><h2>Main pages</h2><ul><li><a href="Main_Page.html">Main Page</a></li><li><a href="Guides.html">Guides</a></li><li><a href="Membership.html">Membership</a></li><li><a href="Ruleset.html">Ruleset</a></li><li><a href="Servers.html">Servers</a></li><li><a href="Public_Server.html">Public Server</a></li><li><a href="Pro_Zone.html">Pro Zone</a></li><li><a href="Junctionary.html">Junctionary</a></li><li><a href="Coopetition.html">Coopetition</a></li><li><a href="Game_Proposals.html">Game Proposals</a></li><li><a href="Glossary.html">Glossary</a></li><li><a href="GRF.html">GRF</a></li><li><a href="Stations.html">Stations</a></li><li><a href="Trains.html">Trains</a></li><li><a href="Signals.html">Signals</a></li><li><a href="index.html">All pages (A-Z)</a></li></ul><h2>Categories</h2><ul class="cats"><li><a href="index.html#cat-Guides">Guides <span class="n">110</span></a></li><li><a href="index.html#cat-Basic_networking">Basic networking <span class="n">45</span></a></li><li><a href="index.html#cat-PublicServerArchive">PublicServerArchive <span class="n">40</span></a></li><li><a href="index.html#cat-Advanced_Networking">Advanced Networking <span class="n">38</span></a></li><li><a href="index.html#cat-Junctionary">Junctionary <span class="n">36</span></a></li><li><a href="index.html#cat-GRF">GRF <span class="n">26</span></a></li><li><a href="index.html#cat-Articles_in_need_of_updating">Articles in need of updating <span class="n">19</span></a></li><li><a href="index.html#cat-Obsolete_Articles">Obsolete Articles <span class="n">19</span></a></li><li><a href="index.html#cat-Gametypes">Gametypes <span class="n">17</span></a></li><li><a href="index.html#cat-Research">Research <span class="n">14</span></a></li><li><a href="index.html#cat-All_articles_proposed_for_deletion">All articles proposed for deletion <span class="n">10</span></a></li><li><a href="index.html#cat-Articles_proposed_for_deletion">Articles proposed for deletion <span class="n">10</span></a></li><li><a href="index.html#cat-Coopetition">Coopetition <span class="n">10</span></a></li><li><a href="index.html#cat-Stations">Stations <span class="n">10</span></a></li><li><a href="index.html#cat-Pages_with_broken_file_links">Pages with broken file links <span class="n">9</span></a></li><li><a href="index.html#cat-IRC">IRC <span class="n">7</span></a></li><li><a href="index.html#cat-All_pages_needing_cleanup">All pages needing cleanup <span class="n">6</span></a></li><li><a href="index.html#cat-History">History <span class="n">6</span></a></li><li><a href="index.html#cat-Wiki_cleanup">Wiki cleanup <span class="n">6</span></a></li><li><a href="index.html#cat-All_articles_to_be_merged">All articles to be merged <span class="n">4</span></a></li><li><a href="index.html#cat-Articles_to_be_merged">Articles to be merged <span class="n">4</span></a></li><li><a href="index.html#cat-OpenTTD_Web_Admin">OpenTTD Web Admin <span class="n">4</span></a></li><li><a href="index.html#cat-Screenshots_requested">Screenshots requested <span class="n">4</span></a></li><li><a href="index.html#cat-All_articles_to_be_expanded">All articles to be expanded <span class="n">3</span></a></li><li><a href="index.html#cat-Articles_to_be_expanded">Articles to be expanded <span class="n">3</span></a></li><li><a href="index.html#cat-BasicNetworking">BasicNetworking <span class="n">2</span></a></li><li><a href="index.html#cat-Active_Members">Active Members <span class="n">1</span></a></li><li><a href="index.html#cat-All_articles_with_out_of_date_information">All articles with out of date information <span class="n">1</span></a></li><li><a href="index.html#cat-Articles_with_out_of_date_information">Articles with out of date information <span class="n">1</span></a></li></ul></nav><main id="main"><article><h1>Penalties</h1><div class="mw-body"><p>Penalties are used by YAPF (Yet Another PathFinder) to determine which route a train should take between its current position and its destination. Penalties can be pretty much everything; the amount of trains driving the same route, a road crossing, a red <a href="Two-way-Signals.html" title="Two-way-Signals" class="mw-redirect">two-way signal</a>, a slope, a short curve... It's worth noting that trains ignore penalties if they don't have orders. The reason for this is pretty simple; if trains don't have a destination there is no reason to determine the cost of the route. For you this means that you should always give trains an order, even if the order is to go to a dummy station and can't actually be reached. This may be relevant for dummy trains or trains on timers.Below is a list of the penalties and their respective values used in r17814.
+NOTE: These values tend to change quite often, so don't rely on them being up-to-date.
+</p>
+<pre width="35%">
+yapf.rail_firstred_twoway_eol = true
+yapf.rail_firstred_penalty = 1000
+yapf.rail_firstred_exit_penalty = 10000
+yapf.rail_lastred_penalty = 1000
+yapf.rail_lastred_exit_penalty = 10000
+yapf.rail_station_penalty = 1000
+yapf.rail_slope_penalty = 200
+yapf.rail_curve45_penalty = 300
+yapf.rail_curve90_penalty = 600
+yapf.rail_depot_reverse_penalty = 5000
+yapf.rail_crossing_penalty = 300
+yapf.rail_look_ahead_max_signals = 10
+yapf.rail_look_ahead_signal_p0 = 500
+yapf.rail_look_ahead_signal_p1 = -100
+yapf.rail_look_ahead_signal_p2 = 5
+yapf.rail_doubleslip_penalty = 100
+yapf.rail_longer_platform_penalty = 800
+yapf.rail_longer_platform_per_tile_penalty = 0
+yapf.rail_shorter_platform_penalty = 4000
+yapf.rail_shorter_platform_per_tile_penalty = 0
+</pre>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Natural_behaviour"><span class="tocnumber">1</span> <span class="toctext">Natural behaviour</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#yapf.rail_firstred_twoway_eol_.3D_true"><span class="tocnumber">2</span> <span class="toctext">yapf.rail_firstred_twoway_eol = true</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Fine_tuning_using_penalties"><span class="tocnumber">3</span> <span class="toctext">Fine tuning using penalties</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#PBS_penalties"><span class="tocnumber">4</span> <span class="toctext">PBS penalties</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Road_penalties"><span class="tocnumber">5</span> <span class="toctext">Road penalties</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Natural_behaviour">Natural behaviour</span></h2>
+<p>In regular games, you usually don't have to worry about penalties. The only thing you may want to keep in mind is that you'll want to keep mainlines pretty much equally long. It's not that important that they are exactly level and exactly equally long (I doubt this is even possible), but make sure that you don't have one mainline that is going over massive hills all the time while another stays at the same level or there is one taking huge detours all the time and a parallel one is perfectly straight. Especially with long distances this may make a tiny difference when <a href="Balancing.html" title="Balancing" class="mw-redirect">balancing</a> but you probably won't notice.
+</p>
+<h2><span class="mw-headline" id="yapf.rail_firstred_twoway_eol_.3D_true">yapf.rail_firstred_twoway_eol = true</span></h2>
+<p>This setting is always on in our games. eol stands for end-of-line, this means that a red <a href="Two-way-Signals.html" title="Two-way-Signals" class="mw-redirect">two-way</a> is actually an infinite penalty, a train will do pretty much everything to avoid running into a red two-way. This goes for regular two-way signals and pre-signals, two-way pbs are a different case we'll talk about later. To see the power of a red two-way have a look at the image below:
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:402px"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Red_twoway.PNG" class="image"><span class="missing-img">[image unavailable]</span></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Red_twoway.PNG" class="internal" title="Enlarge"></a></div>This train happily takes all penalties on the much longer route, just to avoid the red two-way</div></div></div>
+<p>The same situation but with a one-way red signal:
+</p>
+<div class="thumb tnone"><div class="thumbinner" style="width:402px"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Red_oneway.PNG" class="image"><span class="missing-img">[image unavailable]</span></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Red_oneway.PNG" class="internal" title="Enlarge"></a></div>This train waits for the signal to become green rather than taking a ride on our penalty roller coaster</div></div></div>
+<p>This behavior is quite useful using advanced techniques such as <a href="SML.html" title="SML" class="mw-redirect">SML</a> or <a href="Self-regulating_Network.html" title="Self-regulating Network">SRNW</a>. You can find more information in the article about <a href="Two-way-Signals.html" title="Two-way-Signals" class="mw-redirect">two-way signals</a>.
+You should be careful not to force trains to take a huge loop by accident, though it's unlikely you'll manage to do so.
+</p>
+<h2><span class="mw-headline" id="Fine_tuning_using_penalties">Fine tuning using penalties</span></h2>
+<p>Penalties can be used if you want to discourage trains from taking a certain route. Before PBS was introduced we used single tile stations for this, now we usually use two-way PBS signals facing backwards. In <a href="SML.html" title="SML" class="mw-redirect">SML</a>-games we sometimes increase the penalty for yapf.rail_pbs_signal_back_penalty to 10,000, to match up with the penalty for stations that was used when SML was invented.
+</p>
+<h2><span class="mw-headline" id="PBS_penalties">PBS penalties</span></h2>
+<p>YAPP (Yet Another PBS Patch) introduced the following new penalties:
+</p>
+<pre width="35%">
+yapf.rail_pbs_cross_penalty = 300
+yapf.rail_pbs_station_penalty = 800
+yapf.rail_pbs_signal_back_penalty = 1500
+</pre>
+<p>These penalties mostly make sure trains prefer to take a slightly longer path to a destination rather than crossing an existing one, they should not be changed.
+</p>
+<h2><span class="mw-headline" id="Road_penalties">Road penalties</span></h2>
+<p>Additionally, YAPF uses the following penalties and respective values for road vehicle path finding:
+</p>
+<pre width="35%">
+yapf.road_slope_penalty = 200
+yapf.road_curve_penalty = 100
+yapf.road_crossing_penalty = 300
+yapf.road_stop_penalty = 800
+</pre>
+<p>These are provided mainly for completeness sake and should not be changed.
+</p>
+
+
+
+
+
+</div><p class="pagecats">Categories: <a href="index.html#cat-BasicNetworking">BasicNetworking</a></p></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/Penalties">http://wiki.openttdcoop.org:80/Penalties</a>. Captured 21 December 2022 (<a href="https://web.archive.org/web/20221221105830/http://wiki.openttdcoop.org:80/Penalties">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p><p class="lastmod">Original page: This page was last modified on 4 December 2013, at 08:51.</p></footer></main></div></body></html>
