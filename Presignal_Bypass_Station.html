@@ -3,25 +3,25 @@
 </p>
 <h2><span class="mw-headline" id="The_Idea">The Idea</span></h2>
 <p>This idea proposes a station that can be extended from a small-scale station to a much larger-scale station by adding platforms in the same pattern, without needing to completely redesign the station as its capacity grows. The station is turned by 90 degrees relative to the track the trains come from. The trains pass through the station until they find a free spot, and then enter it. If the traffic is too heavy, the station can be extended with more platforms. After adding presignals, it works... for slow traffic. As a train in the presignal area will block the whole presignal block, other trains have to wait at the beginning, even if there are a lot of slots free.
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Blocking_the_presignal_area.png" class="image"><span class="missing-img">[Blocking the presignal area.png]</span></a>
+</p><p><a href="images/340ac1c8_Blocking_the_presignal_area.png" class="image"><img alt="Blocking the presignal area.png" src="images/340ac1c8_Blocking_the_presignal_area.png" width="531" height="330" loading="lazy"></a>
 </p><p>As you see, the train entering the station blocks the other train from joining the last slot. So I thought about some presignal stuff which transports the information "slot is free" from the slots at the end to the presignal at the beginning. I did this with a second line, similar to <a href="Priorities.html" title="Priorities" class="mw-redirect">priorities</a>.
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Second_presignal_line.png" class="image"><span class="missing-img">[Second presignal line.png]</span></a>
+</p><p><a href="images/bbfa3be1_Second_presignal_line.png" class="image"><img alt="Second presignal line.png" src="images/bbfa3be1_Second_presignal_line.png" width="585" height="372" loading="lazy"></a>
 </p><p>Notice how the free-slot information "travels" through the marked tiles around the train which blocks a segment. With these presignals, a new train can enter the presignals even if there already a train entering the platform.
 </p>
 <h2><span class="mw-headline" id="How_to_improve_the_layout">How to improve the layout</span></h2>
 <p>Only a half of station's platforms are used and cannot be used from this side as the complex signaling blocks the entry. But they can be used from the other side.
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Use_the_other_side.png" class="image"><span class="missing-img">[Use the other side.png]</span></a>
+</p><p><a href="images/6d97cbd6_Use_the_other_side.png" class="image"><img alt="Use the other side.png" src="images/6d97cbd6_Use_the_other_side.png" width="776" height="389" loading="lazy"></a>
 </p><p>For an exit, the trains can go through tunnels under the presignal logic for the opposite entry.
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Station_layout_with_tunnels.png" class="image"><span class="missing-img">[Station layout with tunnels.png]</span></a>
+</p><p><a href="images/225c2ae3_Station_layout_with_tunnels.png" class="image"><img alt="Station layout with tunnels.png" src="images/225c2ae3_Station_layout_with_tunnels.png" width="937" height="566" loading="lazy"></a>
 </p><p>If the trains leave the station, they have enough space in the tunnel to wait if the exit isn't free yet. You can see the exit from the upper part goes east, the exit from the lower part goes west. This can be flipped/switched however you need it. You also see a disadvantage of this layout. This station and all tracks and signals with a TL of 5 are 23 tiles width. You need around 18+TL tiles space for the width. But - and thats the advantage - you can extend this layout as long as you need.
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Full_station_with_a_lot_of_slots.png" class="image"><span class="missing-img">[Full station with a lot of slots.png]</span></a>
+</p><p><a href="images/12dd0db6_Full_station_with_a_lot_of_slots.png" class="image"><img alt="Full station with a lot of slots.png" src="images/12dd0db6_Full_station_with_a_lot_of_slots.png" width="1272" height="699" loading="lazy"></a>
 </p><p>You see here again you can choose from where the trains come and where they go. This can be changed as whatever you want.
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Station_diagramm_layout.png" class="image"><span class="missing-img">[Station diagramm layout.png]</span></a>
+</p><p><a href="images/33ed37f9_Station_diagramm_layout.png" class="image"><img alt="Station diagramm layout.png" src="images/33ed37f9_Station_diagramm_layout.png" width="563" height="434" loading="lazy"></a>
 </p><p>Thats how it looks in a real game
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Station_goods_drop.png" class="image"><span class="missing-img">[Station goods drop.png]</span></a>
+</p><p><a href="images/2031968d_Station_goods_drop.png" class="image"><img alt="Station goods drop.png" src="images/2031968d_Station_goods_drop.png" width="1272" height="699" loading="lazy"></a>
 </p><p>And that is how it looks on a real game in an openttdcoop-game
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Station_goods_drop_ottdcoop.png" class="image"><span class="missing-img">[Station goods drop ottdcoop.png]</span></a>
-</p><p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Station_coal_ore_drop_ottdcoop.png" class="image"><span class="missing-img">[Station coal ore drop ottdcoop.png]</span></a>
+</p><p><a href="images/63425353_Station_goods_drop_ottdcoop.png" class="image"><img alt="Station goods drop ottdcoop.png" src="images/63425353_Station_goods_drop_ottdcoop.png" width="1059" height="588" loading="lazy"></a>
+</p><p><a href="images/29ed0ee6_Station_coal_ore_drop_ottdcoop.png" class="image"><img alt="Station coal ore drop ottdcoop.png" src="images/29ed0ee6_Station_coal_ore_drop_ottdcoop.png" width="1059" height="588" loading="lazy"></a>
 </p>
 
 
