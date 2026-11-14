@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SML Shiftback - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>SML Shiftback</h1><p class="postmeta">5 February 2008, by Osai</p><div class="mw-body">
+					<p>It has been a while <a href="2007-12-20-impressions-of-public-server-game-74.html">since this idea</a> came in my mind. I experimented to find a better way managing the train flow. The main idea of the <a href="../SML.html">SML concept</a> is to shift trains to other tracks if they are free and joining trains use this free track. If the track is not free, the others aren’t either. This works very well but has a disadvantage too: train’s entering a station will primarily enter via the shift-tracks (the innermost).<br>
+<span class="missing-img">[SML Sketch]</span><br>
+That’s the point where “shiftback” comes into play.<br>
+<span></span><br>
+The shiftback construction re-arranges the train in a better manner using all the the tracks of the mainline. To avoid a complete shiftback-behaviour a looping train is used to block the outer tracks for a certain time. Otherwise shiftback wouldn’t be useful as all trains switch to the outermost lines and the innermost are not used anymore.</p>
+<p>[video filename=/videos/sml_shiftback.mp4 vid_image=/videos/sml_shiftback.png width=640 height=480 /]</p>
+<p>In my opinion the shiftback option makes SML constructions more attractive to build. In the games we played so far, we decided to use SML only if we the entire network is one using the SML concept. Mainly because of the balancing issue. We also built station entrances optimised to cope with SML-like-traffic.<br>
+Now it should be possible to build big Hubs with the advantages of SML. You can arrange the traffic/trains before entering the Hub and other trains, i.e. with the same priority can join easily on reserved free tracks which are only blocked if the others side traffic is too big or the whole scenario vice versa.</p>
+<p><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/sml_shiftback_conceptualization.png"><span class="missing-img">[SML Shiftback - Conceptualization]</span></a><br>
+<small>SML Shiftback – Conceptualization for <a href="../BBH.html">BBHs</a></small></p>
+				</div><p class="pagecats">Categories: Community News, Tutorial, Video</p><h2>Comments</h2><ol class="comments"><li><p><strong>Sedontane</strong> <small>February 5, 2008 23:56</small></p><div>
+								<div>
+					<p>hmm looks interesting</p>
+<p>worth another look!</p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>February 8, 2008 21:09</small></p><div>
+								<div>
+					<p>Your Draft for SML is wrong, the shift from 2 to 3 comes before 1 to 2…  </p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>February 8, 2008 22:43</small></p><div>
+								<div>
+					<p>Its probably the best to have three shifts: 2 to 3, 1 to 2 and 2 to 3 again. This is guaranteeing a shift from 1 to 3 too.</p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>February 10, 2008 13:49</small></p><div>
+								<div>
+					<p>That is not that important, because on the next hub, you will have that. Important for SML is, if you use it, you have to use it everywhere and always to the same lines…</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>February 10, 2008 14:25</small></p><div>
+								<div>
+					<p>In my opinion it is, because this is not a real SML construction. It just uses the cleverness of SML to provide free tracks for the joining trains, after the hub SML Backshift redistributes the trains again. This makes it possible to use the sml constructions in non-sml network layouts.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2008/02/05/sml-shiftback/">http://openttdcoop.org/2008/02/05/sml-shiftback/</a>. Captured 19 December 2009 (<a href="https://web.archive.org/web/20091219010208/http://openttdcoop.org/2008/02/05/sml-shiftback/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

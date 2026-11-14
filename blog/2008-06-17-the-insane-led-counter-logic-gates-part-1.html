@@ -1,0 +1,114 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The insane LED Counter &amp; Logic Gates [Part 1] - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>The insane LED Counter &amp; Logic Gates [Part 1]</h1><p class="postmeta">17 June 2008, by Osai</p><div class="mw-body">
+					<p>While browsing tt-forums I stumbled upon a <a href="http://www.tt-forums.net/viewtopic.php?f=29&amp;t=37902">LED Counter created in an OpenTTD</a> game. This is an amazing work because you require a basic knowledge about electronics as well as about OpenTTD and signaling. This work inspired me and I planned to do some other constructions.<br>
+<span class="missing-img">[LED Countr by Igloo]</span></p>
+<p>Of course this counter is a complex electronic circuit and we should not look at it in a too close manner. It uses half-adders, memory and a lot of logic gates. But some parts, especially the <a href="http://en.wikipedia.org/wiki/Logic_gates#Symbols">logic gates</a>, are really interesting.<br>
+My first intention was to optimize them to be useful in #openttdcoop network games.</p>
+<h3>Logic Gates – An Overview</h3>
+<p><b>Boolean Operators a.k.a. Signals</b><br>
+First of all, we’ll have a look at the requirements to understand logic gates, as I create them, in OpenTTD. A default signal can be either <span>red</span> or <span>green</span>. These two states can be defined as true and false or as 1 and 0 or zero and non-zero or easily as yes and no. In fact, <span></span>it is a <a href="http://en.wikipedia.org/wiki/Boolean">system with only two states</a>. A <span>Maybe</span> doesn’t exist. As you can see it, doesn’t matter which state has which name, but it is important for the definition and further constructions.</p>
+<p>My definition is:
+<ul>
+<li>0 / false / no = <b><span>green</span></b></li>
+<li>1 / true / yes = <b><span>red</span></b></li>
+</ul>
+<p>That’s just a matter of the question you ask yourself. My question is: <em>Is a train in the signal block?</em>. The complete logic turns around if you ask yourself: <em>Is the track free?</em>.<br>
+Please keep in mind that my definition is _NOT_ equivalent to the definition of ‘red’ and ‘green’ used in electronics. I still decided to do it this way, because the AND-gate is easier to build in this case and I somehow think it is used more often in complicated constructions like the XOR-gate.</p>
+<p><span class="missing-img">[Types and Values of Signals]</span></p>
+<p><b>Handling special cases</b><br>
+You also should know, e.g. when you build your own logic gate construction, that I always used two trains to create it. One train and a signal block with more than one exit signal (-&lt; =) is always vulnerable for a signal-lock-situation. In this case the train enters the block and while choosing a track, the chosen track and its signal turn red. The train is locked and it takes several seconds to return and choose the correct exit.<br>
+I really like <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/wiki/Image:Notgate.png">Marks Idea for a NOT Gate, but it might cause unintended problems. Using two trains avoids this problem because the first train stops and the train behind must always choose the other option which changes the state of the logic construction.</a></p>
+<p><b>The best train</b><br>
+I optimized all construction for two <a href="http://wiki.openttd.com/index.php/Lev3_%27Pegasus%27">Lev3 ‘Pegasus’</a> (<a href="http://wiki.openttd.com/index.php/Maglev">Maglev</a>) and added sometimes a wagon to make the train a half-tile longer. Lev3 is better than <a href="http://wiki.openttd.com/index.php/Lev4_%27Chimaera%27">Lev4</a>, because Lev4 for is accelerating too fast and both trains slow each other down all the time having a lower average speed than Lev3. All slower trains (482km/h for Lev3) work too, but the reaction time is slower.</p>
+<h3>The AND-Gate</h3>
+<p>I told you a lot about the requirements now and unluckily the first logic gate is very simple. The feature of AND logic is hardcoded in OpenTTD (all entrance-exit-blocks work that way) and we don’t have to add further additions to this signal block.<br>
+<img src="images/018cde92_and_gate.png" alt="AND-gate" loading="lazy"><br>
+What happens here is easy, as the logic table shows you only if both signals (x, y) have the same (1) state the output (x^y) is (1). In other (easier) words x and y have to be red to turn x^y red as well.</p>
+<h3>The NOT-Gate</h3>
+<p>The NOT gate returns always the opposite of the input. Two trains, the loop and a prio-line were needed to create this construction. It looks a bit like a maze, because I shrank the size as much as possible. For this construction you need two Lev3 with one wagon or two double Lev3 to work properly. If you don’t the output might turn 0 for a millisecond.<br>
+<span class="missing-img">[The NOT-Gate]</span></p>
+<h3>The OR-Gate</h3>
+<p>The OR-Gate was the trickiest to construct. I had many problems with incorrect output in the beginning, but I found a clever solution. Again you need a loop and a one-tile prio for the input x. If input x turns red, the first train will stop at the entry-signal of the inner loop right in front of input x. The second train will avoid the inner loop and use the outer loop. If the train is there, the output turns red regardless of the input y. The thing I am really proud of is, if input y turns red, the loop is ignored and the output turns red immediately.<br>
+<span class="missing-img">[The OR-Gate]</span></p>
+<h3>More Logic Gates</h3>
+<p>With these three logic gates you can create many other logic gates or logical constructions such as XOR, half adders, full adders or even flipflops. Though I doubt it is possible to create a complete <a href="http://en.wikipedia.org/wiki/Arithmetic_Logic_Unit">ALU</a> (e.g. the slow reaction time), but constructions helping us to regulate the traffic and the movement of our trains in complex openttdcoop network should be possible.<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/logic_gates/xor_example.png"><span class="missing-img">[XOR-Gate by Osai]</span></a><br>
+<br></p>
+<p>I hope you gain something from my little article about logic gates and enjoyed reading. Now head on, build your own logic gates or implement them in any other weird network construction. Please post your results as comments, at our <a href="../Main_Page.html">wiki</a> or send an email to info [at] openttdcoop [dot] org.</p>
+				</p></div><p class="pagecats">Categories: OpenTTD, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>planetmaker</strong> <small>June 18, 2008 05:54</small></p><div>
+								<div>
+					<p>Fantastic article on an incredible topic!</p>
+				</div>
+			</div></li><li><p><strong>dih</strong> <small>June 18, 2008 06:03</small></p><div>
+								<div>
+					<p>oh my word… he’s going nuts <br>
+i dont even want to know how much time that took you  </p>
+<p>seriously, that is awsome! great work… not feed me details on where you would like to see that stuff being built in a ps game  </p>
+<p>…snap this is good!  </p>
+				</div>
+			</div></li><li><p><strong>Ganan</strong> <small>June 18, 2008 11:41</small></p><div>
+								<div>
+					<p>Great job on those! They work extremely well.</p>
+<p>Built a counter similar to the one in that example and a few other experiments. I’ll upload the savegame somewhere tomorrow if anyone wants it.</p>
+<p>One other thing that might be helpful in a few situations is a way of having memory without using trains (sortof).</p>
+<p>http://img374.imageshack.us/img374/5086/stuffeo1.png</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>June 18, 2008 16:04</small></p><div>
+								<div>
+					<p>Interesting screenshot Ganan. Did you use RS-flipflops to save the state?</p>
+				</div>
+			</div></li><li><p><strong>Ganan</strong> <small>June 18, 2008 18:48</small></p><div>
+								<div>
+					<p>I dont believe I used RS-flipflops (new to this). I quickly built a functional  (but slow) memory cell using one train (wont have problems due to the way it’s  timed). The problem with using one train is that the switch will always show 0 for just a second when updating.</p>
+<p>The cell has an input, output and a reset switch. If the reset switch is red, the memory is “read-only”. Otherwise it is writeable and the train will circle around to the new position.</p>
+<p>http://img156.imageshack.us/img156/1936/memoryyh9.png</p>
+<p>The reset switch needs to re-lock slightly before the math or it wont recieve the updated value. However this is a small annoyance that may not be fixable unless we develop all instant gates.</p>
+<p>The other method I found was using an repeating loop of combo-signals.</p>
+<p>http://img158.imageshack.us/img158/8500/infloopmemorybj7.png</p>
+<p>And here’s the savegame http://rapidshare.com/files/123392059/Logic_gate_experiments.sav.html</p>
+				</div>
+			</div></li><li><p><strong>grim4593</strong> <small>June 19, 2008 00:54</small></p><div>
+								<div>
+					<p>Wow. This is some cool stuff. I always wondered how easy/hard it would be to make electrical circuits with OpenTTD, but lacked the drive to try to figure it out. One time I asked if it were possible, and was responded to with a firm no.</p>
+<p>Great Job!</p>
+				</div>
+			</div></li><li><p><strong>Ganan</strong> <small>June 19, 2008 23:38</small></p><div>
+								<div>
+					<p>Tiny update.</p>
+<p>A well functioning fairly fast memory design:<br>
+http://img393.imageshack.us/img393/7721/nmemem6.png</p>
+<p>Instant OR gate (Using PBS)<br>
+http://img179.imageshack.us/img179/2279/instantoryj9.png</p>
+				</div>
+			</div></li><li><p><strong>hth</strong> <small>June 25, 2008 21:04</small></p><div>
+								<div>
+					<p>This blows my mind. I never imagined something like this was possible in TT. I hope you guys run with this and create something more sophisticated. What do you think the possibilites are? Great work.</p>
+				</div>
+			</div></li><li><p><strong>dih</strong> <small>June 26, 2008 07:05</small></p><div>
+								<div>
+					<p>http://www.openttdcoop.org/wiki/User:Mark/other  </p>
+				</div>
+			</div></li><li><p><strong>Pixelz</strong> <small>June 27, 2008 23:26</small></p><div>
+								<div>
+					<p>Ganan, which version of openttd did you use for that save? I can’t seem to open it in any of the ones I’ve tried.</p>
+				</div>
+			</div></li><li><p><strong>Ganan</strong> <small>June 30, 2008 00:59</small></p><div>
+								<div>
+					<p>http://rapidshare.com/files/125956883/trunk_r13501_yapp_r13495_v8_svn.patch_6.rar.html</p>
+<p>The build I used + a updated savegame.</p>
+				</div>
+			</div></li><li><p><strong>Pixelz</strong> <small>June 30, 2008 02:41</small></p><div>
+								<div>
+					<p>I’ve created a not gate where the train loops instead of stops. I believe it to be faster then previous versions but I haven’t done any advanced benchmarking on it. It’s based on the not gate Igloo posted in the original thread.</p>
+<p>http://www.pix.pp.se/ttd/looping_not_gate.png</p>
+				</div>
+			</div></li><li><p><strong>Flamelord</strong> <small>July 7, 2008 04:54</small></p><div>
+								<div>
+					<p>I’ve come up with another interesting method for storing data.  Taking away the WRITE and READ inputs and then toggling RESET just before setting DATA could make this into some very fast memory indeed, if that’s what the job requires.</p>
+<p>With the WRITE and READ inputs (which write-protect and prevent reading from the memory, respectively), this can be quite a permanent storage solution, so long as it has a reliably red RESET input.</p>
+<p>http://www.tt-forums.net/viewtopic.php?p=707009#p707009</p>
+				</div>
+			</div></li><li><p><strong>Optimization of Logic - Logic Gates [Part II] at #openttdcoop</strong> <small>January 18, 2009 23:31</small></p><div>
+								<div>
+					<p>[...] half a year ago I blogged about Logic Gates and already the headline promised that this story is not over yet. Now, I was finally able to [...]</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2008/06/17/the-insane-led-counter-logic-gates-part-1/">http://openttdcoop.org/2008/06/17/the-insane-led-counter-logic-gates-part-1/</a>. Captured 28 October 2009 (<a href="https://web.archive.org/web/20091028152110/http://openttdcoop.org/2008/06/17/the-insane-led-counter-logic-gates-part-1/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

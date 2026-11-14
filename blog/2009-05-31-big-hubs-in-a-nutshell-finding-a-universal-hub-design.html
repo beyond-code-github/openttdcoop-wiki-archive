@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Big hubs in a nutshell – finding a universal hub design - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Big hubs in a nutshell – finding a universal hub design</h1><p class="postmeta">31 May 2009, by davil</p><div class="mw-body">
+					<p>Recently I started playing a game on my own, featuring some LL-RR main network. When I had to build my first ever 4-way hub for double tracks, I first took a look at the <a href="../Junctionary.html">Junctionary</a> just to find out that all hubs were designed quite different and hardly any of them follow all necessary rules (curve length, double bridges/tunnels, merge after split). I then started wondering if there’s a universal way of thinking about hubs.<br>
+<span></span><br>
+There are only a few rules to follow when designing a hub with n ways:</p>
+<ul>
+<li>Every line that goes in goes out n-1 times (n times if you allow turning around)</li>
+<li>Merge after split – <strong>merge as late as possible</strong></li>
+</ul>
+<p>In addition there are a few OpenTTD-specific building rules:</p>
+<ul>
+<li>Curve length must be considered for all curves</li>
+<li>Bridges and tunnels must be doubled for flow</li>
+<li>When doubling bridges and tunnels make sure the lengths are the same (”syncing”)</li>
+</ul>
+<p>There is nothing magical about these rules. But once you start building, you’ll find out that most of them are hard to obey, especially because usually there are lots and lots of crossings in a hub. Furthermore all those hubs tend to become unmaintainable, leading to jammed connections that nobody knows how to solve. So is there a way to get rid of the crossings and get a more clean design?<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/davil/4-way%20hub%20schema.png"><span class="missing-img">[4-way hub schema]</span></a><br><br>
+Let’s take a look at the image above: it shows a 4-way single-line hub following the general rules (without the building-specific ones): every line that goes in goes out n-1 times. Merging occurs right after the hub, allowing for easy balancing or whatever you desire.</p>
+<p>The magic of this design is that it is really easy to understand and it is extensible. You can use this to build a 6-way or even an 8-way hub – it just makes the hub bigger, but not more complex!<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/davil/6-way%20hub%20schema.png"><span class="missing-img">[6-way hub schema]</span></a><br><br>
+This image shows the same technique applied on a 6-way hub. You can see that there is no difference to the 4-way hub but a bigger number of lines going around.<br>
+The building principle is as simple as it can get: inject an incoming line to the innermost ring and lead out all lines in parallel when building an exit. The outermost line leaves the ring completely when it has reached the n-1<sup>st</sup> exit.</p>
+<h3>Casting this into real rails</h3>
+<p>To test my theory I’ve designed 4×1 hubs and 4×2 hubs without signals but with doubled bridges and a curve length of 8.<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/davil/4-way%20hub%20default.png"><span class="missing-img">[general 4-way hub]</span></a><br><br>
+The image above shows a single line 4-way hub using the given schema. Of course there’s room for improvement, e.g. saving space by bypassing the first exit and thus saving a row of bridges:<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/davil/4-way%20hub%20compact.png"><span class="missing-img">[compact 4-way hub]</span></a><br><br>
+I left out the merging in my design, to show that any kind of merging (just connecting the lines or building load-balancers) can be applied separately for each exit.</p>
+<p>The usual #openttdcoop hub is at least for mainlines of 2 tracks. So of course I had to build 4×2 hubs too:<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/davil/4x2-way%20hub%20default.png"><span class="missing-img">[general 4x2 hub]</span></a><br><br>
+As you can see inserting 2 tracks at once is absolutely the same as inserting 1 track. Taking the tracks out just requires more rows of bridges. Of course there’s also an optimized version of this hub:<br>
+<a href="images/58badbac_4x2-way_hub_compact.png"><span class="missing-img">[compact 4x2 hub]</span></a><br></p>
+<h3>Summary</h3>
+<p>The given hub design is quite similar to the roundabout hubs frequently used by inexperienced players (or if the network load is not too high), but without the merge-before-split disadvantage. I decided to name the hub design <strong>spiral hub</strong> (because the lines move 1 step outward at each exit).</p>
+<p><strong>Advantages:</strong></p>
+<ul>
+<li>Easy to understand, easy to build and maintain</li>
+<li>Extensible</li>
+<li>Can be used for any sensible amount of tracks and entries/exits</li>
+<li>No jamming inside the hub if merger/load balancer is far enough outside</li>
+<li>Never ever merge before split</li>
+<li>Allows for easy exit-specific load balancing</li>
+<li>Quite compact regarding the used area (you can build them around mountains, towns, lakes, …)</li>
+<li>Can be used with mixed mainlines (e.g. rails + maglev)</li>
+<li>Can be built to allow turning around (just take out the lines one exit later)</li>
+<li>Fits anywhere where you can put some parallel lines with long curves</li>
+</ul>
+<p><strong>Disadvantages:</strong></p>
+<ul>
+<li>Quite a big overall footprint</li>
+<li>Longer travel distances than e.g. for straight east-west lines</li>
+</ul>
+<p>After building a few of these hubs I think the general way of designing them should be as follows:</p>
+<ul>
+<li>Build the hub according to the general schema</li>
+<li>Optimize it to use shortcuts where you really need them to improve performance</li>
+</ul>
+<p>As long as the general schema is not broken, the hub will always work as expected.</p>
+<p>I’m looking forward to testing this design in one of the oncoming Public Server games. Comments are welcome!<br>
+Have fun!</p>
+<p>davil</p>
+				</div><p class="pagecats">Categories: Development, OpenTTD, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>tneo</strong> <small>May 31, 2009 16:03</small></p><div>
+								<div>
+					<p>Nice article. Downside to the design is, I think, that you’ll get huge hubs. However the simplicity might be more of an advantage. How many tiles width is the last image?</p>
+				</div>
+			</div></li><li><p><strong>davil</strong> <small>May 31, 2009 19:22</small></p><div>
+								<div>
+					<p>Die diagonal diameter is 48 tiles. The outer distance of the outermost bridges (E-W or N-S) is 59 tiles, so including the outgoing connectors it’s at least about 80 tiles long/wide.</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>June 1, 2009 12:23</small></p><div>
+								<div>
+					<p>Good job and nice article on how to build a decent hub with good step-by-step explanations of the logic behind it  </p>
+				</div>
+			</div></li><li><p><strong>XeryusTC</strong> <small>June 1, 2009 15:44</small></p><div>
+								<div>
+					<p>Nice article, it gives a good idea of what could be the best universal hub design <br>
+However I prefer to adapt hubs for their current location and fit them a bit to the landscape but not so much that the landscape becomes obstructive. This gives for a bigger variety of hubs which I quite like more than just using the same currently most effecient design over and over again.</p>
+<p>Your solution reminds me of the central hub in Public Server game #16 though. It uses the same strategy but has it’s joins right after the split and it a bit ineffecient in that game as it was unbalanced and unpriod when first build. Maybe I should try the design again later.</p>
+				</div>
+			</div></li><li><p><strong>Chris Booth</strong> <small>June 2, 2009 10:30</small></p><div>
+								<div>
+					<p>I like this design but for small LL_RR main lines i way to large.<br>
+This will be a high TF design, and when signals on bridges and tunnels get released into trunk will not be needed.<br>
+I am personaly a fan of build a BBH from scratch.</p>
+				</div>
+			</div></li><li><p><strong>davil</strong> <small>June 2, 2009 17:35</small></p><div>
+								<div>
+					<p>I must agree that the last hub shown still has potential to be optimized. My point is that by starting the design like this you can easily get a working hub and then optimize it. In software development, you’d call this rapid prototyping with lots of refactoring   (of course not all software related things can be translated to real-world scenarios)</p>
+<p>I think the most important part is the late merging. This should make any junction much less error-prone when it’s under heavy load.</p>
+<p>Signals on bridges (just found out that there is a patch waiting to be merged to trunk, yeah!) will also make this kind of hub much more compact. But since the number of crossings is minimized right from the start you’ll feel it less than in other designs.</p>
+				</div>
+			</div></li><li><p><strong>XeryusTC</strong> <small>June 2, 2009 17:39</small></p><div>
+								<div>
+					<p>I think that having the splits and joins as late as possible make this hub quite large, all joins are on the outside of the hub while if you would split when a line comes into the hub area and join lines there it would lead to the joins being on the inside. Ofcourse this will expand the overall footprint of the hub but it will be more square instead of having the exits on the ML like the case is on the current public server game. Although on there it is also a case of just building the loop way too big leaving too little space.</p>
+				</div>
+			</div></li><li><p><strong>Lawsonuw</strong> <small>June 13, 2009 16:58</small></p><div>
+								<div>
+					<p>That’s a very nice hub!  Similar in many ways to my own experiments with 8 to 10 way hubs.  I especially like that all merges happen outside of the hub.  </p>
+<p>It looks like the junction size could be cut nearly in half by moving the entrance track to the left of the exit tracks.  This would allow these two track sections to nest together nicely. This change would also allow for shorter and more direct corner tracks.  (ofc to continue driving on the right just mirror the result) </p>
+<p>Lawson</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2009/05/31/big-hubs-in-a-nutshell-finding-a-universal-hub-design/">http://openttdcoop.org/2009/05/31/big-hubs-in-a-nutshell-finding-a-universal-hub-design/</a>. Captured 08 December 2009 (<a href="https://web.archive.org/web/20091208122546/http://openttdcoop.org/2009/05/31/big-hubs-in-a-nutshell-finding-a-universal-hub-design/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

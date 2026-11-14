@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Asynchronous SRNW stations - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Asynchronous SRNW stations</h1><p class="postmeta">12 July 2009, by Nickman</p><div class="mw-body">
+					<p>In PSG 149 we went with an exclusive SRNW (Self-Regulating NetWork) construction. This technique is a bit strange at first, but has some pretty clever ideas and possibilities. Building a single platform SRNW stations isn’t all that difficult when you get the hang of it. But when it comes to multi-platform stations for high-capacity industries, things tend to get very complicated and messy because you need to carefully design it to keep the dummy trains from stealing cargo from one another. This will mostly involve complex systems involving logical gates and more.</p>
+<p>In the picture below you can see an example of my asynchronous approach which makes for a very simple but high capacity SRNW station:</p>
+<p><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/blog/2009/07/AsyncSRNW_149.png"><span class="missing-img">[Asynchronous SRNW station from PBS 149]</span></a><br>
+<span></span><br>
+<strong>Original stations:</strong><br>
+The biggest cause for the complicated stations are the dummy trains. They have to be synchronized to avoid one stealing load from another. To accomplish this synchronization you would need special constructions and this can get quite complicated and messy, certainly with big stations. Another solution for the synchronization problem is to just make the dummy train a multiple of the normal trains’ length. But this is only useful to some extent, as super long trains/stations aren’t all that efficient.</p>
+<p><strong>General idea of the asynchronous station</strong><br>
+To overcome these issues I tried an alternative, asynchronous approach. The idea is basically to make multiple stations, but put them adjacent to each other.</p>
+<p>This way, all the stations get their own cargo from the industry(s) and no train can steal from another. By combining this with X-BT’s idea of “abusing” PBS signals, I was able to make the station very compact. It is possible to put two asynchronous SRNW platforms on a three tile width. You would also need ((2 * TL) + 3) tiles of length (even for a single station this is very little).</p>
+<p><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/blog/2009/07/Async_SRNW.png"><span class="missing-img">[Clean example of a single SRNW platform]</span></a></p>
+<p><strong>Construction</strong><br>
+On the image you can see how easy it is to build a station like this. The dummy train only needs two orders to the same station (be sure they are set to the “Far End” of the station). It is necessary that you make the dummy station (at least) one tile longer than the TL to make it reverse and go to the other end of the station. By doing this it releases the piece of crossed track, the real train can go in and start loading. Depending on the train length, one tile might be too little, because the loading/unloading times increase when the TL increases).</p>
+<p>Two solutions are possible:</p>
+<ul>
+<li>Make the dummy station longer so it takes more time for the train to start unloading/loading</li>
+<li>Use timetables to specify a specific delay for the dummy train when it is unloading</li>
+</ul>
+<p>Also note that the PBS signal is facing in the opposite direction of the loading dummy train. This way the dummy train will reserve the crossing track and block the real trains from entering the station. Some smart use of PBS is used here, since the only safe spot for the dummy train would be in front of the PBS signal (as it’s facing the wrong way), all the way up to the next signal. This means it is possible to use any length of track after the dummy station, but you have to make sure it can be reserved (90° angles can be disabled and won’t work).</p>
+<p><strong>Possible problems</strong><br>
+This asynchronous approach is somewhat against normal building rules, as you wouldn’t normally build separate stations to increase the transporting capacity for industries. As stated in the wiki an industry gives cargo to the two highest rated stations per cycle. It would appear that you can only use this approach for two platforms, given this limitation. In practice it scales well to more platforms, which is caused by the dummy trains. As there is always one train loading (dummy or real), the stations rating will remain “Excellent”. But, there will be small changes in the rating because of the gap when the dummy train is full and the real train enters the station to start the loading. These small fluctuations apparently are enough for the other stations to get cargo as well from the connected industries.</p>
+<p>But not all is perfect. When you want to expand the pickup and add a new station to it, it will not start loading (if it is the third or higher station). This is because the rating of the new station will be 0%, so the industries see the new station as obsolete and ignore it. A simple solution is to (temporarily) connect the station to another (unused) industry, or one that only has a single station serving it. This way the rating can increase and the station can start participating in the asynchronous SRNW station group.</p>
+<p>To conclude, an example of a synchronized multi-platform SRNW station which also looks pretty clean, created by Mark:<br>
+<a href="images/346d829e_Srnwstationbig.png"><img src="images/346d829e_Srnwstationbig.png" alt="Multi-platform SRNW station by Mark" loading="lazy"></a></p>
+<p>More info about SRNW at <a href="../Srnw.html">the WIKI</a>.</p>
+				</div><p class="pagecats">Categories: Community News, Public Server</p><h2>Comments</h2><ol class="comments"><li><p><strong>Ammler</strong> <small>July 12, 2009 21:37</small></p><div>
+								<div>
+					<p>Nice article! Did you ever see trains turning around on those 90deg tracks?</p>
+<p>Anyway, I mssed those stations in the game, those were build when the game was very much over the limit.</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>July 14, 2009 07:41</small></p><div>
+								<div>
+					<p>Nice article!</p>
+<p>But I’ve one concern: as far as I know only two stations can or will get cargo from an industry – the two with the best rating. So the system of multiple stations for industrial pickup will fail for more than two pickup stations.</p>
+				</div>
+			</div></li><li><p><strong>ODM</strong> <small>July 14, 2009 17:43</small></p><div>
+								<div>
+					<p>PM, check the bit under possible problems. We checked this before publishing. As a big amount of cargo waiting causes rating to decrease, the two stations being served get a lower rating. At this point, some of the other stations will get cargo. It turns out that these small fluctuations are enough to keep multiple stations served.</p>
+				</div>
+			</div></li><li><p><strong>Nickman</strong> <small>July 15, 2009 11:26</small></p><div>
+								<div>
+					<p>I never saw the trains entering the crossed tracks, but in that game 90° curves were disable so that couldn’t have happened.<br>
+And as stated in the article, we did check the station limit and it seemed to work. I will make another test with one big industry instead of multiple ones to check if it also works that way.</p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>July 16, 2009 12:55</small></p><div>
+								<div>
+					<p>why didn’t you transfer to an other station?</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2009/07/12/asynchronous-srnw-stations/">http://openttdcoop.org/2009/07/12/asynchronous-srnw-stations/</a>. Captured 25 September 2009 (<a href="https://web.archive.org/web/20090925180125/http://openttdcoop.org/2009/07/12/asynchronous-srnw-stations/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

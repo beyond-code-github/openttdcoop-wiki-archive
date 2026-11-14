@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>New Terminus Station Concept - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>New Terminus Station Concept</h1><p class="postmeta">7 July 2007, by Osai</p><div class="mw-body">
+					<p><a href="http://openttdcoop.ppcis.org/blog/files/pictures/new_terminus_station.png"><span class="missing-img">[New Terminus Station Concept]</span></a>We all know terminus stations and we try to avoid them, because they are poorly slow. They are not able to cope with higher amounts of trains and start jamming faster than Bermuda Hubs. At our current Member Zone game (a.k.a. WD2) I built a larger Station for express traffic in an area with a lot of problems. There was no place for a proper exit and a too big station is not good for a city area. I decided to built a terminus station and developed a new concept, which is able to cope with a much higher amount of trains than a generic terminus station and a lot of smaller than a roll-on-roll-off station (RoRo). Now lets have a look at the details.</p>
+<p><span></span><br>
+<strong>The Basic Idea</strong></p>
+<p> <a href="http://openttdcoop.ppcis.org/blog/files/pictures/new_terminus_station_basics.png"><span class="missing-img">[New Terminus Station Concept - Basics]</span></a> First of all I want to show you how the basics of this concept work in an easy example. Conventional terminus stations mostly have one entrance and one exit for two platforms. There is not enough space to provide an entrance and an exit with the basic concept and especially if stations have more than 4-6 platforms this is a real problem.<br>
+Lets bring this to a formula: A station with 6 platforms can only handle 3 trains entering+leaving at the same time because two platforms are shared. This is an efficiency of 25% compared with a 6-platform-RoRo. Don’t wonder why they jam anymore.<br>
+That’s the point I want to make more efficient. Every platform has its own entering and leaving track. Its not necessary to share platforms anymore. The picture shows you how I did this in a very easy way. The shared track for one platform is very small (only one tile, that’s almost RoRo-like) and one-way signals ensure trains using the correct track instead of bottlenecking the station. Well, the entrance has the double size of the basic idea, but it is 3-4 times more effective.<br>
+In other words: A station with six platforms can handle six trains at the same time entering and six leaving the station, maybe this one shared tile makes it a bit less effective than a 6-platform-RoRo but I bet efficiency is almost 90% compared with a RoRo station.</p>
+<p><strong>From Theory to Practice</strong></p>
+<p><a href="http://openttdcoop.ppcis.org/blog/files/pictures/new_terminus_station_advanced.png"><span class="missing-img">[image unavailable]</span></a>The basic version was in fact really small and easy to realise. But 4-6 platforms are in most cases (and in openttdcoop games) not enough. Therefor I created a version with eight platforms which is only 50% wider (8 platforms;entrance width 12 tiles) than stations with the basic concept (8 platforms;entrance width 8 tiles).<br>
+I used another trick here, bridges over tunnels (only possible with latest nightly builds, not 0.5.x). It guarantees more space and trains use three levels for entering and leaving the station.<br>
+When you start building the station in the middle (four platforms at the left and right) MUST be a gap of two tiles for two exit-tracks. Afterwards you should built the tunnels and leave space for the bridges. Then you can add all the tracks and signals you need. You can decide between a variable two-track (like in the picture) or an easy one-track entrance. The exit lines after the shared track should be long enough for one train, depending on the train length you use. If the track is to short, a leaving train could still block a shared track or even a platform. Then its not as effective as it should be. Anyway, waiting space is another very basic thing you should take care of when building stations. The exits are as variable as the entrances. When everything is done and checked, add the bridges.<br>
+Finally you can add trains and bring the station under load. In my opinion it looks a bit like ‘The Settlers’ when three trains are over each other.</p>
+<p><strong>Summary</strong><br>
+Pro’s:</p>
+<ul>
+<li>can handle almost as much trains as a similar RoRo-Station</li>
+<li>no separate exit behind the station</li>
+<li>much shorter than RoRo-Stations</li>
+<li>useful in area’s where its difficult to build (big city areas, islands, very mountainous regions)</li>
+<li>very easy extendable</li>
+</ul>
+<p>Con’s:</p>
+<ul>
+<li>50% wider than RoRo-Stations</li>
+<li>a gap of two tiles every 4 platforms (could be used for local/SBahn terminus station though)</li>
+<li>quite difficult to build</li>
+</ul>
+<p>If you want to see the new terminus station concept in action, join the <a href="http://openttdcoop.ppcis.org/wiki/index.php/Member_Zone">Member Zone</a> and look at HFB or ANB Central Station.</p>
+				</div><p class="pagecats">Categories: Development, Member Zone</p><h2>Comments</h2><ol class="comments"><li><p><strong>Altaree</strong> <small>July 9, 2007 10:43 am</small></p><div>
+								<div>
+					<p>Nice description about how to make a functional terminus station.  I especially like that you can do a 4 lane station with this plan.  Maybe you need to make some step by step guides showing the installation of the different layers though.  The bridges over the tunnels are a bit confusing for some.<br>
+–Altaree</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>July 9, 2007 9:13 pm</small></p><div>
+								<div>
+					<p>Thanks for your feedback Altaree,<br>
+I’ll post a step-by-step guide soon.</p>
+				</div>
+			</div></li><li><p><strong>DoghouseDean</strong> <small>July 10, 2007 2:31 pm</small></p><div>
+								<div>
+					<p>I aggree, looks fab, but a step by step guide would make learning easier.</p>
+				</div>
+			</div></li><li><p><strong>Rippsy</strong> <small>July 13, 2007 11:42 am</small></p><div>
+								<div>
+					<p>Fantastic Concept!</p>
+<p>I’ve used this in my latest game extensively so far and its very effective.</p>
+<p>You can also build these with out using the nightlies however it is a bit trickier not being able to bridge the tunnels/diagonal track.</p>
+<p>As far as I can tell the main efficency bonus comes in the closer to the station exits you can make the trains seperate onto there single direction lines and get a signal up.  Im still loading up my station with more trains to see how much it can cope with, so far so good though!</p>
+<p>I found drawing the principle on paper helped me re-design it for implimentation into different settings much easier then trying to re-work it all in my head though  </p>
+<p>Osai: Is there any particular reason why you use the outside edges for exit track, and not entrance? or did it just happen to end up that way? - Would it be more/less/same in effectiveness if those were inbound tracks?</p>
+				</div>
+			</div></li><li><p><strong>Phazorx</strong> <small>July 15, 2007 11:26 pm</small></p><div>
+								<div>
+					<p>Based on same idea decided to try to cut as much spce as possible. And here it is:</p>
+<p></p>
+<p>Very small and applicable for in-city placement.</p>
+<p>8 platfrom version fits in 20×10 plus platforms (so if TL is 4 - 24×10), it’s about two thirds of Osai’s.</p>
+<p></p>
+<p>Obviously, some sacrifices were made but it is fully functional and capable of managing trains quite nicely. Also based on my testing i can not justify usage of LL_RR leading to 8 platform terminus station. simple L_R is enough even with constant stream of trains if they stay on station for more than couple of days. Extra 2 lanes will not hurt but wont give much benefit either (IF there is sustained stream of trains and they tend to arrive in pairs - a larger station is needed, perhaps 12 platforms or more, 8 platforms will not be able to handle as many trains as LL_RR can deliver)</p>
+				</div>
+			</div></li><li><p><strong>Starbud</strong> <small>August 19, 2007 12:01 pm</small></p><div>
+								<div>
+					<p>Hi.</p>
+<p>I like that there is some news about openttdcoop, i wish i had time to play more myself but i dont have the time at the moment <br>
+I also liked the new designs someone thought up.</p>
+<p>/Starbud.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/2007/07/07/new-terminus-station-concept/">http://www.openttdcoop.org/blog/2007/07/07/new-terminus-station-concept/</a>. Captured 24 March 2008 (<a href="https://web.archive.org/web/20080324171507/http://www.openttdcoop.org/blog/2007/07/07/new-terminus-station-concept/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

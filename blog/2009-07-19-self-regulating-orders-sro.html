@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Self regulating orders (SRO) - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Self regulating orders (SRO)</h1><p class="postmeta">19 July 2009, by planetmaker</p><div class="mw-body">
+					<p>When it comes to improving station rating, often the focus is on changing or extending the network and tuning the signaling to the needs or adding additional trains to single stations while the orders of trains are often overlooked and plain default orders like “GoTo A, full load”, “GoTo B, unload” are only given. This article will show a set of more complex orders which offer a solution to comparatively easy network management while it “only” requires a usual efficient two-way track layout all the same.</p>
+<p>The current <a href="../PublicServer_Archive_-_Games_151_-_160.html#gameid_151">PublicServer game #151</a>, is a multi-region map where different regions are connected by ICE trains (or rather Shinkansens in this case) but the local s-bahn is subject to individual design.<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/sro_review/region_overview2.png"><span class="missing-img">[region overview]</span></a><br><br>
+<span></span><br>
+<strong>Setting:</strong><br>
+The growing cities of my region needed a decent and high-capacity s-bahn in order to transfer all the people to the ICE terminal, but on the other hand I like to keep it simple and not create a new set of orders for each single station which needs separately looking after. Also I didn’t want to build a <a href="2009-07-12-asynchronous-srnw-stations.html">SRNW</a> due to its higher space consumption and the little space available, having chosen one of the smallest islands around.</p>
+<p><strong>Self-regulating orders (SRO)</strong><br>
+The solution is in using conditional orders to its full extend. In the example, my main s-bahn line connects four stations (each 8 tracks wide) on a LL_RR line to the ICE terminal (UET Uetani Shinkansen):<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/sro_review/conditional_orders.png"><span class="missing-img">[conditional orders of the trains]</span></a><br></p>
+<p>Convoluted as they may look, the principle of these orders are simple:<br>
+Go to the stations on the tracks in their order A,B,C,D. If the vehicle is more than 90% full, return to the ICE station and subsequently go straight back to the same station without stopping elsewhere. If the vehicle isn’t full, go to the next station in the sequence. Visiting the same station where the vehicle surpassed 90% load ratio (after dropping the cargo at the drop station), proved the most efficient orders with respect to obtained station rating and the total waiting PAX at the stations.</p>
+<p><strong>Ceavats:</strong><br>
+A set of these orders may need some time till the trains reach an equilibrium. This might take longer the longer the list of visited stations is. The regulation will fail, if you add way too few vehicles. In this case, the vehicles will always visit the same station, some stations might not get the coverage they need.<br>
+Regulation might also fail, if way too many trains (or vehicles) are assigned to such set of orders. Nothing bad happens though, if no congestion occurs – but efficiency is then very low and cargo will go through all stations; the vehicle number might be limited automatically by giving an additional conditional order that the vehicle goes to a depot, if it is (nearly) empty when leaving the last station in the orders list.</p>
+<p><strong>Variations:</strong></p>
+<ul>
+<li>
+This scheme can be varied, e.g. by issuing the orders such that the next station instead of the same is visited, after a vehicle returned to the drop station. The tests showed though, that the average station rating was considerably better when the same station is visited again.</li>
+<li>
+Another solution could be to always start with station A and only go to B, C etc, when the vehicle isn’t full. The disadvantage of this approach is that the further stations tend to get less vehicle coverage and thus a worse rating. </li>
+<li>
+Setting up such string of conditional orders involves many mouse clicks and is really tiresome. In order to ease the pain on the mouse, it’s certainly possible to lower the amount of conditional orders and only do a jump after each 2nd station or so. The experience in this game showed, though, that this was of limited value and results comparatively poor.
+</li>
+</ul>
+<p><strong>Giving the orders</strong><br>
+Orders are always added before the highlighted line in the orders window. For a start it’s advisable to give simple goto orders to all stations which the vehicle should potentially visit, in the order they should be visited, if all stations only have very little cargo available.</p>
+<ul>
+<li>Then add an additional order to the drop station.</li>
+<li>Add a conditional jump, available in the drop down menu under “goto”:<span class="missing-img">[conditional orders selection]</span><br>
+The mouse cursor will change and you now need to click onto the order where you want to make the jump to, if the condition is true. </li>
+<li>Done that you can actually set the condition:<br>
+Select the thing you want the jump depend on:<br>
+<span class="missing-img">[property the jump depends on]</span><br>
+Select the value to compare the property to<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/sro_review/orders_condition_value.png"><span class="missing-img">[enter value]</span></a><br><br>
+And set how to compare the property to the entered value:<br>
+<span class="missing-img">[how to compare]</span></li>
+</ul>
+<p><strong>Summary</strong><br>
+These orders are certainly nothing new and they’ve been used here and there. But they could be taken to the extreme (and then they’d probably not only be self-regulating orders, but also PITA orders), and the same order list could be given for all vehicles which transport a single cargo. It’s especially useful, of course, for pax networks where vehicles seldom have full load but the optimum amount of vehicles per station varies.</p>
+<p><strong>Acknowledgments</strong><br>
+Thanks also to HansNL who kind of made me look into this in more detail and play with the different possibilities of these conditional orders – and write it up. Thanks also to all other players on this <a href="../PublicServer_Archive_-_Games_151_-_160.html#gameid_151">PSG #151</a> which make this particular game into one of my nicer games again. <span class="missing-img">[:-)]</span> </p>
+				</div><p class="pagecats">Categories: Community News, Public Server</p><h2>Comments</h2><ol class="comments"><li><p><strong>Ammler</strong> <small>July 22, 2009 15:25</small></p><div>
+								<div>
+					<p>It is a very nice article but somehow, I would prefer programmable signals/waypoints. As that would imo, fit the network construction, I don’t like to program single trains.</p>
+				</div>
+			</div></li><li><p><strong>nlhans</strong> <small>July 23, 2009 15:25</small></p><div>
+								<div>
+					<p>I may need to point out some things I did different compared to planetmaker.</p>
+<p>In this article the train still goes to main station every time it left the last station of the order list. It may be that the last station is a very quiet station with not so much cargo. If the train deposited it’s cargo the station before, it’s still inefficient to enter the main station.</p>
+<p>In my local network on PSG #151 I had trains running until they are full. There is a loop, but practically there is no start or end. Trains go to deposit station when they are full.</p>
+<p>That’s the whole deal of this conditional order system. Only deposit when it’s worth doing so.</p>
+				</div>
+			</div></li><li><p><strong>itsnotvalid</strong> <small>July 31, 2009 21:32</small></p><div>
+								<div>
+					<p>Seems that signaling is getting even more complex. As a very old ex-suspect I think later I should devote some time again re-learning the systems.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2009/07/19/self-regulating-orders-sro/">http://openttdcoop.org/2009/07/19/self-regulating-orders-sro/</a>. Captured 01 October 2009 (<a href="https://web.archive.org/web/20091001211511/http://openttdcoop.org/2009/07/19/self-regulating-orders-sro/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

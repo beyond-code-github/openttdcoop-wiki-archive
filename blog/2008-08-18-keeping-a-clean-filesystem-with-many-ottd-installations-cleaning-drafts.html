@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Keeping a clean “Filesystem” with many OTTD installations (cleaning drafts) - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Keeping a clean “Filesystem” with many OTTD installations (cleaning drafts)</h1><p class="postmeta">18 August 2008, by Ammler</p><div class="mw-body">
+					<p>Since OpenTTD 0.6.x, this feature is possible for stable releases, too. So we can publish this almost a year old draft. <span class="missing-img">[;-)]</span> </p>
+<p>I liked to clean my OTTD installations, because new build supports cool features for that. In past I “managed” my OTTDs (different revisions) with symlinks, but with windows i.e., its not possible.</p>
+<p>So here is a tiny howto, how to keep many OTTDs without too much redundancy:</p>
+<p><span></span></p>
+<p><strong>First</strong> of all, check which directories your OTTD will search for:</p>
+<p>&gt;openttd -d misc=4<br>
+dbg: [misc] /home/marcel/bin/ottd/deutsch/bin/ added as search path<br>
+dbg: [misc] /home/marcel/.openttd/ added as search path<br>
+dbg: [misc] /home/marcel/bin/ottd/deutsch/bin/ added as search path<br>
+dbg: [misc] /usr/local/share/games/openttd/ added as search path<br>
+dbg: [misc] /home/marcel/.openttd/ found as personal directory<br>
+(additional help in the <a href="http://vcs.openttd.org/svn/browser/branches/0.6/readme.txt#L139">readme.txt</a>)</p>
+<p>Because I use my PC alone, no other user here, I’ll take ~/.openttd as my “general” data directory (else, I would take /usr/local/…). In this folder is an other subdirectory needed: data.</p>
+<p><strong>2.</strong> copy the original 5 grfs (trg*) and the sound file (sample.cat) to a just made directory data, ottdc_grfpack comes there too, of course.</p>
+<p><strong>3.</strong> The Personal Directory (~/.openttd) will be used for openttd.cfg, saves and screenshots, if you like a special openttd.cfg for a special “testing environment, just copy it to the directory, where the binary openttd is and openttd will take that or start openttd with the argument -c &lt;configfile&gt;</p>
+<p>Note for windows users: The system works in windows quite similar, the personal folder is in “my files” etc, you will see it with debug mode as described exactly. aa</p>
+				</div><p class="pagecats">Categories: Community News, OpenTTD</p><h2>Comments</h2><ol class="comments"><li><p><strong>CommanderZ</strong> <small>August 19, 2008 9:56 am</small></p><div>
+								<div>
+					<p>I use NTFS link to have only one OTTDC grf directory across all my builds. I just have the physical grf directory in only one build and others are only linked to it.</p>
+<p>Saves a lot of space and time </p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>August 19, 2008 10:10 am</small></p><div>
+								<div>
+					<p>Try to store your GRFs in “mydocs” or however your data home is called, you should find a folder OpenTTD there. Then you do not need to create those links anymore. As we did a year ago. </p>
+				</div>
+			</div></li><li><p><strong>dih</strong> <small>August 19, 2008 11:33 am</small></p><div>
+								<div>
+					<p>as very well described in the readme file </p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>August 19, 2008 11:46 am</small></p><div>
+								<div>
+					<p>and for the lazy:<br>
+~/.openttd/data (Linux)<br>
+~/Documents/OpenTTD/data (MacOS)<br>
+C:\Documents and Settings\\My Documents\OpenTTD (Windows)</p>
+<p>Make sure you read the readme despite - you got some more options than these </p>
+				</div>
+			</div></li><li><p><strong>CommanderZ</strong> <small>August 19, 2008 12:13 pm</small></p><div>
+								<div>
+					<p>But that requires you to keep common config file (which is not always handy).</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>August 19, 2008 12:15 pm</small></p><div>
+								<div>
+					<p>it doesn’t. You can still use your individual config files in your individual installation dirs.</p>
+				</div>
+			</div></li><li><p><strong>CommanderZ</strong> <small>August 21, 2008 2:56 pm</small></p><div>
+								<div>
+					<p>OTTD always loads the common cfg from My Documents first for me (unless I specify it through command line, which is quite inconvinient)</p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>August 22, 2008 8:15 am</small></p><div>
+								<div>
+					<p>Oh, I assumed “the working directory” as the location with the binary.<br>
+“1. The current working directory (from where you started OpenTTD)”</p>
+<p>If you start OpenTTD through shortcut and with another working directory (you can change that, afaik), then it will use the cfg from personal dir instead of the binary dir. As personal dir has prio over binary dir.</p>
+<p>(check the readme I linked in the article)</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/2008/08/18/keeping-a-clean-filesystem-with-many-ottd-installations-cleaning-drafts/">http://www.openttdcoop.org/blog/2008/08/18/keeping-a-clean-filesystem-with-many-ottd-installations-cleaning-drafts/</a>. Captured 23 August 2008 (<a href="https://web.archive.org/web/20080823111619/http://www.openttdcoop.org/blog/2008/08/18/keeping-a-clean-filesystem-with-many-ottd-installations-cleaning-drafts/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

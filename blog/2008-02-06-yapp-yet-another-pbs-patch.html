@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>YAPP – Yet Another PBS Patch - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>YAPP – Yet Another PBS Patch</h1><p class="postmeta">6 February 2008, by Osai</p><div class="mw-body">
+					<p>Since a few days a nice <a href="http://www.tt-forums.net/viewtopic.php?f=33&amp;t=36107">patch is discussed</a> at the tt-forums. It is another try to implement PBS in OpenTTD. The <a href="http://www.tt-forums.net/viewtopic.php?f=33&amp;t=14154">first idea of PBS</a> is almost three years old. The old PBS was only supported by NPF (the old ‘new-pathfinder’) and since YAPF became the common standard the development was not continued.<br>
+We are currently running a dev server with YAPP (r12062M)<br>
+<b><span>IP: dev.openttdcoop.org:3982</span></b><br>
+You can find the password at our irc channel: <a href="irc://irc.oftc.net/openttdcoop.dev">#openttdcoop.dev</a> @ irc.oftc.net<br>
+<span class="missing-img">[YAPP]</span></p>
+<p>This new patch looks really promising. The code is clean and fits to the standard openttd developers prefer. Now, lets have a look at the details. <span></span></p>
+<blockquote><p>
+<strong>Features:</strong></p>
+<ul>
+<li>Works with NPF and YAPF.</li>
+<li>Implements a signal system similar to the one Tekky described (without real bi-di tracks).</li>
+<li>Is fully backwards compatible, normal and PBS signals can be used in parallel.</li>
+<li>Can colour the reserved paths.</li>
+<li>No known bugs   (well, unknown bugs on the other hand…)</li>
+</ul>
+</blockquote>
+<h2>Installation</h2>
+<p>Either you are able to compile the game or you can use <a href="http://www.tt-forums.net/viewtopic.php?f=33&amp;t=31823">BuildOTTD</a> (Windows only).</p>
+<blockquote><p>svn co -r 12062 svn://svn.openttd.org/trunk openttd-yapp<br>
+cd openttd-yapp<br>
+curl -L http://www.tt-forums.net/download/file.php?id=85483 &gt; yapp.patch<br>
+patch -p0 -i yapp.patch<br>
+./configure &amp;&amp; make</p></blockquote>
+<p>If you want to activate the highlighted tracks, start OpenTTD with:<br>
+./openttd <strong>-d pbs=2</strong> or use the console command (^) <strong>debug_level pbs=2</strong></p>
+<p>Please check <a href="http://www.tt-forums.net/viewtopic.php?p=662186#p662186">Michi_cc’s post</a> as well and join our <a href="../Dev_Server.html">Dev-Server</a></p>
+<p>So far the patch is pretty stable in multiplayer.</p>
+<h2>Download pre-compiled Version</h2>
+<ul>
+<li>Win32: <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/files/downloads/dev/OpenTTD_r12062-pbs_win32.zip">OpenTTD_r12062-pbs_win32.zip</a> (2,2MB)</li>
+</ul>
+				</div><p class="pagecats">Categories: Development, Patches</p><h2>Comments</h2><ol class="comments"><li><p><strong>Tim</strong> <small>February 6, 2008 21:59</small></p><div>
+								<div>
+					<p>I uploaded a compiled and under win xp working version…<br>
+&lt;outdated&gt;</p>
+				</div>
+			</div></li><li><p><strong>Sedontane</strong> <small>February 7, 2008 07:50</small></p><div>
+								<div>
+					<p>And its AWESOME!</p>
+				</div>
+			</div></li><li><p><strong>tneo</strong> <small>February 7, 2008 08:39</small></p><div>
+								<div>
+					<p>One of the disadvantages of PBS was the huge amount of CPU calculations needed, making gameplay slower then normal. Is that resolved with this new YAPP?</p>
+				</div>
+			</div></li><li><p><strong>Tim</strong> <small>February 7, 2008 13:26</small></p><div>
+								<div>
+					<p>I can’t give you facts, but surely it will take more CPU load than normal signalling, but that is due to the whole system and can’t be avoided, i guess…</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>February 7, 2008 16:02</small></p><div>
+								<div>
+					<p>We provide binaries for Win32 now (thx Yorick &amp; Tim).</p>
+				</div>
+			</div></li><li><p><strong>Volatar</strong> <small>February 11, 2008 22:54</small></p><div>
+								<div>
+					<p>Honestly I don’t know how PBS works in the first place, where can I go to have it explained to me?</p>
+				</div>
+			</div></li><li><p><strong>Server Updates at #openttdcoop</strong> <small>February 18, 2008 16:57</small></p><div>
+								<div>
+					<p>[...] Michi_cc released Version 4.1 of YAPP, an urgent reason to update  We are using r12168M now. Enjoy playing.   [...]</p>
+				</div>
+			</div></li><li><p><strong>Yet Another PBS Patch at #openttdcoop</strong> <small>June 14, 2008 12:08</small></p><div>
+								<div>
+					<p>[...] this article we wrote about this new engine before and now we are testing it on our Public Server Game 101. [...]</p>
+				</div>
+			</div></li><li><p><strong>YAPP in Trunk at #openttdcoop</strong> <small>August 3, 2008 08:49</small></p><div>
+								<div>
+					<p>[...] Path Based Signaling Patch’ a.k.a. [YAPP] to the trunk (information from developer). We reported about this interesting patch in february ‘08 first and played a PBS game on our Public Server. I am really looking forward [...]</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2008/02/06/yapp-yet-another-pbs-patch/">http://openttdcoop.org/2008/02/06/yapp-yet-another-pbs-patch/</a>. Captured 21 September 2009 (<a href="https://web.archive.org/web/20090921151006/http://openttdcoop.org/2008/02/06/yapp-yet-another-pbs-patch/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

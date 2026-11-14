@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Big Christmas present from OpenTTD - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Big Christmas present from OpenTTD</h1><p class="postmeta">24 December 2008, by planetmaker</p><div class="mw-body">
+					<p>Hello folks,</p>
+<p>just yesterday I’ve been browsing through the <a href="http://hg.openttd.org/openttd/trunk.hg/shortlog">change logs</a> of OpenTTD and stumbled over some remarkable changes Rubidium commited just then. The network code underwent heavy changes – and now a game may have up to <a href="http://hg.openttd.org/openttd/trunk.hg/rev/4b4192fb50c3">255 clients</a>!</p>
+<blockquote><p>(svn r14730) -Codechange: remove the need for networkclientsockets and networkclientinfo structs to be in a contiguous piece of memory and put them in a pool.<br>
+-Note: 255 should really be enough for now… making it any more means network protocol bumps. </p></blockquote>
+<p>and <a href="http://hg.openttd.org/openttd/trunk.hg/rev/014fed3b7b20">another commit</a> just today:</p>
+<blockquote><p>(svn r14735) -Codechange: remove a bit of bit-waste in the map array (without changing the map array) and make the CompanyIDs contiguous.<br>
+-Note: 15 should be enough for now… making it any more means adding more bytes to the map array and thus wasting more bits instead of reducing the bit waste. </p></blockquote>
+<p>which allows now up to 15 companies instead of the usual eight <span class="missing-img">[:)]</span>  .</p>
+<p>With the next available nightly our servers will, of course, feature as many clients – and we’ll no longer have the problem that the server might be too full when starting a new game <span class="missing-img">[:)]</span> </p>
+<p>A big thanks from <a href="irc://irc.oftc.net/openttdcoop">#openttdcoop</a> to all devs of <a href="http://openttd.org">OpenTTD</a> for the great work.<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/openttdcoop_christmas.png"><span class="missing-img">[merry Christmas]</span></a><br></p>
+				</div><p class="pagecats">Categories: Community News, Development, OpenTTD</p><h2>Comments</h2><ol class="comments"><li><p><strong>Osai</strong> <small>December 24, 2008 13:34</small></p><div>
+								<div>
+					<p>Merry Christmas everyone… this is awesome!!</p>
+				</div>
+			</div></li><li><p><strong>Mucht</strong> <small>December 25, 2008 14:52</small></p><div>
+								<div>
+					<p>Merry Christmans! </p>
+<p>I must admit, I am somewhat surprised! We have waited for these changes since years!</p>
+				</div>
+			</div></li><li><p><strong>Lord</strong> <small>December 26, 2008 10:24</small></p><div>
+								<div>
+					<p>YAYz. Now I can fit ingame too [1]  </p>
+<p>[1] – And even my ego fits in [2]<br>
+[2] – Unless, ofcourse PlanetBaker’s ego is not there  </p>
+<p>Actually, this a very nice thing  </p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2008/12/24/big-christmas-present-from-openttd/">http://openttdcoop.org/2008/12/24/big-christmas-present-from-openttd/</a>. Captured 26 September 2009 (<a href="https://web.archive.org/web/20090926161112/http://openttdcoop.org/2008/12/24/big-christmas-present-from-openttd/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

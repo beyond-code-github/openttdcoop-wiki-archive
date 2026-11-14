@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Searching for limits - 2000 trains - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Searching for limits - 2000 trains</h1><p class="postmeta">24 November 2007, by davil</p><div class="mw-body">
+					<p>Some weeks ago I had a little talk on IRC about <a href="http://openttdcoop.ppcis.org/wiki/index.php/SML">shift-mainline games</a> and numbers of trains. Personally I really like the SML concept, and I wanted to know if it is possible to squeeze more than 2000 trains into a single game and still get a fluent network.<span></span></p>
+<h4><strong>The plan</strong></h4>
+<p>The SML concept seems optimal for huge OpenTTD tasks, so I focussed more on it. After a first game with some planning mistakes I started a second one, now knowing what problems might arise during the game.</p>
+<p><span class="missing-img">[Network plan]</span></p>
+<p><a href="http://openttdcoop.ppcis.org/blog/files/davil/network_plan.png">The layout</a> is quite simple: one huge counter-clockwise roundabout mainline, starting at 2 lanes and offering enough space to add further outer lanes during the game. All the industries are connected by 6 split/merge hubs. The layout of the “inner” network is quite chaotic though and could receive more focus in further games - but overall it worked so well that I didn’t mind much about it. On some of the inner lines I had to add a second lane, but that’s it.</p>
+<p>It’s mainly a cargo game, using the following targets:</p>
+<p>Coal, ore and wood go to the western station, steel (from the western station) and livestock to the eastern one. Goods and pax/post are transferred between both main stations using only the roundabout. All trains are TL 8 (2 heads + 6 waggons) to get a huge amount of trains. I decided to use monorail as a nice mixture of speed and not-too-much speed to keep the number of trains high.</p>
+<p>Apart from that I added a few maglev train and bus lines for local pax transport in the 2 main cities to grow them faster.</p>
+<h4><strong>Growth</strong></h4>
+<p>When I was running ~600 trains, the 2 lanes of the mainline started to get crowded. I added a third lane and pushed the capacity up to ~800 trains. The fourth lane allowed to increase up to ~1200 trains. But then I had to face another problem: the main stations were too small.</p>
+<h4><strong>Big stations</strong></h4>
+<p>In the beginning I decided to use <a href="http://openttdcoop.ppcis.org/wiki/index.php/Presignal_Bypass_Station">presignal bypass stations</a> for my main stations. I made them ~50 tiles wide and 4 tiles long and started connecting them to my mainline lanes, without thinking too much about optimization. This proved difficult when I had to optimize them, having 1200 trains moving around all the time. I increased the width to 60 tiles and optimized the bypass layout to allow for 6 different connecting lanes using 10 platforms each. Watching the game I had found out that for unloading + loading 10 platforms for each lane would be sufficient. Later on PhazorX told me that 6 platforms are enough for unloading or loading only, so I think this comes quite close.</p>
+<p><span class="missing-img">[Western station]</span></p>
+<p><a href="http://openttdcoop.ppcis.org/blog/files/davil/drop_w_large.png">View big image</a></p>
+<p>I also re-ordered the output of the main stations, so that all incoming lanes got out in the same place (the innermost lane stays the innermost and the outermost stays the outermost). The goal of this was to move the roundabout trains to the outermost lanes (because they never had to split off and merge in again). If you don’t need this behaviour, the mixing of the lanes doesn’t matter at all!</p>
+<h4><strong>More lanes, more trains</strong></h4>
+<p>After optimizing the main stations I could easily add 2 further lanes - these became the new outermost lanes 5 and 6. In the end they took mostly constant roundabout traffic as planned previously, so this worked fine. Another thing I had feared happened, though: I had to switch to my newer Core 2 laptop computer, because my Athlon XP 2400+ wasn’t able to calculate the whole game efficiently (at ~1000 trains the fast forward mode was already the same as the normal game speed).</p>
+<p>It was quite hard to find further good industries to get more cargo going, but I managed to push the game up to 2033 trains on my huge network. If your PC is fast enough, you can see that the network is quite fluent. Sometimes one of the lane shifters hangs (this is due to a flaw in the shifter design and I couldn’t find out how to solve this) but the rest of the game is fine.</p>
+<h4><strong>Future goals</strong></h4>
+<p>How can this be topped? Well, it’s actually quite easy: provided that the map has enough ressources to transport, one could walk the main stations and add another 6×10 platforms, increasing the capacity to 12 mainline lanes. I fear though, that both the ressources and the available space are too low on this particular map, so this could be tried on an even larger game.</p>
+<p>Another thing to be considered by the organization freaks out there is to separate the networks of the various cargo types. This would lead to a more ordered game with even more efficient stations (not needing to  cramp everything into 2 big stations but splitting them up).</p>
+<p>Personally I unfortunately don’t have the time to play any more during the next weeks or even months (it took me 3 weeks to write this), but I’m looking forward to playing another SML game some day. The advantages compared to “classic” big games are appealing:</p>
+<ul>
+<li>Easy hubs</li>
+<li>Easy stations</li>
+<li>No lane balancing (like complex mergers) of any kind required</li>
+<li>Expand it until your CPU burns <span class="missing-img">[;-)]</span> </li>
+</ul>
+<p>There are of course disadvantages too:</p>
+<ul>
+<li>Strict network layout needed, sometimes too unflexible</li>
+<li>Lots of terraforming recommended (just look at my service centers or the lanes 5 and 6 in the game)</li>
+</ul>
+<h4>Game file</h4>
+<p>You can <a href="http://openttdcoop.ppcis.org/blog/files/davil/SML_roundabout_final.sav">download my savegame here</a> (beware, it’s 2.5MB). It was saved on nightly r11351 using the <a href="http://openttdcoop.ppcis.org/wiki/index.php/GRF">ottdc grfpack 6 beta</a> (only replacement graphics). If you have any questions or comments regarding the game don’t hesitate to ask <span class="missing-img">[:-)]</span></p>
+				</div><p class="pagecats">Categories: Off-Topic, OpenTTD</p><h2>Comments</h2><ol class="comments"><li><p><strong>tneo</strong> <small>November 24, 2007 1:46 pm</small></p><div>
+				
+				<div>
+					<p>Nice article. How do you decide to where to place a shifter and if I saw it correctly you only let two lanes shift at the same spot (or around there).</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>November 24, 2007 2:50 pm</small></p><div>
+				
+				<div>
+					<p>Yes, It’s really nice. On my PPCG5 2,0GHz it is almost a slideshow, but it is still acceptable. In MP I’d probably loose connection.<br>
+I transferred the savegame + 1 screenshot to this server to make them existing as long as this website will exist.</p>
+				</div>
+			</div></li><li><p><strong>davil</strong> <small>November 24, 2007 6:34 pm</small></p><div>
+				
+				<div>
+					<p>The shifters were placed were I found them useful, so there is no explicit system behind them.  I was also limited to towns that were not angry because of all the terraforming <br>
+Placing the shifters always depends on how many trains actually merge at the given place.</p>
+<p>Thanks Osai, the upload limit was a bit too small. The performance is an issue that makes it impossible at the moment to do something like this in a huge coop game. I think one could find a few players with fast computers and make it a closed MP game though.</p>
+				</div>
+			</div></li><li><p><strong>Mucht</strong> <small>November 24, 2007 8:54 pm</small></p><div>
+				
+				<div>
+					<p>Great article!</p>
+				</div>
+			</div></li><li><p><strong>Sedontane</strong> <small>November 25, 2007 5:35 pm</small></p><div>
+				
+				<div>
+					<p>WWooooo amazing - I was aiming to do this myself but I discovered that I never had the patience to do so!</p>
+				</div>
+			</div></li><li><p><strong>DJ Nekkid/7of9</strong> <small>November 28, 2007 11:23 am</small></p><div>
+				
+				<div>
+					<p>I’m currently playing a game somewhat like this on a 512^2 map. And this is the most efficient network ive ever created… Im useing a dual pegasus and 6 wagons tho. When the network (well, stations mostly) is optimised, im prolly gonna cheat and let some prims crate max output, and really put it to the test.</p>
+				</div>
+			</div></li><li><p><strong>DJ Nekkid/7of9</strong> <small>November 29, 2007 5:39 pm</small></p><div>
+				
+				<div>
+					<p>http://83.243.128.249/alyd/ottd &lt;– here it is, the game with the highest number is the newest one</p>
+				</div>
+			</div></li><li><p><strong>davil</strong> <small>November 29, 2007 8:22 pm</small></p><div>
+				
+				<div>
+					<p>Looks interesting… but I think you might see some troubles when further increasing the traffic, particularly at some of the stations (improve the exits!). And the map seems a little too small for lots of more trains.<br>
+Nice work though, keep on building! </p>
+				</div>
+			</div></li><li><p><strong>DJ Nekkid/7of9</strong> <small>November 29, 2007 9:23 pm</small></p><div>
+				
+				<div>
+					<p>yea, i know, it’s getting more and more jammed, and it seems like i would need another ML or two really soon… something that might mean a lot of redesigning junctions and such… might send all trains to depot soon </p>
+				</div>
+			</div></li><li><p><strong>DJ Nekkid/7of9</strong> <small>November 29, 2007 10:41 pm</small></p><div>
+				
+				<div>
+					<p>i just had a (sick?) idea, a SML based game, with an odd (1,3,5 etc) number of ML’s, where the center one is the “main” one. This would mean onramps could be put on each side… Gotta experiment with that i think</p>
+				</div>
+			</div></li><li><p><strong>DJ Nekkid/7of9</strong> <small>December 2, 2007 9:17 pm</small></p><div>
+				
+				<div>
+					<p>added a 5th ML now… flow is much smoother (do i smell 20% smoother?:))</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/2007/11/24/searching-for-limits/">http://www.openttdcoop.org/blog/2007/11/24/searching-for-limits/</a>. Captured 01 February 2008 (<a href="https://web.archive.org/web/20080201155746/http://www.openttdcoop.org/blog/2007/11/24/searching-for-limits/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

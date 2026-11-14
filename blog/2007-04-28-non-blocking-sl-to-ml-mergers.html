@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Non-blocking SL to ML mergers - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Non-blocking SL to ML mergers</h1><p class="postmeta">28 April 2007, by Phazorx</p><div class="mw-body">
+					<p>With centralized aproach which is taken by #openttdcoop community it’s hard to overstress importance of prioritizing traffic streams. It is very essential to keep mainline traffic moving because under high volume conditions, when trains are closely following each other, slowing down one train means slowing down whole lane. That might (and often does) cause a chain of negative events leading substantionaly lower throughput of network and traffic jams at other part. Bear in mind – stoping traffic is nearly instant, however accelerating whole lane might take months of game time. This is something to be avoided at all costs, sideline traffic must wait untill there is a gap and only then merge into ML without any intereference to ML stream.</p>
+<p>This is why i recommend designing SLHs with non-blockign idea in mind and having properly sized priority windows.</p>
+<p><span></span></p>
+<p>Main point i am trying to make – SL traffic must yield untill there is enough room for train to enter without blocking any ML trains.</p>
+<p>And here is what i have in mind…</p>
+<p><strong><em>Simple balanced merger</em></strong></p>
+<p><a href="http://openttdcoop.ppcis.org/blog/files/pictures/balanced%20merger%200.png"><span class="missing-img">[image unavailable]</span></a></p>
+<p>A to B is <strong>ML window</strong>,length of which is determined by conditions but in general it’s 2-4 times train length at 200-300km/h speeds. There should be enough room for entering train to gain full speed with still having twice the distance-between-lights as safety zone before next train. So if a heaviest SL train needs 7 tiles to accelerate, with train legth of 6 tiles and signal lenghts being set to 2 it is 7+6+2+2 = 17 tiles at least (+1 for quircky timing is recommended) which about 3 train lengths.</p>
+<ul>Pros:
+<li>ML trains almost never stop
+</li>
+</ul>
+<ul>Cons:
+<li>SL trains need to wait longer for 3x TL gap
+	</li>
+<li>(low traffic) A full speed SL train rolling past point S might get blocked right before signal L by  ML train passing point B, thus blocking both lanes and stopping SL traffic
+	</li>
+<li>(high traffic) While SL train just started accelerating – ML train might pass point B and block SL train from entering, thus blocking both lanes and stopping SL traffic
+</li>
+</ul>
+<p><strong><em>Balanced merger with pre-acceleration</em></strong></p>
+<p><a href="http://openttdcoop.ppcis.org/blog/files/pictures/balanced%20merger%201.png"><span class="missing-img">[image unavailable]</span></a></p>
+<p>This is based on Ammler’s idea of having acceleration room for stopped SL trains.<br>
+Very close to previous concept aside of separation point J (where SL train joins the ML) and A (end of ML window). Track between point J and light L as well as between J and A is calculated in following way:<br>
+L to J should be long enough for slowest train to accelerate to be full speed at time when END of that train is passing through point J1. This means that at the point when SL train is fully entered ML it will be going at same speed as rest of ML trains.<br>
+A to J should be long enough for END of ML train going at full speed to pass point J1 just before fastest SL train comes to light just before that point.</p>
+<p>The difference is – A to B is smaller than in previous case, meaning a smaller gap will suffice for inserting SL train into ML steam. This is due to the fact that a train will have about half speed and just miss the end of ML train in front of it. With larger number of trains within same network it might become crucial to pack trains as tight as possible, otherwise SL trains will have to wait for longer gap in ML stream.</p>
+<ul>Pros:
+<li>ML trains almost never stop</li>
+<li>SL trains need smaller gap between ML trains compared to simple merger</li>
+</ul>
+<ul>Cons:
+<li>(low traffic) A full speed SL train rolling past point S might get blocked right before signal L by a ML train passing point B, thus blocking both lanes and stopping SL traffic untill choosen lane is cleared</li>
+<li>(high traffic) While SL train just started accelerating – ML train might pass point B and block SL train from entering, thus blocking both lanes and stopping SL traffic</li>
+</ul>
+<p>A different optimization technique might be used depending on situation. Insreasing SL train speed at entry point (by prologing J to L and J to A tracks) is better for busier networks, where SL trains in most cases have to stop before S and wait. However, in case of low usage, most trains will go full speed past S and having no need to accelerate will catch on with ML train before it clears J, then slowdown/stop and them, possibly, interfere with folowing ML traffic since they will have to accelerate at ML rather than before.</p>
+<p><strong><em>Balanced merger with pre-acceleration and one train queue</em></strong></p>
+<p><a href="http://openttdcoop.ppcis.org/blog/files/pictures/balanced%20merger%203.png"><span class="missing-img">[image unavailable]</span></a></p>
+<p>Ehanced version of previos merger, with one-train queue on each lane and separation of lane chooser (S and P1/P2) and entry timing lights (L1 and L2).</p>
+<p>One train queue makes this setup less vulnerable to “confused” trains, that almost entered ML, blocking rest of SL traffic. Even if one train gets stuck passed signal L, rest of trains will be able to choose the other lane and safely enter ML stream. Perks are – possibility of delaying one train which picks busier lane when both queues are empty and possibility of having 2 trains enter both lanes of ML simultaneously. While first could add problems to medium loaded networks, second is benefitial for high traffic ML where every opportunity to get train into ML counts.</p>
+<ul>Pros:
+<li>ML trains almost never stop</li>
+<li>SL trains need smaller window in ML compared to simple merger</li>
+<li>Two waiting train can enter ML at same time</li>
+<li>SL trains are less likely to get stuck behind yielding train</li>
+</ul>
+<ul>Cons:
+<li>SL trains can pick busier lane and wait longer</li>
+</ul>
+				</div><p class="pagecats">Categories: Development, OpenTTD</p><h2>Comments</h2><ol class="comments"><li><p><strong>Osai</strong> <small>April 28, 2007 07:12</small></p><div>
+								<div>
+					<p>Nice article <br>
+I see one problem with the “Balanced merger with pre-acceleration”. The joiner is a Triple-S and IIRC this is a slow down for longer trains. This leeds to slower pre-acceleration and means prio-lines have to be even longer.</p>
+<p>We should do some research work to find out how long prio lines have to be for which speed. Maybe we can find the ultimate formula for the length of prio-track- and acceleration-track parts.</p>
+				</div>
+			</div></li><li><p><strong>Mucht</strong> <small>April 28, 2007 08:47</small></p><div>
+								<div>
+					<p>Great article!</p>
+<p>I’m always a friend of the queue approach, especially on station entries. IMHO, the pros outweigh the cons. The length of the prioritize blocks is always an ingame, finetuning work. Hard to make a general statement on that. Its depending on the speed of the mainline-train as well as on the reaction time, acceleration and speed of the sideline train.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2007/04/28/non-blocking-sl-to-ml-mergers/">http://openttdcoop.org/2007/04/28/non-blocking-sl-to-ml-mergers/</a>. Captured 30 September 2009 (<a href="https://web.archive.org/web/20090930200453/http://openttdcoop.org/2007/04/28/non-blocking-sl-to-ml-mergers/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

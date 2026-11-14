@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Even or odd: the perfect join - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Even or odd: the perfect join</h1><p class="postmeta">2 January 2009, by valhallasw</p><div class="mw-body">
+					<p><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/blog/2009/01/the-perfect-join.png"><span class="missing-img">[the-perfect-join]</span></a><br></p>
+<p>Back in February, Tim blogged about <a href="2008-02-07-even-or-odd-about-tilelengths.html">the differences between even and odd train lengths</a>. This post posed it was better to use odd train length because they use less space when queuing.</p>
+<p>To see what happens in a dynamic, i.e. moving, situation, I have built a test track which does a full speed join. It tries to get three trains as close to each other as possible, to see what the minimum distance between trains is. On another test track, I tested what the distance between trains from standstill is.<br>
+<span></span></p>
+<p>With the full speed join, the expected behaviour would be to have two tiles distance between the trains, no matter what length we use. For the standstill experiment, the expected behaviour is a positive relationship between the length of the train and the distance (a longer train is heavier and thus will have a larger following distance).</p>
+<p>However, we are not interested in the large scale effects, but in the quantum effects: compare it to the queuing trains in Tims post: there is a linear relationship between train length and the amount of signal blocks used, but, <i>because signal blocks go in sets of two tiles</i>, even-length trains use relatively much space.</p>
+<h4>From standstill</h4>
+<p>First of all, I have tested the train following distance when starting from standstill for the <a href="http://wiki.openttd.org/wiki/index.php/Kirby_Paul_Tank">Kirby Paul Tank</a>, <a href="http://wiki.openttd.org/wiki/index.php/SH_%2230%22">SH ‘30′</a> and <a href="http://wiki.openttd.org/wiki/index.php/Lev4_%27Chimaera%27">Lev4</a>. By queuing trains with different lengths – 3, 4, 5, 6 and 6 tl – next to each other and starting them at the same time, comparison suddenly becomes easy. As distance, I have used the number of tiles, in halves, between trains, measured just before the following train reserves the next tile.</p>
+<h5>Kirby Paul Tank</h5>
+<p>The Kirby Paul Tank, with it’s 223kW and 64km/h max. speed, is the slowest locomotive in the game. Although we never use this train, it’s good to have multiple speeds as comparison.</p>
+<p><a href="images/462a06f7_Kirby_Paul_running_distance.png"><img src="images/abea3936_400px-Kirby_Paul_running_distance.png" alt="Kirby Paul Tank running distance" loading="lazy"></a><br></p>
+<p>The leftmost lane has 7tl trains, the rightmost lane has 3tl trains. The distances between the trains is </p>
+<p><b>tl 3:</b> 4.5 tiles (1.5 tiles/tl)<br>
+<b>tl 4:</b> 5.0 tiles (1.3 tiles/tl)<br>
+<b>tl 5:</b> 5.5 tiles (1.1 tiles/tl)<br>
+<b>tl 6:</b> 6.0 tiles (1.0 tiles/tl)<br>
+<b>tl 7:</b> 6.5 tiles (0.9 tiles/tl)</p>
+<p>This shows a very linear relationship: d=0.5*tl+3. The used rail efficiency is calculated with e=d/tl = 0.5+3/tl. This means an infinite train length will still have half its length in distance between the trains.</p>
+<h5>SH ‘30′</h5>
+<p>The SH ‘30′ is the first, and slowest, electric locomotive to become available. Compared to the Kirby Paul Tank it’s of course very powerful: 2682kW and a 160km/h max speed.</p>
+<p><a href="images/969395d8_SH40_running_distance.png"><img src="images/9065a066_400px-SH40_running_distance.png" alt="SH40 running distance" loading="lazy"></a><br></p>
+<p>However, the SH ‘30′ shows exactly the same results as the Kirby Paul Tank!</p>
+<p><small><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/blog/2009/01/sh30-kirby-start-test.sav">savegame for both SH30 and Kirby Paul Tank</a></small></p>
+<h5>Lev4</h5>
+<p>The Lev4 is the fastest locomotive in the game. With almost 15MW of power from the dual engines, it reaches a staggering 643 km/h. Does this yield any different results?</p>
+<p><a href="images/9d5f1f3f_Lev4_running_distance.png"><img src="images/356636b0_400px-Lev4_running_distance.png" alt="Lev4 running distance" loading="lazy"></a><br></p>
+<p>The lev4 yields some interesting results: </p>
+<p><b>tl 3:</b> 7.7 tiles (2.6 tiles/tl)<br>
+<b>tl 4:</b> 7 tiles (1.8 tiles/tl)<br>
+<b>tl 5:</b> 8.8 tiles (1.8 tiles/tl)<br>
+<b>tl 6:</b> 8.6 tiles (1.4 tiles/tl)<br>
+<b>tl 7:</b> 10 tiles (1.4 tiles/tl)</p>
+<p>Take a moment to let this be processed. The distance gets shorter from tl3 to tl4 <i>and</i> from tl5 to tl6! And this is not just on a single occasion; these numbers are the average over three measurements. What is even more interesting are the track efficiency numbers: they show that, from a running start, even length trains use the track <i>much</i> more efficient than the just-shorter odd train, and as efficient as the just-longer odd train.<br>
+<small><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/blog/2009/01/lev4-start-test.sav">Lev4 savegame</a></small></p>
+<h4>High-speed join</h4>
+<p>Of course, this does not tell the entire story. We try to have our network running, so the distances from standstill are not the most important: we want to have a running network, not a network just recovering from a jam. To test this, I have built a high-speed joiner, which tries to join three trains as closely as possible. This joiner is followed by a straight track and a full-speed 180 degree curve. The track was signalled using 2-tile auto signalling, which means we notice the effects of the bad signalling in corners.</p>
+<p>For this measurement, I have used a slightly different system. I have measured the distance between the starting positions, subtracted the train length and averaged this over the two follow-up trains, as one of them joins from a secondary track (i.e. it has a slightly longer path).</p>
+<p>The full join is considered a success if both the straight track and the 180 degree turn are completed without any slowdowns.</p>
+<h5>SH ‘30′</h5>
+<p>Tests with the SH ‘30′ yielded these results:</p>
+<p><b>tl 1: </b> 4 tiles (4 t/tl)<br>
+<b>tl 2: </b> 4.5 tiles (2.3 t/tl)<br>
+<b>tl 3: </b> 5 tiles (1.7 t/tl)<br>
+<b>tl 4: </b> 5.5 tiles (1.4 t/tl)<br>
+<b>tl 5: </b> 6 tiles (1.2 t/tl)<br>
+<b>tl 6: </b> 6 tiles (1 t/tl)<br>
+<b>tl 7: </b> 6 tiles (0.9 t/tl)</p>
+<p>This is the minimum distance between trains. The results show quantum effects for trains shorter than 5 tiles: longer trains all have the same distance in between, which is what you would expect.</p>
+<h5>lev4</h5>
+<p>The maglev tests yielded the following results:</p>
+<p><b>tl 1:</b> 4.5 tiles (4.5 t/tl)<br>
+<b>tl 2:</b> 4 tiles (2 t/tl)<br>
+<b>tl 3:</b> 5 tiles (1.6 t/tl)<br>
+<b>tl 4:</b> 5.5 tiles (1.4 t/tl)<br>
+<b>tl 5:</b> 6.5 tiles (1.3 t/tl)<br>
+<b>tl 6:</b> 6.5 tiles (1.1 t/tl)<br>
+<b>tl 7:</b> 6.5 tiles (0.9 t/tl)</p>
+<p>Which is pretty much the same result.<br>
+<small><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/blog/2009/01/fast-join-test.sav">SH30 &amp; Lev4 savegame</a></small></p>
+<h4>Conclusion</h4>
+<p>Both the standstill and the fast join results show there is no reason to prefer odd train length in a running situation. Although even length trains take more space while standing still, this should <i>not</i> be a reason to choose even length trains over odd length trains: although the queue is slightly longer, the situation after trains start running again is even better than with even train lengths. Besides, queued trains are exceptional: we try to keep trains <i>running</i>.</p>
+<p>For tightly spaced trains the oddness of train length is not important either. There are some quantization effects with small trains, but even length trains show no disadvantages compared to odd length trains.</p>
+<p>For both situations, it is obvious using longer trains is more efficient. My calculation does not take locomotives into consideration: a tl3 lev4 carries 4 times as much cargo as a tl2 train (4 wagons instead of 2). To take this into account, the efficiency should be calculated with e=t/(tl-0.5*#loc) instead of e=t/tl. This will show an additional penalty for shorter trains.</p>
+				</div><p class="pagecats">Categories: Community News, Development, Public Server, Tutorial</p></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2009/01/02/even-or-odd-perfect-join/">http://openttdcoop.org/2009/01/02/even-or-odd-perfect-join/</a>. Captured 06 October 2009 (<a href="https://web.archive.org/web/20091006200511/http://openttdcoop.org/2009/01/02/even-or-odd-perfect-join/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

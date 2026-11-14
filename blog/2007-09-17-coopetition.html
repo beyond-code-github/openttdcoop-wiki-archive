@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Coopetition? - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Coopetition?</h1><p class="postmeta">17 September 2007, by littlemikey</p><div class="mw-body">
+					<p>Hi guys, I was thinking the other day that it would be very awesome if we started running a 4v4 coopetition game.</p>
+<p>Phazorx and I were discussing this, and I wanted to open it up to other suggestions.</p>
+<p>Our ideas:</p>
+<p>The game would be a medium sized map with two identical continents. Each team would have a different continent, and they would try to build rival networks of the same type (freight v freight, pax v pax, combo v combo). For this to work, we need to make a ’score’ system. This is some formula that will take into account differences between each team’s network and then work out which one was the best. We thought that the formula should take into account:</p>
+<p>Yearly profit in last game year.<br>
+Number of Vehicles.<br>
+Cargo delivered in last game year.<br>
+Flow and visual appeal of network.</p>
+<p>If anyone has an idea of a formula we can use. Please post it.</p>
+<p>Also, my main thought was that unlike previous coopetition games that were run for a period of two hours or so,</p>
+<p>this would be a much longer game. Running till about the year 2150-2200 in game. Also, its my idea that every<br>
+‘usual suspect’ and member be assigned a team before the start of the game, even if they dont play, it gives some<br>
+indication of who should be on what team when they join the game. It should be an even mix between skilled and new players, as well as taking into account who is online at what times usually. Its no good if the teams are equal if<br>
+you can only get one online at any one time.</p>
+<p>Finally, there should be a rule about no deliberate interfering with the other team’s network. I know that removes a bit of the fun, but I’d like this game to be about network design, so players spend their time building their own<br>
+network instead of trying to ruin the other team’s.</p>
+<p>For this to work, there will need to be some set ‘Judges’ who can keep an eye on players. It would probaly be best if they joined the game as spectators, then all players could agree that the Judge wasn’t helping one team build or something like that.<br>
+I think that if we can get people interested in this, it can be one awesome game of OTTD.</p>
+<p>What does everyone think?</p>
+				</div><p class="pagecats">Categories: Coopetition, Public Server</p><h2>Comments</h2><ol class="comments"><li><p><strong>Sedontane</strong> <small>September 17, 2007 8:44 am</small></p><div>
+								<div>
+					<p>I Love it</p>
+<p>*animated hearts go here*</p>
+<p>I really like this idea. It is my ultimate form of coop as it brings in a competition element. I mean I enjoy coop games as much as the next guy (and you have ruined my single player routine) but a challenge will get the adrenaline running.</p>
+<p>You probs have to get Brian to rewrite Autopilot (or adjust it if it has an option somewhere) so the server doesnt run if only players from 1 team are on though</p>
+<p>the Formula could be something like this</p>
+<p>Yearly profit in last game year.        200pts<br>
+Number of Vehicles and Network flow.    100pts<br>
+Cargo delivered in last game year.      150pts<br>
+Visual appeal of network.               100pts</p>
+<p>Profit is a great marker of success - well it is in this game.</p>
+<p>No. of vehicles isnt so important it should be integrated with flow as many things affect the number of vehicles. As a joint category it judges whether the network is good enough for the trains running on it.</p>
+<p>Cargo delivered last year - important though not so much so that it carrys as much as profit</p>
+<p>Flow and Visual appeal should be just Visual Appeal and it shouldnt carry too much weight either as looks aren’t everything.</p>
+<p>Great Idea Mikey</p>
+<p>Sedontane</p>
+				</div>
+			</div></li><li><p><strong>littlemikey</strong> <small>September 18, 2007 11:57 am</small></p><div>
+								<div>
+					<p>In responce to Sedontane:</p>
+<p>Basically, we need a system where the most points can be gained through making a huge MM, so I think that if we were scoring profit would be out of 100 points and network flow would have been out of 200.</p>
+				</div>
+			</div></li><li><p><strong>Phazorx</strong> <small>September 18, 2007 6:07 pm</small></p><div>
+								<div>
+					<p>well… I have a bit different idea about evaluating results and determining end state… considering that game lasts quite a while and number of players is usualy variable - time based finale criteria isn’t very good. Also, it is much easier to run 2 servers in parallel rather than crate a fancy map with 2 identical landscapes.</p>
+<p>What i have in mind is somewhat volume based goal that signifies network capacity with efficiency being positive factor and amount of moving stock as negative.</p>
+<p>A <b>goal</b> can be some fixed number of cargo delvired per year (500,000/y units seems as a decent challenge for 512×512) which determines an end game condition for that side… a first team to reach it should get some advantage (+5% for example)</p>
+<p>For cargo games the result criteria can be derived by something like:<br>
+(profit per year) / (number of RR wagons + number of RVs)</p>
+<p>For PAX game: (average percentage delivered pax and mail per year across all cities) * (profit per year) / (number of RR wagons + number of RVs)</p>
+<p>Combo ones can use summary of above rated against each over on percentage scale (maximum result counted as 100% and others are percentage to it, end result per team is additive of all aspects)</p>
+<p>Obviously, some things should be regulated to create competative and challenging conditions. these are:</p>
+<p> Type of rails<br>
+ Maximum number of vehicles per type<br>
+ Number of carried cargo types<br>
+ Maximum TL and maximum width of ML<br>
+ Global network design (what trains could potentialy use same tracks - all 1st tier shared, all 2nd tier shared, all shared, all empty/full shared)</p>
+				</div>
+			</div></li><li><p><strong>Mucht</strong> <small>September 19, 2007 10:47 pm</small></p><div>
+								<div>
+					<p>Hey guys,</p>
+<p>great thing however the performance ratio will be designed. I’ll be fully available at #openttdcoop with the start of october, so factor me into your calculations.</p>
+<p>Mucht<br>
+Captain of the winning team.</p>
+				</div>
+			</div></li><li><p><strong>littlemikey</strong> <small>September 20, 2007 9:56 am</small></p><div>
+								<div>
+					<p>Thanks for the input Mucht and Phazorx, hopefully we can make one (or mabye more) of the best coop games ever  </p>
+<p>And Mucht, I dont think there will need to be team captians ^__^;</p>
+				</div>
+			</div></li><li><p><strong>Progman</strong> <small>September 27, 2007 11:31 am</small></p><div>
+								<div>
+					<p>Coopetition should be played imo on one server on the whole map, not on seperate map parts. There is no challenge to deal without the other team. The challenge is not your own network but the other team which interfere yours like transport cargo from the same industries as well.</p>
+<p>The score must be objective values, but “visual aspect” isn’t. The ingame score table should be used too in some way. Note: These score should be get at the end of a year/month, not at the beginning of the new year/month or some scores like “profit per year” are always 0 on new year/month.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/2007/09/17/coopetition/">http://www.openttdcoop.org/blog/2007/09/17/coopetition/</a>. Captured 19 April 2008 (<a href="https://web.archive.org/web/20080419133324/http://www.openttdcoop.org/blog/2007/09/17/coopetition/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

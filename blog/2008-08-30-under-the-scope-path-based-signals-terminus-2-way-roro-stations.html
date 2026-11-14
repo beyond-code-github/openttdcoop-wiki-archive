@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Under the Scope: Path Based Signals + Terminus &amp; 2-Way RoRo Stations - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Under the Scope: Path Based Signals + Terminus &amp; 2-Way RoRo Stations</h1><p class="postmeta">30 August 2008, by Osai</p><div class="mw-body">
+					<p><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/2008/08/30/under-the-scope-path-based-signals/"><span class="missing-img">[PBS - Teaser]</span></a>For three weeks <a href="2008-08-03-yapp-in-trunk.html">YAPP (PBS) is in trunk</a> now and we had some games using the feature of Path (Based) Signals. I had a closer look at this feature and some serious discussions with developers and other players. In this review, I want to collect and summarize the main aspects of YAPP as far as I understood them, show you new possibilities for terminus-like stations, pitfalls and much more.</p>
+<p><span></span></p>
+<h3>Path Based Signaling</h3>
+<p>The history of Path Based Signaling started in early 2005 and the last try (YAPP) finally made it to the trunk in August 2008. Brianetta explained how PBS works in a pretty nice way:</p>
+<blockquote><p>Path based signals are technically new in OpenTTD, although they’ve been here before in another form, and TTDPatch has had them for a while. They act differently from block signals, in that they will allow more than one train to enter a signal block if they’re definitely not going to collide. On a straight bit of track, this means they act pretty much like block signals. If there’s a complicated patch of track (two ways in, two ways out, for example) and two trains won’t use the same bit of track, they’ll show clear and let them both through at the same time.</p></blockquote>
+<p><strong>Terminology</strong><br>
+It should be very clear how we call the different signal types as it is very important for our cooperative/communicative games. Planetmaker came up with the hint that abbreviations like PBS and YAPP are words used by developers and players which are really into it. Therefor we suggest the following words for signals:</p>
+<p>Regular Signals, Entry/Exit/Combo Signals are: <strong>Block Signals</strong><br>
+PBS, YAPP are: <strong>Path Signals</strong></p>
+<p><span class="missing-img">[image unavailable]</span></p>
+<p><strong>Building</strong><br>
+To build path based signals you can either use the signal menu or cycle through the signal types by ‘<em>ctrl + clicking</em>‘ on the signal. In the patches -&gt; constructions tab you can find several options for signal building:</p>
+<ul>
+<li>Enable the signal gui: On / Off</li>
+<li>Signal type to build by default: Normal / Advanced / One-way advanced</li>
+<li>Cycle through signal types: Normal only / Advanced Only / All</li>
+</ul>
+<p><strong>Appearance</strong><br>
+Path signals differ from normal signals in their appearance. Path signals are red by default, always have an orange light and a white stripe on the back side.<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/pbs_review/pbs_explanation_1.png"><span class="missing-img">[Differences between signals]</span></a><br></p>
+<p><strong>Issues</strong><br>
+Path signals are really great, but in my opinion they also cause some problems which are important in our games. To become more specific I mean the <a href="2007-03-12-some-things-never-change.html">Evil X Issue</a> which is known since ages. Path signals do not solve this problem, but I saw a lot of those constructions since path signals are in trunk. Of course its fantastic to have more than one train in the same block, but path signals are as powerless as block signals are if trains have to cross. You should always keep this in mind. Path signals make a lot things much easier, but you should not start building carelessly.<br>
+Another issue is that I find it pretty hard to combine block signals and path signals. I was not able to construct any useful things combining both types.<br>
+In some cases stop in front of a path signal block even if there is a free track. I am not sure why it happens, though it could be a delay caused by the system to find/calculate the free track.</p>
+<p><span class="missing-img">[The evil X issue]</span><br>
+If a trains goes from A to D, another train going from B to C must stop. With a bridge or tunnel you can avoid this phenomenon: while one train goes from 1 to 4 another one can go from 2 to 3.</p>
+<p>A very silly example I saw too often.<br>
+<span class="missing-img">[Bad PBS example]</span></p>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>More than one train can join a signal block if there are free paths</li>
+<li>Path signals can be used as penalty signals because reversed two-way path signals have a penalty. This is very useful because we don’t have to build penalty stations anymore (If I am correct its the patch setting <em>yapf.rail_pbs_signal_back_penalty</em>)</li>
+<li>In lots of cases you can save space when building splits with path signals (e.g. <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/wiki/Image:Pbs_bridge.jpg">tunnels or bridges</a>)</li>
+<li>The possibility to create completely new station and hub layouts</li>
+</ul>
+<h3>Terminus &amp; 2-Way RoRo-Station Concepts</h3>
+<p>Of course we are interested in using the capabilities of path signals. The most considerable use of path signals is in the case of 2-Way RoRo Stations. 2-Way RoRo Stations, are roll-on-roll of stations which have entrance and exit on both sides. Principally they work like terminus stations having a terminus-like entrance/exit construction on each side. The problem in the era before path signals was that it is was impossible to find out which train wants to go to which platform and this could cause heavy problems and even deadlocks. Using path signals we can reserve a path including a platform and no other train can come into conflict. This behavior is not that important for terminus stations, though indispensable for 2-Way RoRo stations.</p>
+<p><a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/pbs_review/two_roro_pbs.png"><span class="missing-img">[2-Way RoRo Station]</span></a><br></p>
+<p>This is an easy six platform 2-Way RoRo Station setup, showing how the it works. I included several ideas. E.g. avoiding the evil X’s and replacing them with another clever construction, which uses a bit more space and makes the entrance/exit more complex but is necessary for a 100% throughput:<br>
+<span class="missing-img">[Avoiding evil X]</span><br>
+As you can see there is one evil X in the construction, but due to the reversed path signals these platforms have a penalty and trains join them only if all other platforms are already reserved. (I created this example in <a href="../PublicServer_Archive_-_Games_101_-_110.html#gameid_109">PSG#109</a> and its even included in the <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/publicserver_archive/PublicServerGame_109_Final.sav">final savegame</a>).</p>
+<h3>More Concepts</h3>
+<p>Planetmaker and I fiddled around with these construction and created two concepts for path signal terminus stations which can be easily extended to 2-way RoRo Stations by adding the same entrance/exit construction on the other side, too. The main focus was to create an entrance which is not wider than the station its self. It is one of the main disadvantages of my <a href="2007-10-10-terminus-station-tutorial.html">Terminus Station</a>. Though there is one general rule: The narrower an entrance the longer it is and the wider the shorter it is.</p>
+<p><strong>Planetmaker’s Concept</strong><br>
+Main focus on orderliness and extensibility.<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/pbs_review/pbs_entrance_concept_by_pm.png"><span class="missing-img">[Planetmaker&#x27;s Entrance Concept]</span></a><br></p>
+<p><strong>Osai’s Concept</strong><br>
+Main focus on shortness and weirdness.<br>
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/files/pictures/pbs_review/pbs_entrance_concept_by_osai.png"><span class="missing-img">[Osai&#x27;s Entrance Concept]</span></a><br></p>
+<h3>Conclusion</h3>
+<p>Path signals are a great feature and have loads of potential. Nevertheless you have to care what you build because it could happen really fast that a construction is not effective as it should be with path signals. I have the feeling people think path signals are the solution to all the problems what is definitely not true. There are still (the old) unsolved problems. Keeping this in mind we will have much pleasure with the feature of path signals.</p>
+				</div><p class="pagecats">Categories: Community News, OpenTTD, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>planetmaker</strong> <small>September 1, 2008 05:34</small></p><div>
+								<div>
+					<p>Nice blog post, Osai! It’s yet another step further to “understanding path signals” in its completeness  . And I feel honoured that my creation of a station entry made it into your blog post!</p>
+				</div>
+			</div></li><li><p><strong>sulai</strong> <small>September 11, 2008 18:46</small></p><div>
+								<div>
+					<p>I was pleased to read this post. Very interesting layouts!</p>
+				</div>
+			</div></li><li><p><strong>andyp</strong> <small>September 21, 2008 01:54</small></p><div>
+								<div>
+					<p>The biggest thing that I’ve noticed about using path signals in station entrys is that it requires a good track layout because trains will never stop in the entry.  The layout needs to be good enough to keep arriving trains moving and give enough platform choices so that all arriving trains find a platform.  </p>
+<p>I also feel the distance from path signal to platform must be as small as possible, because the platform is reserved for the entire time it takes the train to reach it.  The shorter the distance, the quicker the platform is made available to another train.  </p>
+<p>Another issue is the lack of a presignal-bypass to work with path signals.  A construction that give some PSB like performance has been used in some recent public server games, but it still leaves open the possibility of a single train holding up an entire entrance track.  Certain track layouts will be severely limited in how many platforms they can realistically serve using path signals instead of normal &amp; presignals.  </p>
+<p>An efficient, jam free birirectional ro-ro station can be built using presignals.  It just needs waiting space so a train is clear of all shared track in the event the platform(s) it is trying to reach fills up from the other side first.  I generally choose to build wide instead of long, the width of my bi-drectional ro-ro is one and a half times the number of platforms (platforms not built side-by-side).</p>
+<p>In general I’ve taken to using path signals only where they have a distinct advantage over normal &amp; presignals.  If I can build it using normal &amp; presignals, I mostly will.  Even in the double bridge/tunnel I only use path signals if I need the room.  I think using path signals where they are not truly needed can compound jams dues to the waiting for reversed train waiting for free path issue.</p>
+				</div>
+			</div></li><li><p><strong>DJ Nekkid</strong> <small>September 21, 2008 10:13</small></p><div>
+								<div>
+					<p>hi guys.</p>
+<p>Thoose layouts seem to be rather complicated without needing to be. I’ve used two concepts in my SP games lately, and both seem to can handle the needed traffic.</p>
+<p>http://www.tt-forums.net/download/file.php?id=99311<br>
+http://www.tt-forums.net/download/file.php?id=99312</p>
+<p>see also the last post in this thread:<br>
+http://www.tt-forums.net/viewtopic.php?f=47&amp;t=38928</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>December 2, 2008 10:14</small></p><div>
+								<div>
+					<p>DJ Nekkid,<br>
+while the examples you posted are sufficient in the vast majority of the cases, the two station entries/exits by Osai and me are different in so far, that a train leaving never blocks access to any other track – which it may do when exiting through the X in the examples you posted.<br>
+Granted, this advantage is bought with a steep increase in build complexity.</p>
+				</div>
+			</div></li><li><p><strong>energetic</strong> <small>February 23, 2009 21:47</small></p><div>
+								<div>
+					<p>Planetmaker: you have any benchmark in showing how much your design and DJ Nekkid’s design differ in capacity?</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>February 24, 2009 12:00</small></p><div>
+								<div>
+					<p>I did no benchmarking. But the X in DJNekkid’s design warrant that it may happen that a train has to wait leaving when another train enters through the X into the other station track (half of the cases). As the station is two-way, this occasion may happen in 50% * 50% of the cases. Assuming that in 50% of the cases, trains of adjacent tracks enter and leave simultaneously, the probability of a conflict happening is 0.5^3 = 0.125 = 12.5%. So with the station running at 100% capacity, Osai’s and my designs should have about 12% higher throughput counting the number of trains and given that you build it as two-way roro. If it’s a terminus station, you’d end up with approx. 25% more throughput.<br>
+For networks at full capacity that may just make the difference between jam and not jam, though in most cases the far easier design of DJNekkid’s will suffice (I’ve built that also more often than the one proposed here).</p>
+				</div>
+			</div></li><li><p><strong>clifsportland</strong> <small>April 11, 2009 08:57</small></p><div>
+								<div>
+					<p>This is the best description that I’ve yet seen of how path signals work. Thanks for the clarification.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2008/08/30/under-the-scope-path-based-signals-terminus-2-way-roro-stations/">http://openttdcoop.org/2008/08/30/under-the-scope-path-based-signals-terminus-2-way-roro-stations/</a>. Captured 25 September 2009 (<a href="https://web.archive.org/web/20090925175945/http://openttdcoop.org/2008/08/30/under-the-scope-path-based-signals-terminus-2-way-roro-stations/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

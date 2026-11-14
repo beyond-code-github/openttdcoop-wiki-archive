@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Server Updates - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Server Updates</h1><p class="postmeta">18 February 2008, by Osai</p><div class="mw-body">
+					<p><b>Public-Server:</b><br>
+After more than ~127 hours of playing (that’s equivalent to ~5,3 days) we started a new game (#83) at our Public Server using OpenTTD Nightly Build r12168. The Settings are: 512×512, temperate landscape and DBSetXL.<br>
+Enjoy playing.</p>
+<p><b>Dev-Server</b><br>
+Michi_cc released Version 4.1 of <a href="2008-02-06-yapp-yet-another-pbs-patch.html">YAPP</a>, an urgent reason to update <span class="missing-img">[:-)]</span>  We are using r12168M now.<br>
+Enjoy playing.<br>
+<span></span></p>
+<blockquote><p>
+<b>Changes:</b></p>
+<ul>
+<li>Trains will no longer crash on their own, barring any programming bugs. Instead, a train can now get stuck if it just can’t reserve a path. You may need to manually resolve the problem then. Note: Pressing force proceed or removing signals can still lead to crashes just as it can in plain OpenTTD.</li>
+<li>Lost trains do not pose a problem anymore.</li>
+<li>Improved depot finding for servicing.</li>
+<li>Stations and waypoints are now only considered safe waiting positions if they are at the end-of-line as well. A train will reserve a path through a through station according to the next orders to a safe signal, depot or line end.</li>
+<li>Mixing normal and PBS signals will not lead to crashes anymore, but might generate stuck trains.</li>
+<li>Path highlighting is now an official patch settings under ‘Interface’.</li>
+<li>The build signal tool will now not cycle through two-sided PBS signals anymore, as I still wasn’t able to find a use for them.</li>
+<li>Level crossings are now barred uppon path reservation.</li>
+<li>Implemented newgrf variable 0×44 for rail stations.</li>
+<li>Tweak various pathfinder penalties.</li>
+<li>V4.1 with fixed autosignal tool.</li>
+</ul>
+</blockquote>
+<p>More details and the patch file can be found at the <a href="http://www.tt-forums.net/viewtopic.php?p=665843#p665843">related forum posting</a></p>
+				</div><p class="pagecats">Categories: Development, OpenTTD, Public Server</p><h2>Comments</h2><ol class="comments"><li><p><strong>Mikael</strong> <small>February 18, 2008 18:49</small></p><div>
+								<div>
+					<p>Any chance of you providing a win32 binary for r12168M, as you did with the last version, please?</p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>February 22, 2008 12:11</small></p><div>
+								<div>
+					<p>trunk_r12187_yapp_r12187_v4_3_svn.patch_22.02.08_13-00-28.exe</p>
+<p><strong>The server is running now with version 4.3 of the patch:</strong><br>
+http://www.tt-forums.net/viewtopic.php?p=665843#p665843</p>
+				</div>
+			</div></li><li><p><strong>Mikael</strong> <small>February 23, 2008 13:19</small></p><div>
+								<div>
+					<p>Nice – thanks!</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://openttdcoop.org/2008/02/18/server-updates/">http://openttdcoop.org/2008/02/18/server-updates/</a>. Captured 11 December 2009 (<a href="https://web.archive.org/web/20091211212806/http://openttdcoop.org/2008/02/18/server-updates/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

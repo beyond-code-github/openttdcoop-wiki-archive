@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OpenTTD 0.6.0 RC 1 released - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>OpenTTD 0.6.0 RC 1 released</h1><p class="postmeta">27 March 2008, by pm</p><div class="mw-body">
+					<p>The time has come, the 0.6.0 branch seems to near it’s end, the first release candidate has been released tonight. Go and get it from <a href="http://sourceforge.net/project/showfiles.php?group_id=103924">sourceforge</a> now.</p>
+<p>The amount of changes again reflects on how much work is put into this project by the dev team.<br>
+<span></span><br>
+Compared to the beta 5 this release fixes a number of things, but doesn’t introduce many new features anymore:<br>
+<code><br>
+- Feature: Show whether a town is a "city" in the town description title bar (r12391)<br>
+- Feature: Increase house animation frame number from 32 to 128 (r12347)<br>
+- Fix: Vehicle lists related to stations not closed when the station is deleted [FS#1872] (r12393)<br>
+- Fix: Trams failing to turn on bridge heads/tunnel entrances [FS#1851] (r123890)<br>
+- Fix: Train could break apart when reversed while partially in a depot [FS#1841] (r12386, r12384)<br>
+- Fix: Non-breaking spaces should not be broken (r12385)<br>
+- Fix: Check return of AfterLoadGame for success or failure when loading TTD games [FS#1860] (r12383)<br>
+- Fix: Use 'items' unit for batteries, fizzy drinks, toys and bubbles in total cargo tab [FS#1864] (r12382)<br>
+- Fix: The number of houses wasn't computed right [FS#1835, FS#1535] (r12381)<br>
+- Fix: Update train acceleration and max speed after setting cached value to ensure the correct max speed is used with disabled real acceleration (r12380)<br>
+- Fix: Refresh vehicle details window when cached values are updated (r12378)<br>
+- Fix: Set cached value for vehicle property 25 before other cached values [FS#1854] (r12377)<br>
+- Fix: Don't close a dropmenu when clicking on a dropdown widget (r12374)<br>
+- Fix: win32 music driver fails if path is too long or if containing non-latin chars [FS#1849] (r12373, r12372)<br>
+- Fix: Do not let window hide behind the main toolbar after resizing the screen [FS#1823] (r12371)<br>
+- Fix: Close language drop down when parent window is clicked/closed [FS#1853] (r12370)<br>
+- Fix: Reset train speed limits when _patches.realistic_acceleration changes (r12369)<br>
+- Fix: Commands were sent to clients waiting for map download causing 'executing command from the past' error [FS#1650] (r12367)<br>
+- Fix: Do not allow building 'zero' road bits (r12363)<br>
+- Fix: Randomize variable 8F only once per callback 28 (r12362)<br>
+- Fix: openttdd.grf was using the wrong colours for glyphs due to a grfcodec bug (fixed in grfcodec 0.9.10 r1837) (r12360)<br>
+- Fix: Some callback-results were treated as 8 bit, when they were 15 bit, and vice versa (r12352, r12358)<br>
+- Fix: Do not try to flood water tile [FS#1836] (r12350)<br>
+- Fix: NTP skipped junction just after bridge end (r12348)<br>
+- Fix: Remove duplicated and inconsistent code wrt. autoreplace with rules in both vehicles' group and ALL_GROUP [FS#1748, FS#1825] (r12346)<br>
+- Fix: Don't try to restore backupped timetable when timetabling is disabled [FS#1828]  (r12345)<br>
+- Fix: Slow helicopters never got the 'chance' to finish the landing routine (r12343)<br>
+- Fix: GRM buffer for cargos was incorrect size [FS#1827] (r12341)<br>
+- Fix: Recalculate cached train data after clearing reversing flag when entering depot (r12339)</code><br>
+See also Belugas’s post <a href="http://www.tt-forums.net/viewtopic.php?f=29&amp;t=36834">in the tt-forums</a>.</p>
+				</div><p class="pagecats">Categories: Community News, OpenTTD</p><h2>Comments</h2><ol class="comments"><li><p><strong>dih</strong> <small>March 28, 2008 11:55 am</small></p><div>
+								<div>
+					<p>nice - i like having these kind of posts here  i dont look that often at openttd.org or throught the forums to find release info </p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>March 29, 2008 9:58 am</small></p><div>
+								<div>
+					<p>I like it too. Thanks pm for supporting this journal. </p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>March 29, 2008 7:36 pm</small></p><div>
+								<div>
+					<p>Indeed, nice to have that. Except the copy&amp;paste of the changelog. A summary would be enough or a Link to the source self. </p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>March 29, 2008 11:31 pm</small></p><div>
+								<div>
+					<p>@Ammler: true. The changelog would suffice here in a more condensed form… Next time </p>
+				</div>
+			</div></li><li><p><strong>dihedral</strong> <small>March 30, 2008 4:50 pm</small></p><div>
+								<div>
+					<p>it’s not like we have to fight with space </p>
+				</div>
+			</div></li><li><p><strong>Gamer</strong> <small>March 31, 2008 6:39 am</small></p><div>
+								<div>
+					<p>I think we have plenty of space here =3</p>
+<p>but finaly a version I can play online wich has all the great functions and fixes but Wich I won’t have to update evry two days</p>
+<p>Let’s hope many more improvments wil come!</p>
+				</div>
+			</div></li><li><p><strong>Kommer</strong> <small>March 31, 2008 7:03 am</small></p><div>
+								<div>
+					<p>Well. we will probably play with the latest nightly every PS game, so you will have to update regularly </p>
+				</div>
+			</div></li><li><p><strong>dih</strong> <small>March 31, 2008 3:41 pm</small></p><div>
+								<div>
+					<p>did we ever host ps games with the same version for over more than 2 or 3 games?</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/2008/03/27/openttd-060-rc-1-released/">http://www.openttdcoop.org/blog/2008/03/27/openttd-060-rc-1-released/</a>. Captured 02 April 2008 (<a href="https://web.archive.org/web/20080402000221/http://www.openttdcoop.org/blog/2008/03/27/openttd-060-rc-1-released/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

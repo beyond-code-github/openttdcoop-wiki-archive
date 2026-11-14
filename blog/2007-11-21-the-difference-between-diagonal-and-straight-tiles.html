@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Difference between Diagonal and Straight Tiles - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>The Difference between Diagonal and Straight Tiles</h1><p class="postmeta">21 November 2007, by Osai</p><div class="mw-body">
+					<p><span class="missing-img">[Diagonal Tiles]</span>I thought it is time for some more tricks and tips when playing OpenTTD. All of us use diagonal tiles when building train tracks. Of course, they are important. But you should know for sure that one diagonal tile has not the same length as a vertical/horizontal tile. This comes into play in a couple of situations.</p>
+<p>First of all let’s have a look at the basics.<br>
+<span></span><br>
+This video shows the difference between diagonal and straight tracks. Both trains start at the same time and in the end you can see there is almost one tile difference between them. (Tip: Fullscreen mode has a better quality)<br>
+
+<a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/wp-content/plugins/simple-flash-video/video.php?height=550&amp;width=730&amp;file_name=/videos/diagonal_tile_difference.mp4&amp;image=/videos/diagonal_tile_difference.png&amp;width=730&amp;height=550"><span class="missing-img">[Click here To Watch Video]</span><br> Click to Watch!</a>
+
+</p>
+<p>
+<strong>A critical Example:</strong><br>
+You could say: “This is nice, but who cares?”. Well, I do. The way I constructed the test track is used quite often, i.e. for tunnels or bridges. They are longer than our common signal length and to make sure trains don’t stop we often need two (or more) tunnels to ensure not having any jams.<br>
+<span class="missing-img">[Jam Risk Tunnel Construction]</span><br>
+This tunnel construction is always a risk for this kind of ghost jams. This can happen really easy. Imagine a train using tunnel A because B was blocked before. The gap to the next train is really small. This one will use tunnel A again. The train using tunnel A has a longer way to leave the tunnel again (in fact 1 tile). This ‘can’ cause jams if the trains are very good balanced and the gaps between them are very small.</p>
+<p><strong>The Solution:</strong><br>
+… is kinda easy. Just have a look at this picture.<br>
+<span class="missing-img">[Tunnel Construction without Jam Risk]</span></p>
+<p>This shows you how sensitive all the constructions are and one should really know what you are doing. Indeed, I have to admit, this is really detailed knowledge for advanced players, but they should always keep it in mind.</p>
+				</div><p class="pagecats">Categories: Tutorial, Video</p><h2>Comments</h2><ol class="comments"><li><p><strong>Tneo</strong> <small>November 21, 2007 7:10 pm</small></p><div>
+								<div>
+					<p>Good to now this <br>
+At times I use this construction to move the ML one tile over. The diagonal longer tile also shows the importance of placing a signal as soon as possible after the tracks splitted (which is not showed in the example at the moment).</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>November 22, 2007 8:19 pm</small></p><div>
+								<div>
+					<p>Yes. In critical areas you should always build them closer to each other. Especially those junction areas. I left them because of some optical reason IIRC. ^^</p>
+				</div>
+			</div></li><li><p><strong>Sedontane</strong> <small>November 22, 2007 10:24 pm</small></p><div>
+								<div>
+					<p>Hey great mate, good to know as has already been said.</p>
+<p>/Sed</p>
+				</div>
+			</div></li><li><p><strong>davil</strong> <small>November 24, 2007 1:38 pm</small></p><div>
+								<div>
+					<p>One annoying thing I found out about the diagonal tracks is that they mess up your signal distance. On a high-traffic lane this might cause severe jams just because the signals suddenly don’t match any more.</p>
+<p>On my latest shift-mainline game I even used short diagonal sections to delay a train a few tiles and match it behind another train.</p>
+<p>Thanks for analyzing this for the folks out there, I had to find this out myself </p>
+				</div>
+			</div></li><li><p><strong>Soho</strong> <small>May 19, 2008 5:09 pm</small></p><div>
+								<div>
+					<p>Techinally the diagonal tracks are not longer, at least not how you try to demonstrate the concept. By inserting a bend in your video you are making the track longer than the other, and of course it will have to travel further.</p>
+<p>Same goes for your tunnels. One track is longer than the other by design, not by the tile length.</p>
+<p>However, it is good to be aware of track length in order to design a better network.</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>May 19, 2008 8:43 pm</small></p><div>
+								<div>
+					<p>Soho, that’s actually not the point. I want to show that one tile of a diagonal track is longer than one tile of a straight track. This is what the experiment in the video shows.<br>
+Of course this is a difference, by design, but I want to show this difference as it is important for the splitters we really often use.</p>
+<p>In fact the splitters are the important thing:<br>
+If the length of the tracks differ, trains on the shorter track of the splitter need less time to pass than trains on the longer one. This fact might cause ghost jams if the gap between two trains is smaller than the difference of both splitting tracks.</p>
+<p>I hope you can understand what I mean.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/2007/11/21/the-difference-between-diagonal-and-straight-tiles/">http://www.openttdcoop.org/blog/2007/11/21/the-difference-between-diagonal-and-straight-tiles/</a>. Captured 17 August 2008 (<a href="https://web.archive.org/web/20080817041514/http://www.openttdcoop.org/blog/2007/11/21/the-difference-between-diagonal-and-straight-tiles/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>
