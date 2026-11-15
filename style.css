@@ -80,3 +80,6 @@ table.junctionary_menu img{width:40px;height:40px}
 .mw-body table.tutorialsavegame_menu{display:table;width:100%}
 table.tutorialsavegame_menu td.center{text-align:center;font-weight:600}table.tutorialsavegame_menu td.right{text-align:right}
 @media (max-width:700px){.mw-body table.gamearchive_menu,.mw-body table.junctionary_menu{float:none;max-width:none;margin:1rem 0}}
+/* The page card contains its floated menus and boxes. */
+.mw-body{display:flow-root}
+table.gamearchive_menu th{padding:.18rem .8rem}
