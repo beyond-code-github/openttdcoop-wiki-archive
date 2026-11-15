@@ -2,6 +2,8 @@
 var base=((document.currentScript&&document.currentScript.getAttribute('src'))||'search.js').replace(/search\.js.*$/,'');
 var q=document.getElementById('q'),res=document.getElementById('results'),menu=document.getElementById('menu');
 if(menu)menu.addEventListener('click',function(){var o=document.body.classList.toggle('nav-open');menu.setAttribute('aria-expanded',o)});
+var rnd=document.getElementById('random');
+if(rnd)rnd.addEventListener('click',function(e){var w=(window.SEARCH_INDEX||[]).filter(function(d){return d.u.indexOf('blog/')!==0&&d.u.indexOf('User_')!==0&&d.u!=='index.html'});if(!w.length)return;e.preventDefault();location.href=base+w[Math.floor(Math.random()*w.length)].u});
 if(!q)return;var sel=-1;
 function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function run(){
