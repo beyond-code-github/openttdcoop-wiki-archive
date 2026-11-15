@@ -69,3 +69,14 @@ body.nav-open #sidebar{transform:none}
 .landing section{border:1px solid var(--border);border-radius:8px;padding:.2rem 1rem .8rem;background:var(--surface)}
 .landing h2{margin:.6rem 0 .3rem}.landing ul{margin:.3rem 0 0;padding-left:1.1rem}.landing p{margin:.2rem 0}
 @media (max-width:700px){#top{flex-wrap:wrap}#sections{margin-left:auto}#searchbox{order:5;flex:1 1 100%;width:auto;margin-left:0}}
+/* Wiki navigation boxes (gamearchive, junctionary): a right-floated menu beside the text, as on the original site; the "II" cells were layout only. */
+.mw-body table.gamearchive_menu,.mw-body table.junctionary_menu{display:table;float:right;clear:right;margin:0 0 1rem 1.2rem;max-width:18rem;background:var(--code);border:1px solid var(--border);border-radius:8px;overflow:hidden;font-size:.9rem}
+table.gamearchive_menu td{display:none}
+table.gamearchive_menu th,table.junctionary_menu th,table.junctionary_menu td{text-align:left;font-weight:normal;padding:.3rem .8rem;border:0;border-bottom:1px solid var(--border)}
+table.gamearchive_menu tr:last-child th,table.junctionary_menu tr:last-child td{border-bottom:0}
+table.gamearchive_menu strong.selflink,table.junctionary_menu strong.selflink{font-weight:700}
+table.junctionary_menu th{font-weight:700}
+table.junctionary_menu img{width:40px;height:40px}
+.mw-body table.tutorialsavegame_menu{display:table;width:100%}
+table.tutorialsavegame_menu td.center{text-align:center;font-weight:600}table.tutorialsavegame_menu td.right{text-align:right}
+@media (max-width:700px){.mw-body table.gamearchive_menu,.mw-body table.junctionary_menu{float:none;max-width:none;margin:1rem 0}}
