@@ -30,7 +30,7 @@
 </div>
 
 <h2><span class="mw-headline" id="Shift_Mainline_Premise">Shift Mainline Premise</span></h2>
-<p><i>By <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:Phazorx" title="User:Phazorx">PhazorX</a>, written up by <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:OwenS" title="User:OwenS">OwenS</a>, this is a development from the concept LBR mainlines</i>
+<p><i>By <a href="User_Phazorx.html" title="User:Phazorx">PhazorX</a>, written up by <a href="User_OwenS.html" title="User:OwenS">OwenS</a>, this is a development from the concept LBR mainlines</i>
 </p>
 <div class="thumb tright"><div class="thumbinner" style="width:202px"><a href="images/adfa5380_Shift_Mainline.png" class="image"><img alt="Shift_Mainline.png" src="images/adfa5380_Shift_Mainline.png" width="200" height="132" class="thumbimage" loading="lazy"></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Shift_Mainline.png" class="internal" title="Enlarge"></a></div>Design of a junction</div></div></div>
 <p>Shift Mainlines is a ML concept which removes much of the complexity of building junctions on a traditional mainline. Shift ML hubs require only that trains are injected into the outermost lanes. The design described here causes YAPF to prefer the inner lanes for trains on the ML.  As such, if the inner lane is free, then YAPF will cause the train to shift inwards. 
@@ -68,7 +68,7 @@
 <p><br>
 </p>
 <h3><span class="mw-headline" id="Shift_Mainline_Implementation">Shift Mainline Implementation</span></h3>
-<p>by <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:Phazorx" title="User:Phazorx">Phazorx</a> 03:49, 20 June 2007 (UTC)
+<p>by <a href="User_Phazorx.html" title="User:Phazorx">Phazorx</a> 03:49, 20 June 2007 (UTC)
 </p><p>The save of the game is <a rel="nofollow" class="external text" href="http://openttdcoop.ppcis.org/blog/files/phazorx/ShiftML_test.sav">available</a>, it is based on <a rel="nofollow" class="external text" href="http://openttdcoop.ppcis.org/wiki/index.php/PublicServer:Archive_-_Games_41_-_50#gameid_44">Public Server Game #44</a>.
 </p><p>Shift Mainline, designed as expandable high capacity network backbone offers many  benefits while remaining easy to comprehend. The main idea is to separate lane switching and lane merging network constructions thus creating a maximum-speed, high-capacity train stream. As a byproduct it greatly simplifies SLH merger construction. By design, minimal width of Shift ML is 2 lanes. One of these lanes is arbitrarily selected as the <b>merge lane</b> and the other lanes are <b>switch lanes</b>. In order to permit sideline trains to enter the mainline without delays a new mainline network element is introduced - a <b>switcher</b>. Incentive for trains to switch lanes is created by placing station platforms in the way of a train, immediately following the intersection, allowing it to switch to station-free lane. The pathfinder sees the platform as an obstacle, assigning a significant penalty to the path, and, if possible, will choose a way to avoid it and switch lanes.  However in the case that it is not possible (exit to other lane is red) it would keep same lane.
 </p><p>Merge lane is used for entering sideline traffic, it requires full sized priority window to reduce/eliminate chance of mainline being blocked. Ideally - any entering sideline train should be going full speed at time when end of it passes tracks intersection point, hence acceleration room is needed.
@@ -207,7 +207,7 @@
 Pending research: Expandable BBH and station entrance design to meet structural requirements of SML.
 </p>
 <h3><span class="mw-headline" id="Inside-out_Shift_Mainline_.28two-way.29">Inside-out Shift Mainline (two-way)</span></h3>
-<p><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:Phazorx" title="User:Phazorx">Phazorx</a> 23:34, 5 November 2007 (UTC)
+<p><a href="User_Phazorx.html" title="User:Phazorx">Phazorx</a> 23:34, 5 November 2007 (UTC)
 </p>
 <div class="thumb tleft"><div class="thumbinner" style="width:302px"><a href="images/3f6f92e1_ISML1.png" class="image"><img alt="ISML1.png" src="images/3f6f92e1_ISML1.png" width="300" height="195" class="thumbimage" loading="lazy"></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:ISML1.png" class="internal" title="Enlarge"></a></div>Inside Out SML 1+1</div></div></div>
 <div class="thumb tright"><div class="thumbinner" style="width:302px"><a href="images/5fbfa7d6_ISML2.png" class="image"><img alt="ISML2.png" src="images/5fbfa7d6_ISML2.png" width="300" height="196" class="thumbimage" loading="lazy"></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:ISML2.png" class="internal" title="Enlarge"></a></div>Inside Out SML 2+2</div></div></div>
@@ -218,7 +218,7 @@ Pending research: Expandable BBH and station entrance design to meet structural 
 </p><p>Stations connected to such ML would require special attention too, in most cases trains coming from one direction should be returned onto ML heading the other. Easiest functional station would have 2 independent parts for each direction. On the other hand - a shared solution with 2 alternative exits that preferably do not block each other will work fine as well. Combination of above (some shared + some per direction dedicated) is also possible.
 </p>
 <h2><span class="mw-headline" id="Situation_switcher">Situation switcher</span></h2>
-<p><i>Concept by <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:XeryusTC" title="User:XeryusTC">XeryusTC</a></i>
+<p><i>Concept by <a href="User_XeryusTC.html" title="User:XeryusTC">XeryusTC</a></i>
 </p>
 <div class="thumb tright"><div class="thumbinner" style="width:202px"><a href="images/55f33813_Shift_mainline.png" class="image"><img alt="Shift_mainline.png" src="images/55f33813_Shift_mainline.png" width="200" height="106" class="thumbimage" loading="lazy"></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Shift_mainline.png" class="internal" title="Enlarge"></a></div>Alternate design</div></div></div>
 <p>Don't use stations to force trains on other lines, use the current situation instead. This type of shifting forces a train on line A to go to line B when there is no upcoming train AND there is a train joining the mainline on line A at that moment.
@@ -272,7 +272,7 @@ Prio 1 should be considered as a normal prio but doesn't have to be as long to p
 </p><p><br>
 </p>
 <h2><span class="mw-headline" id="Proper_Shifter">Proper Shifter</span></h2>
-<p><i>Written by <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:V453000" title="User:V453000">V453000</a></i>
+<p><i>Written by <a href="User_V453000.html" title="User:V453000">V453000</a></i>
 </p>
 <div class="center"><div class="floatnone"><a href="images/652d3bfc_PropeSML.png" class="image" title="Proper Shifter"><img alt="Proper Shifter" src="images/652d3bfc_PropeSML.png" width="530" height="270" loading="lazy"></a></div></div>
 <p>The proper, classic, yet most used. There are of course many working modifications but here is the one shifter that works and does the job of a basic SML.
@@ -280,8 +280,8 @@ It must have a waiting buffer where the train that wants to shift waits, also it
 </p><p><br>
 </p>
 <h2><span class="mw-headline" id="Fail-Safe_Shifters">Fail-Safe Shifters</span></h2>
-<p><i>Concept by <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:Osai" title="User:Osai">Osai</a></i>
-, <i>Written by <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:V453000" title="User:V453000">V453000</a></i>
+<p><i>Concept by <a href="User_Osai.html" title="User:Osai">Osai</a></i>
+, <i>Written by <a href="User_V453000.html" title="User:V453000">V453000</a></i>
 </p><p>The goal of this type of shifter is to make trains shift the lines at full speed. This should mean that the capacity of the mainline will increase, especially with long-acceleration-trail trains. Best info and explanation from Osai himself: <a rel="nofollow" class="external text" href="http://blog.openttdcoop.org/2010/01/13/fail-safe-joiners-priorities-and-the-cyclotron-example/">Fail-safe shifters</a>
 </p>
 <div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:252px"><a href="images/a0dc96f5_Failsafe.png" class="image"><img alt="Failsafe.png" src="images/a0dc96f5_Failsafe.png" width="250" height="144" class="thumbimage" loading="lazy"></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Failsafe.png" class="internal" title="Enlarge"></a></div>Fail-safe shifter</div></div></div></div>
@@ -290,7 +290,7 @@ There is a downside though. As demonstrated in the screenshot, the spaces betwee
 </p>
 <div class="center"><div class="thumb tnone"><div class="thumbinner" style="width:252px"><a href="images/ef7933d1_Failsafegap.png" class="image"><img alt="Failsafegap.png" src="images/ef7933d1_Failsafegap.png" width="250" height="127" class="thumbimage" loading="lazy"></a>  <div class="thumbcaption"><div class="magnify"><a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/File:Failsafegap.png" class="internal" title="Enlarge"></a></div>failsafegap</div></div></div></div>
 <h2><span class="mw-headline" id="Hybrid_Shifters">Hybrid Shifters</span></h2>
-<p><i>Concept by <a href="https://web.archive.org/web/2/http://wiki.openttdcoop.org:80/User:V453000" title="User:V453000">V453000</a></i>
+<p><i>Concept by <a href="User_V453000.html" title="User:V453000">V453000</a></i>
 </p><p>This is an enhanced version of the fail-safe shifters. The goal of this mechanism is to eliminate the gaps as meant above, therefore reaching even higher capacity of the SML.
 </p><p><br>
 </p>

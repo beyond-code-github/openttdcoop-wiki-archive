@@ -5,7 +5,7 @@ A static, readable copy of the old **#openttdcoop wiki** (`wiki.openttdcoop.org`
 by its admin because of its outdated PHP stack.
 
 - **Unofficial.** This is not the original site, not affiliated with the #openttdcoop community or its admin, and not complete:
-  it contains the roughly 400 wiki articles that had a usable capture, plus their images. Pages are shown as last captured
+  it contains the roughly 400 wiki articles that had a usable capture, plus 156 user pages of #openttdcoop members (linked from the Community Members page), plus their images. Pages are shown as last captured
   (mostly 2014-2026) and may be out of date. Spam pages were left out. The old #openttdcoop blog is included under `blog/` (371 posts, 2006-2017, from captures of the www host, the bare domain and later blog.openttdcoop.org; spam comments dropped, many embedded images were never archived). Forum, dev and ps (savegame) hosts are not included.
 
 Save games: the public server game saves (PublicServerGame_N_Final.sav and PSG_N.sav) are hosted as the `psg-saves` release of this repository, and links to them point there; other saves stay on Wayback.
