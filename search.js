@@ -1,4 +1,5 @@
 (function(){
+var base=((document.currentScript&&document.currentScript.getAttribute('src'))||'search.js').replace(/search\.js.*$/,'');
 var q=document.getElementById('q'),res=document.getElementById('results'),menu=document.getElementById('menu');
 if(menu)menu.addEventListener('click',function(){var o=document.body.classList.toggle('nav-open');menu.setAttribute('aria-expanded',o)});
 if(!q)return;var sel=-1;
@@ -16,7 +17,7 @@ function run(){
   if(ok)out.push([s,p])});
  out.sort(function(a,b){return b[0]-a[0]||a[1].t.localeCompare(b[1].t)});
  out=out.slice(0,10);sel=-1;
- res.innerHTML=out.length?out.map(function(o){var p=o[1];return '<li><a href="'+p.u+'">'+esc(p.t)+'<small>'+esc(p.x.slice(0,90))+'</small></a></li>'}).join(''):'<li><a>No matches</a></li>';
+ res.innerHTML=out.length?out.map(function(o){var p=o[1];return '<li><a href="'+base+p.u+'">'+esc(p.t)+'<small>'+esc(p.x.slice(0,90))+'</small></a></li>'}).join(''):'<li><a>No matches</a></li>';
  res.hidden=false}
 q.addEventListener('input',run);
 q.addEventListener('keydown',function(e){
