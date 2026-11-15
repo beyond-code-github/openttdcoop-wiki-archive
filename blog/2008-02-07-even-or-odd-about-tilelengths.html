@@ -1,63 +1,59 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Even or Odd - About Tilelengths - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2009">2009 <span class="n">17</span></a></li><li><a href="index.html#y2008">2008 <span class="n">64</span></a></li><li><a href="index.html#y2007">2007 <span class="n">39</span></a></li><li><a href="index.html#y2006">2006 <span class="n">8</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Even or Odd - About Tilelengths</h1><p class="postmeta">7 February 2008, by Tim</p><div class="mw-body">
-					<p><span class="missing-img">[Tilelengths 5 (left) and 4 (right) on diagonal track]</span>Whenever starting a new game, be it local or on #openttdcoop, one important question to be cleared before starting to build the network always is: “What tilelength (TL) are we going to use for our trains?”.<br>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Even or Odd – About Tilelengths - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Even or Odd – About Tilelengths</h1><p class="postmeta">7 February 2008, by Tim</p><div class="mw-body">
+					<p><img src="images/0550b027_Tilelengths_Diagonal.png" alt="Tilelengths 5 (left) and 4 (right) on diagonal track" loading="lazy">Whenever starting a new game, be it local or on #openttdcoop, one important question to be cleared before starting to build the network always is: “What tilelength (TL) are we going to use for our trains?”.<br>
 The chosen setting will mostly depend on the size of the map, as you don’t want to have a hundreds train servicing a single coal mine on a 2048*2048 map. However, there is a great difference between using even tilelengths such as 4, 10 or 20 and odd ones like 5 or 11.</p>
-<p>The patch setting “When dragging, place signals every: X tiles” should always be set to “2″ when playing on #openttdcoop, and most players will also use this setting if playing alone. If dragging signals, you will always have one piece of track with a signal on it followed by one without one and so on.</p>
+<p>The patch setting “When dragging, place signals every: X tiles” should always be set to “2” when playing on #openttdcoop, and most players will also use this setting if playing alone. If dragging signals, you will always have one piece of track with a signal on it followed by one without one and so on.</p>
 <p>Now, if trains are jamming up somewhere in the network, for example behind a full station, those trains should block as little space as possible, so that they won’t for example block the mainline.</p>
 <p>As you can see in the first screenshot, with signals every 2 tiles, the trains with tilelength 5 (left) fit almost perfectly in between the signals. However, the TL4-trains (right) always have a gap of more than one tile between them and need as much space as the TL5-trains. To fix that, you would have to place additional signals in the gaps, which might look ugly (especiall for straight track, see below) and is a lot of work, as you would have to do it manually. </p>
 <p><span></span></p>
 <p>In the first screenshot, you have seen what happens with diagonal track, now the second picture shows you that the effect is the same with straight track.</p>
-<p><span class="missing-img">[image unavailable]</span></p>
+<p><img src="images/32d0be80_tl2.PNG" alt="" loading="lazy"></p>
 <p>You can compare any odd and even tilelength, there will always be a greater gap at the even tilelength. This leads me to the conclusion that it might be better to use odd tilelengths rather than even ones, if nothing speaks against it. </p>
-<p>There isn’t a big difference in carried cargo if using tilelength 15 or 13 instead of 14, but you will have a better usage of track space. To convince people to use tl 5 or 3 instead of 4 might be more difficult, as this makes quite a difference, however, i would still strongly suggest to always use odd tilelengths - maybe even in all #openttdcoop games? Tell me what you think!</p>
-<p>I also created a <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/wiki/User:Tim/Tilelength">wiki-article</a> about it - have a look if you want!</p>
-				</div><p class="pagecats">Categories: Community News, Coopetition, Development, OpenTTD, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>tneo</strong> <small>February 9, 2008 5:41 pm</small></p><div>
-				
-				<div>
+<p>There isn’t a big difference in carried cargo if using tilelength 15 or 13 instead of 14, but you will have a better usage of track space. To convince people to use tl 5 or 3 instead of 4 might be more difficult, as this makes quite a difference, however, i would still strongly suggest to always use odd tilelengths – maybe even in all #openttdcoop games? Tell me what you think!</p>
+<p>I also created a <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/wiki/User:Tim/Tilelength">wiki-article</a> about it – have a look if you want!</p>
+				</div><p class="pagecats">Categories: Community News, Coopetition, Development, OpenTTD, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>tneo</strong> <small>February 9, 2008 17:41</small></p><div>
+								<div>
 					<p>Although I can understand the logic behind this, I don’t really think it matters much to have 1 tile gaps in between trains when they are stopped. When trains are in motion, then there is a gap in between as well.</p>
 				</div>
-			</div></li><li><p><strong>Sedontane</strong> <small>February 9, 2008 5:55 pm</small></p><div>
-				
-				<div>
+			</div></li><li><p><strong>Sedontane</strong> <small>February 9, 2008 17:55</small></p><div>
+								<div>
 					<p>Personally I would have no problem and the evidence speaks for itself. Odd tile lengths FTW on #openttdcoop</p>
 				</div>
-			</div></li><li><p><strong>Mucht</strong> <small>February 9, 2008 9:23 pm</small></p><div>
-				
-				<div>
+			</div></li><li><p><strong>Mucht</strong> <small>February 9, 2008 21:23</small></p><div>
+								<div>
 					<p>Nice post! Thx for the analysis!</p>
 				</div>
-			</div></li><li><p><strong>XeryusTC</strong> <small>February 11, 2008 7:40 am</small></p><div>
-				
-				<div>
+			</div></li><li><p><strong>XeryusTC</strong> <small>February 11, 2008 07:40</small></p><div>
+								<div>
 					<p>I’ve always prefered to use the odd train lengths. Some people might have noticed that I’ve almost always used TL 3 or 5 on my plans in stead of TL 2/4/6. The reason is the same as yours, there is less space left between signals.<br>
 Something like this seems to come with my signalling perfectionism. If you haven’t noticed what it is yet then you are not around long enough ;).</p>
 				</div>
-			</div></li><li><p><strong>Ammler</strong> <small>February 11, 2008 11:52 am</small></p><div>
-				
-				<div>
+			</div></li><li><p><strong>Ammler</strong> <small>February 11, 2008 11:52</small></p><div>
+								<div>
 					<p>Nice article!<br>
 Hmm, I am not sure, if you really tested it on a full crowded running game. Not sure, if its really better with this small gap.<br>
 I would really like to see a running example, which shows the advantage of small gaps.</p>
 				</div>
-			</div></li><li><p><strong>Adm.Spock</strong> <small>February 11, 2008 9:28 pm</small></p><div>
-				
-				<div>
+			</div></li><li><p><strong>Adm.Spock</strong> <small>February 11, 2008 21:28</small></p><div>
+								<div>
 					<p>Maybe construct a game on a small map with even TL:4 see how much cargo is carried. While constructing leave one tile extra on stations to lengthen to the odd TL:5. Then see how much cargo is carried with TL:5?</p>
 <p>This in my mind would constitute a “real life” test for this thesis.</p>
 				</div>
-			</div></li><li><p><strong>Nobody</strong> <small>February 12, 2008 5:00 pm</small></p><div>
-				
-				<div>
+			</div></li><li><p><strong>Nobody</strong> <small>February 12, 2008 17:00</small></p><div>
+								<div>
 					<p>I’ve made such a test a few days ago, but with three identical setups, built side by side on a same map (one company for each TL). Higher TL always means more cargo transported, whatever the TL, odd or even. Lower TL always means a worst engine(s)/wagons ratio,.. and more tracks, more platforms to avoid queues while moving the same amount of cargo.</p>
 <p>With dual engines, to move 120 wagons we need :<br>
-- 20 trains at TL 4 (80 tiles)<br>
-- 15 trains at TL 5 (75 tiles)<br>
-- 12 trains at TL 6 (72 tiles)<br>
-- 10 trains at TL 7 (70 tiles)</p>
+– 20 trains at TL 4 (80 tiles)<br>
+– 15 trains at TL 5 (75 tiles)<br>
+– 12 trains at TL 6 (72 tiles)<br>
+– 10 trains at TL 7 (70 tiles)</p>
 <p>But then, to scramble the maths, depending on the train set, we can have single/dual engines at lower TL. And still, using odd or even TL, there is a 2 tiles gap between trains when they are queuing…</p>
 				</div>
-			</div></li><li><p><strong>Ammler</strong> <small>February 13, 2008 1:49 pm</small></p><div>
-				
-				<div>
+			</div></li><li><p><strong>Ammler</strong> <small>February 13, 2008 13:49</small></p><div>
+								<div>
 					<p>of course, those odd lengths has advantage when queuing, but we don’t like waiting trains, we like to reach high cap networks with RUNNING trains.</p>
 				</div>
-			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://www.openttdcoop.org/blog/2008/02/07/even-or-odd-about-tilelengths/">http://www.openttdcoop.org/blog/2008/02/07/even-or-odd-about-tilelengths/</a>. Captured 04 March 2008 (<a href="https://web.archive.org/web/20080304040616/http://www.openttdcoop.org/blog/2008/02/07/even-or-odd-about-tilelengths/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>
+			</div></li><li><p><strong>Even or odd: the perfect join at #openttdcoop</strong> <small>January 2, 2009 20:12</small></p><div>
+								<div>
+					<p>[…] in februari, Tim blogged about the differences between even and odd train lengths. This post posed it was better to use odd train length because they use less space when […]</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2008/02/07/even-or-odd-about-tilelengths/">https://blog.openttdcoop.org/2008/02/07/even-or-odd-about-tilelengths/</a>. Captured 03 October 2023 (<a href="https://web.archive.org/web/20231003005637/https://blog.openttdcoop.org/2008/02/07/even-or-odd-about-tilelengths/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

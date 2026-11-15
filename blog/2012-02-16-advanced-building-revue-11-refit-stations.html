@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Advanced Building Revue 11: Refit Stations - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Advanced Building Revue 11: Refit Stations</h1><p class="postmeta">16 February 2012, by V453000</p><div class="mw-body">
+					<p>Refit stations are a pretty special and separate topic which we use in the refit games. For all the past time we have of course made some development in those and they include a few features to keep in mind. This article will be similar to the overflow articles – it is meant to summarize the progress and show what refit stations are in a nutshell.</p>
+<p><a href="images/ad2c94c3_ABR11_intro.png"><img src="images/ad2c94c3_ABR11_intro.png" alt="Refit Stations" loading="lazy"></a></p>
+<p><span></span></p>
+<h1>Introduction</h1>
+<p>Refit stations are an interesting topic that has faced some development every time we used them. Due to that I will chronologically start from the simpliest, and introduce new features and layouts as time passed by so it truly shows you the exact process how it was.</p>
+<h5>Public Server Game 141: The origins</h5>
+<p>If I remember correctly, the first refit game was psg 141 where we had a very simple station which had only one purpose – just do the job. Drop, refit, pickup, done.<br>
+<a href="images/cfc9e137_abr11_psg141.png"><img src="images/cfc9e137_abr11_psg141.png" alt="Refit Stations" loading="lazy"></a></p>
+<h5>Public Server Game 179: The rediscovery</h5>
+<p>A long time after that came the psg 179 when refit games were re-discovered. In psg179 we built two refit stations and one station with depots after the station to refit back to primary cargoes.</p>
+<p><b>Food Processing Plant</b><br>
+<a href="images/82049516_abr11_psg179_fpp.png"><img src="images/82049516_abr11_psg179_fpp.png" alt="Refit Stations" loading="lazy"></a><br>
+This station is pretty much the same as the old design from 141 so not much new there.</p>
+<p><b>Printing Works</b><br>
+<a href="images/4258563c_abr11_psg179_print.png"><img src="images/4258563c_abr11_psg179_print.png" alt="Refit Stations" loading="lazy"></a><br>
+As we discovered, the old design sometimes stacked trains in few depots in case of any problem or jam at the exit. Or even without jams trains just prefered some platforms over the other – as they of course did not see the state of the depots behind them. Therefore the entrance of the station was made using flipflops to spread the traffic evenly in any situation as 1-&gt;6.</p>
+<h5>Public Server Game 186: First big game</h5>
+<p>As in this game were also eliminated some problems with nework layout and some issues that refit causes were solved, the refit stations gained a new feature as well. In the past, trains just tried to load cargo at the pickup and then leave the station – either go drop the cargo, or refit back to their original cargo. However this often lead to losing the picked up cargo as trains just refit back to primary cargo while being for example 10% loaded.<br>
+So the cargo return feature was introduced. In case trains loaded less than required amount, they first transfered the cargo back to the pickup station not to waste it, and refit back to primary cargo afterwards. However it needed to make another set of platforms or even a separate station as it was done at the refinery/printing works. While wood drop was more flexible design with space behind it so it was just fine to fit the extra set of platforms behind the station.<br>
+<a href="images/dde482a1_abr11_psg186_oil.png"><img src="images/dde482a1_abr11_psg186_oil.png" alt="Refit Stations" loading="lazy"></a><br>
+<a href="images/e970c1c9_abr11_psg186_wood.png"><img src="images/e970c1c9_abr11_psg186_wood.png" alt="Refit Stations" loading="lazy"></a></p>
+<h5>Public Server Game 197</h5>
+<p>The way how refit stations was kept in this game as everything was pretty much the same. However we found out that we could abuse the near end/middle/far end orders to make trains visit the station twice with a conditional order between those stops. Therefore the TL+1 station was introduced. The pickup part is just made a tile longer so trains first come to the near end and try to load. Then they decide whether they loaded enough or not. If not, then they go to the middle or far end and transfer the cargo back. And of course if it loads enough then it just leaves the station as it originally did.<br>
+<a href="images/386bbc17_abr11_psg197_extra.png"><img src="images/386bbc17_abr11_psg197_extra.png" alt="Refit Stations" loading="lazy"></a></p>
+<h5>Public Server Game 200</h5>
+<p>This game did not really bring anything new for refit stations but just some attempts to try a different station layout, using all platforms for all purposes.<br>
+<a href="images/136b5833_abr11_psg200_goodsyard.png"><img src="images/136b5833_abr11_psg200_goodsyard.png" alt="Refit Stations" loading="lazy"></a></p>
+<h5>Public Server Game 205</h5>
+<p>Another gigantic refit game after 186. As the game got bigger and bigger, some stations started to have problems with stacking trains in depots when under stress.<br>
+<a href="images/3315b437_abr11_psg205_water.png"><img src="images/3315b437_abr11_psg205_water.png" alt="Refit Stations" loading="lazy"></a><br>
+However this time we did not solve it by adding any flipflop logic to the station entrance but we fixed the depots themselves. The first stack-proof depots were introduced in one of the stations, which made absolutely sure that trains cannot stack up in the depots as the depot trains have prio over new trains coming to the station.<br>
+<a href="images/385ea36f_abr11_psg205_drop3.png"><img src="images/385ea36f_abr11_psg205_drop3.png" alt="Refit Stations" loading="lazy"></a></p>
+<h5>Public Server Game 213</h5>
+<p>As stack-proof depots were brought to life, the idea was used again. The layout remained unchanged as it is not too modifiable. There was still one thing which was new though. So far the stack-proof depots were used only by giving the depot a prio. This is fairly unflexible as it pretty much defines the layout to be just the one – it is sure possible to do it in an other way but probably not better.<br>
+Then came the question what if ro-ro depots get stacking trains. Not using a prio or anything similar, there were used just series of pre-signals. There is just a seemingly useless combo signal added. Let’s see how it works.<br>
+<a href="images/6670f99d_abr11_psg213_rorodepot.png"><img src="images/6670f99d_abr11_psg213_rorodepot.png" alt="Refit Stations" loading="lazy"></a><br>
+First, a train is waiting in front of the depot while another train is exiting the depot. Thing is there is an another train waiting in the depot so we want it to be able to leave it as well.<br>
+What is going to happen is that when the first train leaves the block<br>
+<a href="images/ecf1b479_abr11_rorodepot_1.png"><img src="images/ecf1b479_abr11_rorodepot_1.png" alt="Refit Stations" loading="lazy"></a><br>
+Both the second train in the depot, and the waiting train in front of the depot are going to be allowed to go at the same time.<br>
+<a href="images/70f5da02_abr11_rorodepot_2.png"><img src="images/70f5da02_abr11_rorodepot_2.png" alt="Refit Stations" loading="lazy"></a><br>
+But the waiting train is going to get stuck at the combo signal, thus pretty much giving priority to the depot train.<br>
+While we also need an exit behind the depot, it makes sure that trains will keep waiting in front of the depot if there is no way out from the depot. This makes sure that the depot will not stack trains and might be enough withou the combo signal in most cases.</p>
+<h5>Public Server Game 214</h5>
+<p>This game did not really feature standard refit stations as it was completely different from the scratch. However it included some new interesting designs that were made bacause of the new requirements that this special network had.</p>
+<p><a href="images/dd8a84e6_abr11_psg214_1.png"><img src="images/dd8a84e6_abr11_psg214_1.png" alt="Refit Stations" loading="lazy"></a><br>
+<a href="images/baf9bc7d_abr11_psg214_2.png"><img src="images/baf9bc7d_abr11_psg214_2.png" alt="Refit Stations" loading="lazy"></a><br>
+<a href="images/39c463b6_abr11_psg214_3.png"><img src="images/39c463b6_abr11_psg214_3.png" alt="Refit Stations" loading="lazy"></a></p>
+<h5>Public Server Game 225</h5>
+<p>The currently last game did not really bring anything new, it only used the stack-proof depots on the ro-ro and showed the old station designs again, this time only in larger scale. It also had both of the stations have their depots invisible as the station is a terminus, which is a bit more safe from lost trains getting looped in the station.</p>
+<p><a href="images/01e5b5f2_abr11_psg225_north.png"><img src="images/01e5b5f2_abr11_psg225_north.png" alt="Refit Stations" loading="lazy"></a><br>
+<a href="images/0514aef7_abr11_psg225_south.png"><img src="images/0514aef7_abr11_psg225_south.png" alt="Refit Stations" loading="lazy"></a></p>
+<h1>Conclusion</h1>
+<p>Refit stations have quite a history in our games and the possibilities how to build them have changed quite a lot. I am not quite sure whether it is valid to say that new designs were found instead of just saying that old ones have changed or been improved. This is simply because the newer design we have, the better it does or even introduces a new feature that solves some past issues. Therefore at this moment there are pretty much two ways how to build a refit station truly properly according to all the newest features or requirements.<br>
+However it is important to keep in mind that for example the prioritized stack-proof depot design is just a replacement for the area in front of platforms, but it can be built in any shape or form just like normal station. It can be a balanced terminus or a diagonal station as we have seen already. Either way, let’s try to find some more!</p>
+				</div><p class="pagecats">Categories: Community News, Gameplay</p><h2>Comments</h2><ol class="comments"><li><p><strong>Chris Booth</strong> <small>February 16, 2012 15:00</small></p><div>
+								<div>
+					<p>Great read! I never noticed how much these things have changed. I love refit station if only more train set permitted this as well as UKRS and NARS</p>
+				</div>
+			</div></li><li><p><strong>LoPo</strong> <small>February 16, 2012 17:43</small></p><div>
+								<div>
+					<p>Nice and structured overview V! Refit stations are indeed something special like Chris Booth sad 🙂</p>
+				</div>
+			</div></li><li><p><strong>tneo</strong> <small>February 21, 2012 10:18</small></p><div>
+								<div>
+					<p>Nice article, however your memory didn’t serve you right. The first refit game, was one in which I made the plan. This was the first time refit was available in OTTD, that was game 95. The concept as we have now is derived from that game, in which a dedicated area was used to refit a train instead. 🙂</p>
+<p>Link to game: http://wiki.openttdcoop.org/PublicServer:Archive_-_Games_91_-_100#gameid_95</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2012/02/16/advanced-building-revue-11-refit-stations/">https://blog.openttdcoop.org/2012/02/16/advanced-building-revue-11-refit-stations/</a>. Captured 20 January 2022 (<a href="https://web.archive.org/web/20220120043648/https://blog.openttdcoop.org/2012/02/16/advanced-building-revue-11-refit-stations/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

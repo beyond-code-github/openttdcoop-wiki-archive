@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Timelapse Patch on a PSG - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Timelapse Patch on a PSG</h1><p class="postmeta">4 November 2008, by Progman</p><div class="mw-body">
+					<p>In the public server game <a href="../PublicServer_Archive_-_Games_111_-_120.html#gameid_117">PSG #117 (r14508)</a> I tested the <a href="http://www.tt-forums.net/viewtopic.php?f=33&amp;t=40114">timelapse patch by Roujin</a>. It allows you to create screenshots automatically at a given interval. The screenshots can be converted to a movie with a program like mencoder.<br>
+<span></span><br>
+I used a 8x zoom for the global view and 4x zoom for the local views to get small images for a 12×512 map. Additionally I use a 60 day timer for the global view and a 30 day timer for the local views. However these values are not well balanced and depends on the number of clients on the server. In the beginning the server was almost inactive, so the timelapse patch creates a lot of images which are the same. Only small changes has been done. But then the activity is increasing and you see the full potentional of the timelapse patch. BBHs get rebuild, station entries/exits improved and priorities added. You can check all timelapse videos at <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/videos/timelapse/">/videos/timelapse/</a>.</p>
+<p>After testing it I can say its a good idea to show everyone how someone (like us) is building a network. But you need 1) an active game and 2) some space on your hard drive…</p>
+<pre>
+[19:35] progman@proglap ~/.openttd $ du -ch
+5.4M    ./data
+16M     ./save/autosave
+16M     ./save
+1.9G    .
+1.9G    total
+[19:36] progman@proglap ~/.openttd $ dir | grep timelapse# | wc -l
+7259
+[19:36] progman@proglap ~/.openttd $
+</pre>
+<p>Just to get an impression how many screenshots have been created (10 local views + 1 global view).</p>
+				</div><p class="pagecats">Categories: Development, Patches, Public Server, Video</p><h2>Comments</h2><ol class="comments"><li><p><strong>Osai</strong> <small>November 4, 2008 23:28</small></p><div>
+								<div>
+					<p>wow… this is really interesting, which codec did you use? I might convert some videos to show them with our build-in player 🙂</p>
+				</div>
+			</div></li><li><p><strong>Progman</strong> <small>November 5, 2008 12:27</small></p><div>
+								<div>
+					<p>IIRC I used mpeg2video, but can change it to whatever mencoder is supporting (in the man page there are around 20 codecs). I can change it do an other codec if you name me the value for mencoder (its the “vcodec=” setting)</p>
+				</div>
+			</div></li><li><p><strong>Thraxian</strong> <small>November 5, 2008 14:29</small></p><div>
+								<div>
+					<p>I am also not able to view these videos, even after downloading and installing an mpeg-2 video codec.  I agree with Osai that the videos should be made compatible with a web viewer, like the one we use on this site or YouTube.</p>
+				</div>
+			</div></li><li><p><strong>Zuu</strong> <small>November 5, 2008 20:17</small></p><div>
+								<div>
+					<p>In my experience mpeg2 videos don’t play in Windows Media Player for some silly reason. VLC play them fine though.</p>
+				</div>
+			</div></li><li><p><strong>XeryusTC</strong> <small>November 5, 2008 20:26</small></p><div>
+								<div>
+					<p>I’m also not able to play the files even though I have both CCCP and K-lite Codec Pack installed. It seems you should stick to a more generic codec.</p>
+				</div>
+			</div></li><li><p><strong>Progman</strong> <small>November 5, 2008 20:38</small></p><div>
+								<div>
+					<p>asv1, asv2, dvvideo, ffv1, ffvhuff, flv, h261, h263, h263p, huffyuv, libtheora, libx264, libxvid, ljpeg, mjpeg, mpeg1video, mpeg2video, mpeg4, msmpeg4, msmpeg4v2, roqvideo, rv10, snow, svq1, wmv1, wmv2</p>
+<p>Tell me which one you want (mencoder) and I use it 😉</p>
+				</div>
+			</div></li><li><p><strong>XeryusTC</strong> <small>November 7, 2008 21:47</small></p><div>
+								<div>
+					<p>Well, something like x264 or mpeg4 should work usually</p>
+				</div>
+			</div></li><li><p><strong>Progman</strong> <small>November 9, 2008 12:17</small></p><div>
+								<div>
+					<p>I have uploaded them as mpeg2 (*.avi), mpeg4 (*.mpeg4.avi) and wmv1 (*.wmv) now. This should be enought (libdivx and x264 isn’t working here :().</p>
+				</div>
+			</div></li><li><p><strong>thomashauk</strong> <small>November 21, 2008 19:00</small></p><div>
+								<div>
+					<p>The trees add a lot of noise, I didn’t realise they changed that much!</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2008/11/04/timelapse-patch-on-a-psg/">https://blog.openttdcoop.org/2008/11/04/timelapse-patch-on-a-psg/</a>. Captured 19 May 2026 (<a href="https://web.archive.org/web/20260519073548/https://blog.openttdcoop.org/2008/11/04/timelapse-patch-on-a-psg/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

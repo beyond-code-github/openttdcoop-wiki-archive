@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>A different SRNW SL concept. - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>A different SRNW SL concept.</h1><p class="postmeta">17 December 2010, by Mazur</p><div class="mw-body">
+					<p>In PSG 199 we revisited the SRNW concept, and a few times I looked for badly serviced stations to see what the problems were.  The thing that most struck me and annoyed me was, that because of the dummy trains holding up incoming empties while to check if the empties can be filled, the loading time of each empty is about doubled:  half of it waiting to enter an empty platform, half of it to load.  So I wanted to get rid of them, but  <a href="https://web.archive.org/web/2/http://blog.openttdcoop.org/wiki/User:V453000">V453000</a> pointed out to me, that without dummies trains would return to the DROPs with small loads, clogging up the network.</p>
+<p>Still, the situation annoyed the hell out of me.  So I thought: Can I design a SL, that lets empties in, and only lets full trains out, without Full loading orders?</p>
+<p><span></span></p>
+<p>And I could.</p>
+<p>First element: How should the orders read?</p>
+<ol>
+<li>If train full goto 3</li>
+<li>If train not full goto order 1</li>
+<li>Unload and leave empty at DROP.</li>
+</ol>
+<p>Second element:  How to keep half filled trains from the ML?</p>
+<p>That’s easy to come up with, but harder to implement.  We need an exit, that is so undesirable, that no train not expressly needing it avoids it, but every train needing it does take it.  Red 2-way doesn’t work of course, because full trains would also avoid it, so I looked at the pathfinder penalties.  First red signal gives a huge penalty, so I could stick with the red 2-way design I build, just make it one way.  This did not discourage half-full trains enough, so I added reversed PBS.  One did the trick, mostly, but 2 worked better, so this is the initial exit design.</p>
+<p><a href="images/c2063327_Martian-Maniacs-UnLTD.-5th-Aug-20763.png"><img src="images/e8c74736_Martian-Maniacs-UnLTD.-5th-Aug-20763-300x232.png" alt="" loading="lazy"></a></p>
+<p>Third element: How to connect the stations?</p>
+<p>That was simple from the start: just make a ring of like primaries per section of the map.  Each empty just makes the round of hte ring until it’s full, and then takes the next exit.  No station bypasses, of course, just connect the exit of one station to the entry of the next.</p>
+<p><a href="images/21311b6a_Martian-Maniacs-UnLTD.-5th-Aug-207612.png"><img src="images/6e10e0f5_Martian-Maniacs-UnLTD.-5th-Aug-207612-300x258.png" alt="" loading="lazy"></a></p>
+<p>Fourth element: How to let in empties?</p>
+<p>That is just the similar to what it is now: connect the empties ML to the ring, allowing for enough trains to wait to keep up with full ones leaving, and force an empty off the ML whenever there is room.</p>
+<p>Fifth element: But will the ring not fill up and block itself?</p>
+<p>It would, except, where the Waiting Area connects to the ring, give the ring a 2 TL plus 2 signals prio, that way an empty can only enter the ring if there is 2 trains free of space, so there is always room for one train to move.  In practice I do not foresee problems.</p>
+<p><a href="images/24b8d8c1_Martian-Maniacs-UnLTD.-5th-Aug-207622.png"><img src="images/1b25c233_Martian-Maniacs-UnLTD.-5th-Aug-207622-300x262.png" alt="" loading="lazy"></a></p>
+<p>I tested the concept in a private<a href="https://web.archive.org/web/2/http://blog.openttdcoop.org/files/blog/Mazur/Martian Maniacs UnLTD., 2nd Aug 2076.sav"> copy of the PSG 199 map.</a></p>
+<p>Mazur</p>
+				</div><p class="pagecats">Categories: Community News</p><h2>Comments</h2><ol class="comments"><li><p><strong>XeryusTC</strong> <small>December 17, 2010 22:38</small></p><div>
+								<div>
+					<p>Just a note (as made on IRC), it might prove better to place the PBS signals after the combo which turns red (in the first screenshot) so it becomes recognised as the first signal instead of the 2nd-10th and actually has a slightly higher penalty when red. It isn’t much of a problem though but it should be kept in mind.</p>
+<p>It is also very nice to see your first blog post 🙂 and it is quite a good one which might change the way we play SNRW 🙂</p>
+				</div>
+			</div></li><li><p><strong>Mazur</strong> <small>December 18, 2010 01:57</small></p><div>
+								<div>
+					<p>Tried that out, seems not to work as good.  Or at all.  But I may have made mistakes, I was not thorough.</p>
+				</div>
+			</div></li><li><p><strong>Mazur</strong> <small>December 18, 2010 02:42</small></p><div>
+								<div>
+					<p>I’ve just had a conversation with glevans2 on the concepts, and he made a suggestion to only let in an empty when a full left the ring, by having exits line and entry line close together, to which I rebutted, we’d need a method to increase or decrease the number of trains, too.  Increase is easy, a depot along the ring, decrease can be achieved by temporarily removing the ring part of the split with an exit.  That way you can set up the whole network without having to flood the network with hundreds of trains and still have every ring of primaries serviced.</p>
+<p>I’m tempted to call this the basis of SNRW2, the next model for SNRW after the current one.  Using a different name woud be useful for distinguishing between the two ways of doing things.</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>December 18, 2010 10:30</small></p><div>
+								<div>
+					<p>Sbahn style 🙂 interesting, not sure how will it work, but good work at least 🙂</p>
+<p>I think the usage will need to bend the network a little bit, but at the same time, it works like a normal SRO loop. With the difference that we might be able to use it for the whole network, which might get interesting. 🙂</p>
+<p>Note: it would be like SRNW8, not 2 😛 I would not make any new names since basically all of such concepts could be applied to the “main SRNW” and be used all together, which doesnt really define a new srnw :p (which is also the reason why we did not make any new names until now I think 🙂 )</p>
+				</div>
+			</div></li><li><p><strong>Mazur</strong> <small>December 18, 2010 23:31</small></p><div>
+								<div>
+					<p>I only suggested the 2 to allow for network plans in new games easy distinguishing which variant they want to work with. 😉</p>
+				</div>
+			</div></li><li><p><strong>Mazur</strong> <small>January 9, 2011 22:34</small></p><div>
+								<div>
+					<p>Responding to comments made outside of here: It’s quite normal to make for instance, 3 exits and 3 entries on a larger ring, just combine/divide them before the ML.  I’d use them in “pairs”, to allow for glevans’ idea to let one in as another exits.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://blog.openttdcoop.org/2010/12/17/a-different-srnw-sl-concept/">http://blog.openttdcoop.org/2010/12/17/a-different-srnw-sl-concept/</a>. Captured 18 March 2021 (<a href="https://web.archive.org/web/20210318194521/http://blog.openttdcoop.org/2010/12/17/a-different-srnw-sl-concept/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

@@ -1,0 +1,40 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Merge with trunk of NoAI branch - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Merge with trunk of NoAI branch</h1><p class="postmeta">14 January 2009, by planetmaker</p><div class="mw-body">
+					<p>Fellow coopers,</p>
+<p>great news, another big step forward in OpenTTD development: the new framework for computer players has been merged from the NoAI branch into trunk. So, from now on, there’s no need anymore to complain about those stupid AI which <a href="http://www.openttd.org">OpenTTD</a> had up until now – everyone may <a href="http://noai.openttd.org/docs/">programme his or her own AI</a> with as much intelligence as desired. Like many people did as documented in the <a href="http://www.tt-forums.net/viewforum.php?f=65">NoAI subforums</a>. Check out the threads there for different AIs.<br>
+<img src="images/24247058_coopAI_company_value.png" alt="" loading="lazy"><br>
+<strong>Company chart from our first coop game against a few AIs</strong><span></span><br>
+I got curious when the number and frequency of commits started to increase significantly that afternoon, starting with r15000:</p>
+<blockquote><p>[11:48] &lt;cia -1&gt; OpenTTD: truebrain * r15000 /branches/noai/src/ (ai/ai.hpp saveload/ai_sl.cpp): [NoAI] -Fix (r14984): forgot to rename @file too</p>
+<p>[14:51] &lt;cia -1&gt; OpenTTD: truebrain * r15001 /branches/noai/src/ai/ai_core.cpp: [NoAI] -Fix: make NoAI network safe again</p></blockquote>
+<p>hmm… making it network safe again? Let’s see…<br>
+a number of other commits followed, also and especially in th NoAI branch. Then then finally what seemed to become more and more inevitable:</p>
+<blockquote><p>[18:12]	&lt;cia -1&gt;	OpenTTD: truebrain * r15027 /trunk/ (311 files in 30 dirs): (log message trimmed)<br>
+[18:12] &lt;cia -1&gt; OpenTTD: -Merge: tomatos and bananas left to be, here is NoAI for all to see.<br>
+[18:12] &lt;cia -1&gt; OpenTTD: NoAI is an API (a framework) to build your own AIs in. See:<br>
+[18:12] &lt;cia -1&gt; OpenTTD: http://wiki.openttd.org/wiki/index.php/AI:Main_Page<br>
+[18:12] &lt;cia -1&gt; OpenTTD: With many thanks to:<br>
+[18:12] &lt;cia -1&gt; OpenTTD: – glx and Rubidium for their syncing, feedback and hard work<br>
+[18:12] &lt;cia -1&gt; OpenTTD: – Yexo for his feedback, patches, and AIs which tested the system very deep<br>
+[18:12] &lt;cia -1&gt; OpenTTD: – Morloth for his feedback and patches<br>
+[18:12] &lt;cia -1&gt; OpenTTD: – TJIP for hosting a challenge which kept NoAI on track<br>
+[18:12] &lt;cia -1&gt; OpenTTD: – All AI authors for testing our AI API, and all other people who helped in one way or another<br>
+[18:12] &lt;cia -1&gt; OpenTTD: -Remove: all old AIs and their cheats/hacks </p></blockquote>
+<p>I can only support this: many thanks to all who made this big step in the history of OpenTTD possible. Great job, guys!</p>
+<p>So now let’s look forward to maybe an occasional <a href="../Coopetition.html">coopetition</a> game of us coopers against the best of AIs – it will definitely require a slightly different approach than in our usual games w/o any competition 🙂 as we <a href="2008-07-20-openttdcoop-vs-ai.html">tried out some time ago</a> in a match against <a href="http://www.tt-forums.net/viewtopic.php?f=65&amp;t=38057">AdmiralAI</a>.</p>
+<p>PS: Maybe there’re some further nice fruit in the basket in the not so distant future:</p>
+<blockquote><p>[13:09]	&lt;TrueBrain&gt;	and ‘extra’ package, which contains AIs, grfs, …<br>
+[13:10]	&lt;TrueBrain&gt;	of course the ‘game’ package should contain the tram grf, and at least a few AIs (which should be in SVN too)</p></blockquote>
+				</div><p class="pagecats">Categories: Community News, Coopetition, Development, Member Zone, OpenTTD, Wiki</p><h2>Comments</h2><ol class="comments"><li><p><strong>andyp</strong> <small>January 15, 2009 04:22</small></p><div>
+								<div>
+					<p>Looking forward to playing against an AI.  The game just keeps getting better.</p>
+				</div>
+			</div></li><li><p><strong>Txus</strong> <small>January 15, 2009 11:36</small></p><div>
+								<div>
+					<p>Nice.</p>
+<p>I’m thinking about an AI competition, write your AI and let it fight with other’s to see which one prevails.</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>January 19, 2009 14:20</small></p><div>
+								<div>
+					<p>Txus, you may want to look at this thread in the tt-forums: http://www.tt-forums.net/viewtopic.php?f=29&amp;t=36059&amp;p=731160#p731160 and http://www.tt-forums.net/viewtopic.php?f=65&amp;t=37945 and the wiki (obviously WIP) at http://noai.openttd.org/en/tournament</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2009/01/14/merge-with-trunk-of-noai-branch/">https://blog.openttdcoop.org/2009/01/14/merge-with-trunk-of-noai-branch/</a>. Captured 18 March 2021 (<a href="https://web.archive.org/web/20210318065331/https://blog.openttdcoop.org/2009/01/14/merge-with-trunk-of-noai-branch/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

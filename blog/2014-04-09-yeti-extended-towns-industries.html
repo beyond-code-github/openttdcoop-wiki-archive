@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>YETI Extended Towns &amp; Industries - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>YETI Extended Towns &amp; Industries</h1><p class="postmeta">9 April 2014, by V453000</p><div class="mw-body">
+					<p>Hello!</p>
+<p>Just like about 3 years ago when I announced first concepts of NUTS, this time I am glad to announce that I started to sketch schemes and industries for YETI.<br>
+This article is for one like my notepad so I remember the core idea, and to let you know and/or give feedback what you think about the concepts.<br>
+To demonstrate my ideas I have created some scheme images below.</p>
+<p><a href="images/1ac4f2e8_YETIscheme02-01.png"><img src="images/1ac4f2e8_YETIscheme02-01.png" alt="YETI_toyland" loading="lazy"></a></p>
+<p><a href="images/a39dbe7f_YETIscheme02-02.png"><img src="images/a39dbe7f_YETIscheme02-02.png" alt="YETI_sane" loading="lazy"></a></p>
+<p><span></span></p>
+<h3>Introduction</h3>
+<h3></h3>
+<p>Years ago, NUTS started being developed because other train newGRFs had so many limitations, the only hope I saw was in creating a new train set which would attempt to fix those gameplay hurting parts, and extending it all with my own experience.<br>
+YETI situation is similar, yet different. Similar because currently the industry newGRFs each have a lot of downsides.</p>
+<p>With original industries most people generally get bored after some time and start searching for something new. And so they find ECS, Pikka Basic Industries, OpenGFX+ Industries and FIRS.</p>
+<p>But since ECS is completely unusable due to its limiting features and strange production mechanics, that is one down.<br>
+Another one out of the game is Pikka Basic Industries as they not only have strange limitations like steel mill requiring precise amount of coal and iron ore to work, but most importantly industries just die when they empty out.<br>
+From remaining options, OpenGFX+ is great, but it is “just” the original mechanism – transport and it grows, nothing more, nothing less. While this should not be underestimated – it is still a ton of fun as the concept has been confirmed to work by numerous players of OpenTTD for years, for industry newGRF people generally search also for some new mechanism how it works.<br>
+Last but not least, FIRS has minimum of limiting inconvenient features while adding a whole new mechanism of supplying industries, and adds a TON of new cargoes/industries – you can even choose them to some extent by economies. In general FIRS is great (at least in the beginning), but…<br>
+The problem of FIRS is that cargoes which are able to produce supplies become a “better tier” automatically as you do not have any reason to use the other cargoes, not to mention the insane amount of effort you have to put into connecting e.g. the clustered farms – for which you do not get any reward.<br>
+In the end you return to OpenGFX+ or Original industries as they simply work, which is unfortunate.<br>
+YETI is trying to create a simple yet interesting system which would be fun to play, without overwhelming complexity but allowing for different approaches and ways to play it.</p>
+<h3>Main YETI system</h3>
+<p>Now of course you are probably asking how do I want to achieve this. Learning from the downsides and upsides of other sets, I would say that some kind of mechanism like supplies is very nice as it suggests the network to connect everything together so supplies can be distributed. So I added supplies (Toys/Machinery) which improve the primary industries in some way.</p>
+<p>To avoid confusion FIRS creates, every primary has to be useful and contribute to the supplying mechanism somehow. And not to self-reproduce, there are two different kinds of supplies – Workers which improve industry production, and Toys/Machinery which make the production fluctuate (decrease) less.</p>
+<p>Workers also create a new link to towns and their size so they also play a role. With that come into play two chains which boost town size, and amount of workers per citizen.</p>
+<p>What all that means: You can service one industry chain and survive, but the system motivates to connect all chains together – not necessarily in a perfect balance as they all contribute to the whole system somehow. You do not get punished for lacking something, you only get rewarded for caring for your industries better.</p>
+<h3>Other YETI details</h3>
+<p>In order to motivate to connect more towns, I intend to make the worker amounts grow in a linear fashion up to e.g. 500 food and 500 building materials delivered per month. But if you deliver more than that amount, your delivery starts being less effective. This means growing a gigantic town is an option, but it would probably make more sense to give care to multiple towns instead.<br>
+At the same time though, when redistributing things you probably “lose” some amount of cargo by not 100% precise distribution, so the multiple town strategy would be viable but not too overpowered.</p>
+<p>The biggest problem of original industry mechanism generally is that their production stays sane until later years, but then it explodes to astronomic values like 2295 cargo units per month. I think this value is way too high under no other conditions.<br>
+Such condition being for example that you have to dump enormous amount of workers/machinery into the industry in order to produce that amount – which generally means you focus on that industry and you do not have many other industries, so the 2295 does not hurt as much.<br>
+Obviously similar mechanism like with towns would have to apply – after some amount of workers/machinery, the supplying would be less efficient so it would make good sense to give your industries enough to produce e.g. 500 cargo units monthly.</p>
+<p>Another important detail FIRS does is clustering, which generally means the company has to use whole map in order to get all kinds of cargoes. I am definitely not going follow that path and make industries just spawn randomly over the whole map instead, so multiplayer games, where each company gets its own piece of land, are unharmed.</p>
+<h3>What will it look like?</h3>
+<p>Pixel graphics are great, nice, amazing, and keep the TTD look – the downside is that they are also extremely time consuming – especially as industries are a ton of pixels, and I need to learn more 3D things for my job.<br>
+So, ultimate solution arose – I am going to model and render all of YETI so you can look forward to extra zoom sprites.<br>
+General graphical style is going to be similarly wtf to NUTS – weird things and hidden jokes, but the colour scheme being sane (not like toyland).<br>
+What all can come, only the Yetis know.<br>
+Obviously NUTS is going to be fully compatible – NUTS will get new cargo sprites for that, in case some are missing.</p>
+<h3>WHEN?!11!1!!!1!</h3>
+<p>14.7.2014 🙂</p>
+<h3>Conclusion</h3>
+<p>I just wanted to let you know that I am working on something new, and if you have some constructive ideas, I am interested to hear them. In case you wanted to help, I will certainly need somebody to code the thing as I want to 100% focus on graphics this time.<br>
+Thank you for reading and your upcoming ideas.<br>
+I am not going to be active on the IRC as I used to be, so please if you have something to say do so here in the comments below.</p>
+<p>P.S. YETI is not just a name!<br>
+V453000 the Yeti</p>
+				</div><p class="pagecats">Categories: NewGrf</p><h2>Comments</h2><ol class="comments"><li><p><strong>Lorenzo Millo</strong> <small>April 11, 2016 16:06</small></p><div>
+								<div>
+					<p>bella</p>
+				</div>
+			</div></li><li><p><strong>Kota Tuban</strong> <small>May 15, 2016 07:01</small></p><div>
+								<div>
+					<p>I have played both ECS and FIRS so many times (couldn’t remember how many I played them). They were great set to improve OpenTTD. However, I do believe it would be nice to try another set.</p>
+<p>I didn’t quite understand the concept of YETI but I think it is nice to have different ‘ideas’ rather than following ‘already available concept’.</p>
+<p>What I really like about YETI is the ‘YETI Worker’. It is somewhat just like as ’employee’ and it would increase or decrease depend on the town. Old and recent version of YETI are quite different. I remember having so many YETI worker in the past but it is now not being increased despite the town has been growing huge. Maybe there is something I miss. Perhaps new version already solve the problem.</p>
+<p>I do apology for my language. I know my english is terrible. 😀</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>June 6, 2016 05:55</small></p><div>
+								<div>
+					<p>Hi, check the parameters, YETI now has various different modes, each of them working a lot differently – the changes are just in 4X Worker Yard accepting different cargoes, but it has large effect on how your network looks and how you play. 🙂 Tweaks are certainly happening but probably not to the degree you expect.</p>
+<p>I think the default is passengers yeti, which means you need to deliver passengers to the worker yard instead of just having the town big. This means you need to care about the town more, and efficiency of your city network matters, so you get as many passengers as you can.</p>
+<p>The concept of YETI is relatively simple – have an industry set which motivates you to connect all of the various types of industries, AND make caring over your towns matter.</p>
+<p>In general, ECS or FIRS both have some useful and useless chains, and neither of them motivates you to connect everything. Which is weird because the very idea of adding an industry set to me should be to have more industries, then you should also utilize them instead of just leaving half of them unused.</p>
+<p>Up to version 0.1.0, YETI has succeeded only to make industries which motivate connecting everything, with versions 0.1.1. and higher, we also have the town relation part. You can disable it and use other modes, but it’s there. 🙂 Of course tired yetis are also interesting, and super simplified YETI is basically something completely different – an industry set which requires you to use multiple food plants in order to have a high production and a big network. Which is also quite unique.</p>
+<p>Hope this explains it. 🙂</p>
+<p>V</p>
+				</div>
+			</div></li><li><p><strong>Krzysztof</strong> <small>October 21, 2016 21:20</small></p><div>
+								<div>
+					<p>Unlike in standard industry, FIRS and ECS, there is no “final goal” which I mean is delivering goods to towns. I think it is missing. Beside that YETI is OK.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2014/04/09/yeti-extended-towns-industries/">https://blog.openttdcoop.org/2014/04/09/yeti-extended-towns-industries/</a>. Captured 20 April 2026 (<a href="https://web.archive.org/web/20260420165935/https://blog.openttdcoop.org/2014/04/09/yeti-extended-towns-industries/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

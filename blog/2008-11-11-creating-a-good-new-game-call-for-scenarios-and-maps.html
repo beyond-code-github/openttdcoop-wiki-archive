@@ -1,0 +1,94 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Creating a good new game – Call for scenarios and maps - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Creating a good new game – Call for scenarios and maps</h1><p class="postmeta">11 November 2008, by planetmaker</p><div class="mw-body">
+					<p>As we currently have started a <a href="2008-11-10-new-public-server-game-started-118.html">new game</a>, prior to that – as usual – the discussion about what kind of map should be chosen, which newgrf we should use and which – if at all – boundary conditions should be used. This may drag a bit – to the dismay of a few persons, wishes may even be mutually exclusive – or result in less than optimally configured games.</p>
+<div><span class="missing-img">[Introduction screen of OpenTTD]</span><p>Start screen and main menu of OpenTTD</p></div>
+<p>Therefor I’d like to encourage all people to consider setting up a nice new game and providing a savegame from which a new <a href="https://web.archive.org/web/2/http://ps.openttdcoop.org">public server</a> game (or possibly also <a href="https://web.archive.org/web/2/http://mz.openttdcoop.org">pro zone</a> game) might start.<br>
+<span></span><br>
+Before you actually start creating a map, you have to choose from the main OpenTTD screen the newgrfs you want the new game to use. Subsequent modification may work, but it may also introduce all kinds of bugs which can render a game unplayable. General rule: per grf type choose only ONE single grf. When choosing grfs, mind that some grfs require a certain climate – especially important for industry and train set grfs.</p>
+<ul>
+<li>first grf is always the <a href="../GRF.html">#openttdcoop grfpack </a>version grf</li>
+<li>then add grfs which modify landscape like trees, OpenGFX,…</li>
+<li>then add station grfs*</li>
+<li>add grfs which modify the infrastructure like depots, tracks, roads, bridges, foundations, town replacements</li>
+<li>add grfs for ships*</li>
+<li>add grfs for planes*</li>
+<li>add grfs for road vehicles*</li>
+<li>add <strong>ONE</strong> grf for a train set</li>
+</ul>
+<p>Entries marked with * are entries where more than one grf may be chosen. In all other cases stick with one grf.</p>
+<p>The GRFs that are currently supported by our server can be found <a href="../GRF.html">here</a>. You should have them already, if you play on our server regularily.</p>
+<p>Now, check the grf list in a game whether there are any incompatibilities or requirements like one grf comes before another – fix those. At this stage you also might want to set grf parameters for some grf. Most road, town and vehicle sets take grf parameter to modify their behaviour. Have a look at the supplied readme files for details. E.g. the <a href="http://users.tt-forums.net/2cc/index.html">2cc train set</a> allows to <a href="http://users.tt-forums.net/2cc/readme.html">control</a> the pricing and running costs as well as the choice of available trains via grf parameters.</p>
+<p><img src="images/ebbd6aa9_newgrf_apply.png" alt="NewGRF - apply changes" loading="lazy"></p>
+<p>Use the grf presets to save your selection of grfs for future reference – it’s a nice selection which you may want to refer to later :). Don’t forget to apply the changes you made.</p>
+<p>Now, that you have chosen the grfs, make sure you use appropriate config or <a href="http://wiki.openttd.org/wiki/index.php/Patches">advanced settings</a>. Many can be changed on the fly during the running game, but some cannot, they’re marked with a preceeding *. Options which are highly reccommended are set in <strong>bold</strong> text.<br>
+Here are the settings which work for me:<br>
+<img src="images/2de0c2a0_construction.png" alt="Advanced settings - construction tab" loading="lazy"><br>
+You want to allow building on slopes and also all kind of bridges. Don’t reduce the distance where refineries can be built too much, keep it at 32<br>
+<img src="images/f404860a_vehicles.png" alt="advanced settings - vehicles tab" loading="lazy"><br>
+Here are some really important settings:</p>
+<ul>
+<li><a href="http://wiki.openttd.org/wiki/index.php/Realistic_acceleration">Enable realistic acceleration for trains = ON</a>: or slopes will really slow down trains</li>
+<li><strong>*Forbid trains and ships to make 90 deg turns = ON</strong>: everything else is plain ugly and some track layouts won’t work anymore</li>
+<li>Pathfinders: Use the recommended ones</li>
+<li><a href="http://wiki.openttd.org/wiki/index.php/Never_expire_vehicles">never expire vehicles</a> = ON: why not allow building of all vehicles?</li>
+<li>Disable servicing when breakdowns set to none = ON</li>
+<li>*<a href="http://wiki.openttd.org/wiki/index.php/Wagon_speed_limits">Enable wagon speed limits = OFF</a>: we usually prefer faster trains</li>
+<li>Plane speed factor = 1/1: if we use planes as money maker we need fast planes.</li>
+<li>Enable timetabling for vehicles = ON: sure we want to use this feature sometimes</li>
+<li><strong>*Enable multiple NewGRF engine sets: ON</strong> It will allow different vehicle sets to co-exist.</li>
+</ul>
+<p><img src="images/ae9277f3_stations.png" alt="advanced settings - stations tab" loading="lazy"><br>
+Also here all settings should be exactly as shown. Especially mind the station spread and that the towns allow us to build on their ground our road stops.<br>
+<img src="images/f3bd0818_economy.png" alt="advanced settings - economy tab" loading="lazy"></p>
+<ul>
+<li><a href="http://wiki.openttd.org/wiki/index.php/Disable_inflation">Inflation</a> = OFF: we don’t want to have sky-rocketing prices after 300 years of gameplay. Inflation wasn’t designed for such long play.</li>
+<li><a href="http://wiki.openttd.org/wiki/index.php/Build_raw_material_industries">Manual primary industry construction method</a>: anything but off</li>
+<li><a href="http://wiki.openttd.org/wiki/index.php/Multiple_industries_per_town">Allow multiple similar industries per town</a> = ON: we want to transport more 🙂</li>
+<li>Town growth speed = 1 (Slow): here you want initially stop towns growing much (if at all) before we get to build anything. Off (Town growth speed = 0) is also fine. It can be changed later ingame</li>
+</ul>
+<p><img src="images/7b77d7ae_competitors.png" alt="advanded settings - AI tab" loading="lazy"><br>
+Disable the stupid AI.</p>
+<p>All settings of a not-so-recent public server game can be found in <a href="../Main_Page.html">our wiki</a> on <a href="../PublicServerSettings.html">this page</a></p>
+<p>And next to these advanced settings, you need to define the difficulty settings:<br>
+<img src="images/40cd4724_difficulty.png" alt="difficulty settings" loading="lazy"></p>
+<ul>
+<li><strong>*Maximum no. competitors = 0</strong>: no stupid AI</li>
+<li>No of industries = high: they will start dying anyway before we built anything substantial.</li>
+<li>Maximum initial loan = 500,000: we need some decent start. Many people building need more money than one person.</li>
+<li>Initial interest rate = 2%: keep it as low as possible</li>
+<li>Vehicle running costs = Low: yeah, we build networks on the public server.</li>
+<li><strong>Disasters = OFF</strong></li>
+<li>City council’s attitude towards area restructuring = Permissive: they already bitch around enough as it is.</li>
+</ul>
+<p>Again, save those settings and then, finally, we can go to actually creating the game:<br>
+<img src="images/69a94da4_generate_map.png" alt="create map dialogue" loading="lazy"><br>
+There are a few things to consider when choosing a map:</p>
+<ul>
+<li>map size: a map should not be smaller than 256 tiles squared and should <strong>not</strong> have <strong>more than 1 million tiles</strong> at most.</li>
+<li>climate: anything but toyland is acceptable</li>
+<li>number of towns: rather low, even for PAX games. They clutter the map and hinder building</li>
+<li>number of industries: except for PAX only maps you want it high. They’ll mostly start closing down already during the time plans are built and voted for</li>
+<li>other terrain options are completely up to your liking. Mountanous and smooth will not result in a very hilly countryside, though. Rather make the map not too smooth, if you want some contrast.</li>
+<li>Our usual starting date is 1st January 1950. But this may be varied, e.g. if with the <a href="http://users.tt-forums.net/2cc/">2cc</a> and <a href="http://www.tt-forums.net/viewtopic.php?t=33415">egrvts</a> grfs vehicles become available way before this date.</li>
+</ul>
+<p>You may also certainly look around in the <a href="http://www.tt-forums.net/viewforum.php?f=60">scenario section</a> of the forums or the <a href="http://wiki.openttd.org/index.php/List_of_player-made_scenarios">scenario wiki</a> and shop around for a good map which might be modified a bit to suit your – and our – needs. Mind also, that we like to play our games without any of the options in the cheat menu activated – with the possible exception that money might be cheated for certain scenario purposes.</p>
+<p>All rules on how to make a good game are, of course, only rules in so far, as they serve well in 98% of the cases. There is always the odd occasion where one well-established game creation rule is rather not suitable. But if you bend those, be really sure that you know what you do 🙂 – they need a sound explanation.</p>
+<p>If you open a map, edit it and save for future usage make sure that you save it in a zoomed-in state. The same view as was last used to view the game while modifying it will be used for any person who subsequently joins it on our server. A zoomed out state is not desirable as it will make joining for slower computers way more difficult, if not impossible.</p>
+<p>If you have finished building a scenario, you can upload it to the <a href="../Premade_Scenarios.html">ready-to-start maps</a> collection page with a suitable description (an example entry exists). You can ask a member at the <a href="irc://irc.oftc.net/openttdcoop">#openttdcoop channel</a> on irc to review your map and if it is ok, chances are good that we add it to the server for inclusion in the next game. You can also ask us for some feedback on irc when you are unsure about some of the above points!</p>
+				</div><p class="pagecats">Categories: Community News, Member Zone, ProZone, Public Server, Weekly Review, Wiki</p><h2>Comments</h2><ol class="comments"><li><p><strong>Jurgen</strong> <small>November 17, 2008 09:42</small></p><div>
+								<div>
+					<p>Good step by step guide !!</p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>November 25, 2008 08:22</small></p><div>
+								<div>
+					<p>Indeed, nice guide, I am looking forward to see some scenarios. 🙂</p>
+				</div>
+			</div></li><li><p><strong>Updated game creation guide - calling for maps at #openttdcoop</strong> <small>March 27, 2009 16:14</small></p><div>
+								<div>
+					<p>[…] november of last year Planetmaker wrote a guide explaining how to make a playable scenario and urging people to submit their creations. Once again, […]</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>June 29, 2009 22:54</small></p><div>
+								<div>
+					<p>Um … I have to strongly disagree with the grf section … to be exact with the word ONE trainset… I created a 1024*1024 map which I consider really big… therefore I choose train speed over power in here… -&gt; … I have currently been playing my random map with two trainsets … the Original Engines and the US trainset… the two sets perfectly fit in each other – US trainset has trains since 1920 and they are pretty fast… on the other hand the Original Engines gave me a bit bigger wagons after 1926 when its first rail engine showed up… in later stages of the game I have got AsiaStars with the US train set wagons. The fun is that I can use the 3-tile TL which is my favourite AND to have quite nice train capacity simultaneously. I know the Original Engines are old, weak, too fast, 2-headed and boring but well … This one was really “invented” just for the one game … anyways it is a really amazing setup and I would recommend it to anyone including the #openttdcoop Public server…</p>
+<p>All in all it is a good guide but I find it really very depending on the desired goals/difficulties/challenges that the player might want to set… good work overall, it is pretty good to have it written!</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2008/11/11/creating-a-good-new-game-call-for-scenarios-and-maps/">https://blog.openttdcoop.org/2008/11/11/creating-a-good-new-game-call-for-scenarios-and-maps/</a>. Captured 11 November 2024 (<a href="https://web.archive.org/web/20241111031429/https://blog.openttdcoop.org/2008/11/11/creating-a-good-new-game-call-for-scenarios-and-maps/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

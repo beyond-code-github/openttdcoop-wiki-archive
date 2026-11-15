@@ -1,0 +1,94 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Next on the list: industries! - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Next on the list: industries!</h1><p class="postmeta">18 May 2012, by V453000</p><div class="mw-body">
+					<p>It has been a while since I have posted and early development article of NUTS and now is the time when I am starting another newGRF project – new industries. It all started as I was trying to find some ways how to improve FIRS, but the required changes would be way too major so it is better off to make a separate newGRF. In this article I am going to present to you the ideas that I have gotten so far, and how is the core of the set going to work and of course I am going to explain why.<br>
+P.S. if you have any nice ideas about the newGRF name, please do not hesitate to throw them at me 😉</p>
+<p><a href="images/676cc806_industries_intro.png"><img src="images/676cc806_industries_intro.png" alt="Industy set" loading="lazy"></a><span></span><br>
+<strong>The scheme</strong><br>
+Here goes the cargo scheme of the set, showing the structure how it should work.</p>
+<h2>Updates:</h2>
+<p><strong>1. turning it into farming mayhem so the chains make a lot more sense now.</strong><br>
+<a href="images/064bc7b6_cargoscheme02.png"><img src="images/064bc7b6_cargoscheme02.png" alt="Industy set" loading="lazy"></a></p>
+<h2>Core idea</h2>
+<p>The main engine powering the whole set is a concept of some triangle of three groups of industries. These being Mining industries, Farming industries and Towns.<br>
+These groups are greatly dependent on one another as for example to make Mining primary industry grow (coal mine for example) , you will need to bring supplies from other group – either Farms or Towns. Exactly the same applies for farming industries, and a Town requires food and goods made by farming/mining industry chains to grow, output more workers and supplies.</p>
+<h3>Supplies</h3>
+<p>The main force which makes you attempt to connect a lot of different industries are the supplies. There are a few kinds of supplies in general – Mining primaries need Equipment, Farming primaries need Farming Tools, and towns need goods/food to grow.<br>
+And then there are workers supplying cargo. When you deliver the appropriate supplies, the production starts to have a chance for increasing. However to make it more interesting, towns can have a major impact on industries, too. That is realized by having a third supplying cargo – workers. Workers are the working force that you transport from a special town industry – Worker Yard, to any other industry on the map. Primary industries increase their production a lot more if they have both workers and appropriate supplies, while secondary industries output their product at a better rate to the delivered raw cargoes.<br>
+I am also considering that you would not only transport workers to the industries, but also from the industries back to their Worker Yard. The industries would „process“ the workers over some short period of time, and then they would be normally „produced“ by the industry again. In the long run, the simpliest method how to deal with that would be to just have trains unload workers and load some that are available for the trip back home. These workers would be 2 separate cargoes – like fresh workers and tired workers.</p>
+<h2>Industry mechanics</h2>
+<p>The general way how industries produce is going to be basically the same as original industries have, and possible production increase is going to be very similarly fast, too.<br>
+When a raw cargo is delivered to a producing industry, it should be processed instantly like the original industries do. However because all industries accept more than one cargo, the product output is going to differe based on how many different kinds of cargoes have you delivered. This is to encourage using as many industry chains as possible.<br>
+Industries will definitely not have anything like stockpiles, or requirements for a certain ratio of delivered raw cargoes to them.</p>
+<h2>Other details</h2>
+<p>There is a whole lot more details to cover and to talk about, but they are mostly a lot less important, and a lot more likely to change in development, so I do not mention too much else at least just yet. I for example am thinking about reducing the maximum production rate to about 1000 units per industry, or some other changes to the way how industries work.</p>
+<h2>Cargo chains</h2>
+<p>The scheme in the header of the article is basically just a systematic sketch how should the industry chains work. However it is very likely that the names/labels of some industries could change. For example it might not make too much sense to have fibre crops -&gt; equipment. The name or actual cargo could change, and that is exactly what I would like to ask if you want to help me with.<br>
+I have following suggestions:<br>
+Plantation -&gt; rubber and fruit (does not quite fit in arctic/temperate I guess)<br>
+Farm -&gt; oil seeds and grain (oil seeds -&gt; equipment is strange and at the same time oil seeds and grain are optically very similar probably)<br>
+I am also seeking for other chains, like mine -&gt; something -&gt; factory, ideally so that it could mix with refinery/oil or something else.<br>
+Basically, the task is to replace cargo names with something that would make some good sense.<br>
+After all, what makes sense and what does not is what you can probably tell on your own. 😛 Please, if you have any ideas to improve some parts of the chains or redo whole chains or even all of the industries (as long as it keeps the systematic structure), please let me know. 🙂<br>
+It is not so simple because I need some industry that makes two products – one going to food plant, one going to equipment plant. At the same time the industry should be farm-type – that means it accepts farm supplies. The reason to have two cargoes produced is to make the industry always useful, and encourage using the other chain direction as well. The mining chain does that split at the final factory instead.<br>
+Generally I was trying to keep within the bounds of using the cargoes that are already defined, but if your suggestion is not from that list, we could add some new cargoes . All this is simply because if I defined an new cargo „rainbow elephants“, it would only work with the train sets which have rainbow elephants. I am going to fill all cargoes which would eventually be missing in NUTS, but if we stay within the defined cargoes, it is more likely to work well with other sets (or at least the sets which are adapted to work with FIRS/ECS. You can find such a <a href="http://newgrf-specs.tt-wiki.net/wiki/CargoTypes#Cargo_Labels">cargo table here</a>.</p>
+<h2>Conclusion</h2>
+<p>It is not so long ago I have been saying I do not intend to make an industry set … and well, here I am. With this industry set I hope to create something different from the rest, but at the same time I am not ashamed to say that I do take a lot of inspiration from the experience based on playing with other industry sets. With a similar point of view as NUTS, I would like to create an industry set where every single industry is usable, and you even have reasons to use it as your network will benefit from it in some way. An industry set which encourages to connect all industry types, including towns.<br>
+I appreciate anyone who would like to help me in any way, in such case please just contact me :P.<br>
+Thank you for reading this article and please add comments if you have any ideas or thoughts about the concept.</p>
+				</div><p class="pagecats">Categories: Community News, Gameplay, NewGrf, Public Server</p><h2>Comments</h2><ol class="comments"><li><p><strong>KrunchyAl</strong> <small>June 2, 2012 14:59</small></p><div>
+								<div>
+					<p>Feed mineral industries with workers and Steel?</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>June 2, 2012 15:34</small></p><div>
+								<div>
+					<p>That is impossible without violating the structure.</p>
+<p>… The _something_ is a problem as it has to be produced by the other chain – farms in this case …</p>
+				</div>
+			</div></li><li><p><strong>Absolutis</strong> <small>June 3, 2012 18:14</small></p><div>
+								<div>
+					<p>What about all 3 industry chains feeding eachother (mining, animal farming, arable farming)? the farm chains could provide meals to the mining industries and the mining industries could provide farming equipment to the farming industries.</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>June 3, 2012 18:24</small></p><div>
+								<div>
+					<p>That idea would fit into the general scope of the newGRF, but:<br>
+1. meals to mines is still a bit strange (to me at least, but since workers go there it would make … some sense)<br>
+2. lately I thought it would be nice if the mineral/farm chains were rather independent. This being mainly to be able to turn one of them off, and play with just the other one, which would provide something like a halved industry newgrf. Currently, ECS and FIRS both have many industries (I think too many) so it would be nice if there was some middle option.<br>
+3. just to note, it would be four chains, not three (2 for minerals, 2 for farms). Current plan on mineral industries is something liked dividing them into two groups, just like farms are. Same scheme, different names basically.<br>
+4. I think requiring two chains to make your industry grow is just enough. Four (or 3 in this case) chains would be way too much I think and would end up being stupidly complex – not only in the start of the game but also throughout the rest.</p>
+				</div>
+			</div></li><li><p><strong>frosch</strong> <small>June 4, 2012 16:58</small></p><div>
+								<div>
+					<p>1. Beer should directly go to towns, so that together with food there are two proper cargos for the growth requirements in the subtropic climate.<br>
+2. Instead meat could go to the factory (so it would take bread, meet and packaging), while food and beer would go to town.<br>
+3. If you want a shorter chain from farm to town, I would try it with milk/cheese-stuff instead of meat-stuff.<br>
+4. There are some industries which produce multiple output cargos. Any plans on the ratio of the output? Does it depend on the input cargo ratio or just fixed?<br>
+5. About the name: “Squirrel” is already taken, so hmm… “beef” seems to be a nicely ambiguous verb/noun which might fit to a farm-heavy industry set.</p>
+				</div>
+			</div></li><li><p><strong>Absolutis</strong> <small>June 4, 2012 17:58</small></p><div>
+								<div>
+					<p>Name could also be:</p>
+<p>MAFIOSO – Mining and Farming industries of Openttd (Sponsored by Openttdcoop)</p>
+				</div>
+			</div></li><li><p><strong>Roysvork</strong> <small>June 15, 2012 14:48</small></p><div>
+								<div>
+					<p>+1… MAFIOSO is an awesome name!</p>
+				</div>
+			</div></li><li><p><strong>Zoltic</strong> <small>October 4, 2012 09:10</small></p><div>
+								<div>
+					<p>Hello,</p>
+<p>I was “working” on FIRS when I saw your message. I agree your conclusion about the complexity of FIRS and think that the first thing to do is to establish some simple and clear rules which can define the type of cargo for each industry.<br>
+OTTD, actually, recognize 4 types of industries : BLACKHOLE, EXTRACTIVE, ORGANIC, PROCESSING<br>
+Each “industry” can accept 3 cargos and produce 2.<br>
+It will be easier to understand (and remember) the rules if they stay close to the real life.</p>
+<p>From this it is possible to write this kind of rules :</p>
+<p>EXTRACTIVE industry NEED “technical supplies” (shovels, pickaxes, wheelbarrows, … ) to grow up.<br>
+ORGANIC industry NEED “organic supplies” (fertilizer, water, food for animals, ….) AND/OR “farm supplies” (tractor, plows, harvesters, …..)  to grow up.<br>
+PROCESSING industries NEED 1 or 2 “raw” cargos to produce something (coal and/or iron ore to produce steel) AND 1 “manufacturing supplies” (ovens, rolling mills, …..) to grow up.<br>
+EXTRACTIVE and ORGANIC industries need more “workers” than PROCCESSING or BLACKHOLE industries.</p>
+<p>EXTRACTIVE industry can produce coal, iron ore, wood which can be processed by “steel mills” but also potassium hydroxide which can be processed by “fertiliser plant” and/or products processed by “chemical industries” (like “oil reffinery”) to make fibres like Nylon, itself processed by “textile mills”<br>
+ORGANIC industries can produce grains, livestock processed by “food industries” but also plant fibres processed by “textile mills” and by-product (like liquid manure or straw) which can be processed by “fertiliser plant”.</p>
+<p>A special mention for “Hotel” or “Places of interest”, they accept “tourists” and produce “passengers”.</p>
+<p>I know, all of this is not absolutly clear nor in this post neither in my mind (yet). But…. if some rules like that are defined, it will be possible to “create” industries and cargos step by step and to be flexible about the “chains”, because PROCESSING industries could accept cargoes coming from various “chains”. I add that I studied also ECS and I must say that the system of “vectors” seems to be a very good idea for me.</p>
+<p>Sorry for my poor english, I’m French and everybody knows that frenchies are poor “foreign speakers”.<br>
+Do not fire at the pianist, even if the music is bad.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2012/05/18/next-on-the-list-industries/">https://blog.openttdcoop.org/2012/05/18/next-on-the-list-industries/</a>. Captured 28 November 2021 (<a href="https://web.archive.org/web/20211128051553/https://blog.openttdcoop.org/2012/05/18/next-on-the-list-industries/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

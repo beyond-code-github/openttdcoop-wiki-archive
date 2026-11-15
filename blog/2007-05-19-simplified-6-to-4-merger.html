@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Simplified 6 to 4 merger - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Simplified 6 to 4 merger</h1><p class="postmeta">19 May 2007, by Phazorx</p><div class="mw-body">
+					<p>Some of most comonly used elements in network are mergers, pretty much any network node such as hub or station require track/lane mixing. Easiest of them all is just a simple cross of as many lanes there are to as many as needed, however since that would be a one single block – only one train can pass it at given time and that would lower thoughput to pretty much same level as a single lane no mater how many output tracks there are:</p>
+<p><img src="images/658d32f1_dumb_6x2.PNG" alt="" loading="lazy"><br>
+Only one train at time can pass through.<br>
+<span></span></p>
+<p>Solution to that is smarter mergers that allow multiple trains to enter/exit it independantly at any time. Also, mergers often used to balance traffic across multiple exiting lanes. So trains following each other would end up on multiple tracks making it easier to hanndle traffic later.<br>
+<img src="images/d52d3317_2x2.PNG" alt="" loading="lazy"> Example above is blocking and unbalanced, below none blocking and balanced.</p>
+<p>Bear in mind – balancing, in general, should be used as often as possible but only as needed. Exiting lines might not have quite identical purposes or simply going to different directions and should not be forced balanced or trains will end up going lost.</p>
+<p>Now more fancy stuff… 2×2 merger is relatively simple and compact… how about 6×4? That is 6 lanes incoming (for example two LLL_RRR or three LL_RR mainlines) and 4 lanes exiting (to be post merged into something even more compact, split into pairs of LL_RR or simply go on as LLLL_RRRR)<br>
+A full blown, proper solution would imply split each of 6 lanes 4 ways and join each of 4 bunches of different 6 lanes into 1… Which would be extrimly bulky, so some sacrifices can (should) be made to fit such monstrocity in – meaning not all incoming lanes will have access to all outgoing, or some lanes will be merged into “during” split.</p>
+<p>And here is an example how it can be done in more or less nice way:<br>
+<a href="images/cf1b9a21_6x4.PNG"><img src="images/87b31850_thumb_6x4.PNG" alt="" loading="lazy"></a><br>
+Basicaly, it is a set of three 2×2 mergers working in parallel. Left (L1 &amp; L2) and reight (R1 and R2) lines are mixed on 2 balancers wich have exiting lanes of different priority. Outter ones will be more likely to have trains of these direction rather than middle ones. this is donw with 2 stations placed within 2×2 balancers which lower track priority for pathfinder and trains are less likely to choose that track if they have both lanes open. As long as there is only one train entering these mergers at time it will always go into outter lanes. In case of 2 entering – one will end up on middle ones. Essentially one ouput is “primary” and another is “failover”. The point of that is to reduce amount of trains hitting midder lanes because they have more trains mixed into them. 2 outter exits can be accessed only by 2 lanes each and 2 middle ones – by 4 each.</p>
+<ul><strong>Pros:</strong>
+<li>no 2×1 merger, all lanes have choices</li>
+<li>3 parallel trains from any lanes can go through at same time w/o delays caused by blocking each other</li>
+<li>4 parallel trains from most lanes can go through at same time w/o delays caused by blocking each other</li>
+</ul>
+<ul><strong>Cons:</strong>
+<li>Not fully balanced, not all incomming lanes have access to all outgoing</li>
+<li>Not balanced between directions – 2 train on central and 2 on any other direction will result in one train waiting since there are only 3 lanes for them</li>
+</ul>
+<p>This kind of merger is using one of assumption which is not safe – traffic from all directions and (hence lanes) will be more or less equal. Which in real life is pretty much never true. Some directions can have much mroe traffic than other and it will quickly become a problem since lanes of same directions are muxed with each other. Here is same thing but with a twist:</p>
+<p><a href="images/84b755f2_6x4_switched.PNG"><img src="images/87251255_thumb_6x4_switched.PNG" alt="" loading="lazy"></a></p>
+<p>Difference is that trains coming one left or right lanes are not muxed with each other hence spreading traffic nicer accross 2 outter lanes, thus and being less prone to bottleneck when lots of trains come at same time from any 2 directions</p>
+<ul><strong>Pros:</strong>
+<li>no 2×1 merger, all lanes have choices</li>
+<li>4 parallel trains from any lanes can go through at same time w/o delays caused by blocking each other</li>
+<li>balanced between directions</li>
+</ul>
+<ul><strong>Cons:</strong>
+<li>Not fully balanced, not all incomming lanes have access to all outgoing</li>
+<li>central incoming lanes have higher priority</li>
+</ul>
+<p>Depending on situation, having one set of lines with higher priority than another might be beneficial (for example empty/full or first/second tier train separation) but it definatelly is not needed in all cases. And here is a fix for that:<br>
+<a href="images/cab2fcdb_6x4_switched_equalized.PNG"><img src="images/96a0e68b_thumb_6x4_switched_equalized.PNG" alt="" loading="lazy"></a><br>
+Very clsoe to previous one only difference – now central lanes have waiting room before merging into output lane and prioritized down. Left and right trains are less likely to wait to central since they have higher priority (two-way light would force central trains to think about choosing other lane or yeild if left or right train decidec to take one of middle lanes)</p>
+<ul><strong>Pros:</strong>
+<li>no 2×1 merger, all lanes have choices</li>
+<li>4 parallel trains from any lanes can go through at same time w/o delays caused by blocking each other</li>
+<li>balanced between directions</li>
+<li>equalized between directions</li>
+</ul>
+<ul><strong>Cons:</strong>
+<li>Not fully balanced, not all incomming lanes have access to all outgoing</li>
+</ul>
+<p>All these still suffer from one fundamental issues – some combinatin of trains will cause unequal usage of output lanes, but that is not necessary always important.<br>
+Recommended usage for these – could be part of BBH towards station exit (for LL_RR and full 4-way BBH 3 lanes towards station might suffice, but for LLL_RRR (or smiliar) mainline – it will not be enough and 6 will be not quite usefull (unlikely that 6 trains  in parallel would like to exit often). Public Server game #40 uses such mergers and general idea in BBH01 anf BBH02.</p>
+				</div><p class="pagecats">Categories: Development, Public Server</p><h2>Comments</h2><ol class="comments"><li><p><strong>Ammler</strong> <small>May 19, 2007 11:39</small></p><div>
+								<div>
+					<p>Nice article, maybe something for R&amp;D on the wiki like http://openttdcoop.ppcis.org/wiki/index.php/Advanced_joiners#5_to_4_way_joiner.2C_completely_choosable_A.K.A._Hugeass_joiner</p>
+				</div>
+			</div></li><li><p><strong>Mucht</strong> <small>May 19, 2007 14:34</small></p><div>
+								<div>
+					<p>Hey PhazorX,</p>
+<p>awesome article! I’d like to see that on the wiki though!</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2007/05/19/simplified-6-to-4-merger/">https://blog.openttdcoop.org/2007/05/19/simplified-6-to-4-merger/</a>. Captured 18 March 2021 (<a href="https://web.archive.org/web/20210318065442/https://blog.openttdcoop.org/2007/05/19/simplified-6-to-4-merger/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

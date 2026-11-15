@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>About Curve Lengths - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>About Curve Lengths</h1><p class="postmeta">13 May 2009, by Mark</p><div class="mw-body">
+					<p>Every game we have the same discussion about what Curve Length (CL) to use to allow trains to maintain their maximum speed while still keeping corners as tight as possible. After some experimenting and looking through the source code I came up with some formula that can be used to determine the minimum CL. The graph below shows the maximum speeds for different railtype, further in the article I will explain where these values come from.</p>
+<p><a href="images/d356dbcd_curve_speeds.PNG"><img src="images/5c8c5d5d_thumb_curve_speeds.PNG" alt="" loading="lazy"></a><br></p>
+<p><span></span></p>
+<p>Unlike what seems te be the case there are only two variables which make up the maximum speed of a train to pass through a curve: Curve Length and Railtype. The train’s maximum speed and TL are irrelevant. A single 45 degree turn doesn’t slow a train down unless followed by a second one before the entire train has passed the first. The formula for calculating a normal rail curve’s maximum speed is as follows:</p>
+<p><strong>Max. Speed in km/h = 232 – (13-CL)^2</strong></p>
+<p>Interesting fact is that the source code considers what we call a half diagonal tile as an entire tile. We would call the leftmost picture a CL5 (or 4.5) curve and the upper a CL9 curve, while they’re both considered 9 tile curves by the formula, meaning they allow for the same maximim speed. So when using the formula you should count the half tiles as full tiles. As shown in the picture below.</p>
+<p><a href="images/8ffbde4a_Soggygate_Transport_9th_Jan_2055.png"><img src="images/4caef182_thumb_Soggygate_Transport_9th_Jan_2055.png" alt="" loading="lazy"></a><br></p>
+<p>Different rail types use the same formula but get the following bonus compared to normal rail:</p>
+<p>Electrified rail: no bonus<br>
+Monorail: +50% bonus<br>
+Maglev: +100% bonus</p>
+<p>On top of that, some trainsets have tilting trains, which get another 20% bonus.</p>
+				</div><p class="pagecats">Categories: OpenTTD, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>davil</strong> <small>May 14, 2009 06:15</small></p><div>
+								<div>
+					<p>That’s a very valuable information! So let’s forget about half the trainlength and stuff and remember to make any fast curves at least 13 tiles long (of course only if the train is that long).<br>
+For cargo trains that usually go below 160km/h the value is 5 tiles, no matter how long the train is. It also means that for slow trains in the early 1950s 1 or 2 tiles are enough. This makes building cheap money makers even easier 🙂</p>
+<p>I think this should definitely make it into a wiki entry (both here and at openttd.org, e.g. in the game mechanics section), together with a small table stating the recommended minimum tiles for typical train types.</p>
+<p>Thanks for your investigation!</p>
+				</div>
+			</div></li><li><p><strong>dihedral</strong> <small>May 14, 2009 10:04</small></p><div>
+								<div>
+					<p>very nice post indeed – good work Mark – also like your illustration there 😉</p>
+				</div>
+			</div></li><li><p><strong>Hirundo</strong> <small>May 14, 2009 13:40</small></p><div>
+								<div>
+					<p>Excellent post, this information clarifies a lot. I have been digging further into the code regarding the following:</p>
+<p>“Interesting fact is that the source code considers what we call a half diagonal tile as an entire tile.”</p>
+<p>According to my interpretation of the code, it doesn’t use tiles as a unit in any way. Instead, it uses the number of vehicles between a curve as unit of measurement. So, trains with shorter wagons should be able to navigate corners faster. It may be worth the effort to do some testing in this regard.</p>
+				</div>
+			</div></li><li><p><strong>Mucht</strong> <small>May 18, 2009 19:41</small></p><div>
+								<div>
+					<p>Great post! Thanks for the info!</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2009/05/13/about-curve-lengths/">https://blog.openttdcoop.org/2009/05/13/about-curve-lengths/</a>. Captured 09 May 2022 (<a href="https://web.archive.org/web/20220509024408/https://blog.openttdcoop.org/2009/05/13/about-curve-lengths/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

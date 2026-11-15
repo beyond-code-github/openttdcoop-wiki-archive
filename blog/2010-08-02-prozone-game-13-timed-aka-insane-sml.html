@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ProZone Game 13: Timed (aka insane) SML - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>ProZone Game 13: Timed (aka insane) SML</h1><p class="postmeta">2 August 2010, by V453000</p><div class="mw-body">
+					<p>As some of you might have already noticed, another PZ game has been finished. This time we focused on trying out the timed SML(below as t-SML) concept, and with it we experienced numerous interesting things. In this article I will attempt to show how was the t-SML developed from it’s very beginnings, how it works and what were the problems, solutions to them, and last but not least – examining a game with<br>
+200 169 goods production per month! Read further at your own risk!</p>
+<p><a href="images/72bfaf9d_PZ13_dropS.png"><img src="images/72bfaf9d_PZ13_dropS.png" alt="Hubs" loading="lazy"></a></p>
+<p><span></span></p>
+<h3>The Development</h3>
+<p>Because this concept took me quite a while to develop and it went through quite some changes, I feel it appropriate to talk about it for a bit…<br>
+It all started back at the time of psg 172 when Osai presented an article about those super clever<a href="2010-01-13-fail-safe-joiners-priorities-and-the-cyclotron-example.html"> Fail-safe joiner</a>. That thing is most useful for SML so we used it there. Here I actually realized what hapens with all so-far-known SMLs. The trains align just randomly, and sometimes they create large gaps between them. (that still is very effective but because I am a detailist, I want to have it perfect 😛 ) So I thought of a way how to fill these gaps in. The first solution was adding a train stop to the shifter array, meaning that the train would wait for a gap. The combination of the fail-safe shifter and this stopping shifter was called “hybrid shifter” and it was super effective. (SML itself is very effective) The problem was that this array took 90 tiles for TL5 iron ore 2x Lev4. Train acceleration trail acted big time in this, because longer acceleration just lengthened the arrays even further :(.<br>
+The next step was testing how to create the best train packing, and the idea with t-SML was here. From then it was hours of testing the timer and trying some joiner designs. That way hybrid shifters got completely trashed and we are free to use just the fail-safe SML shifters :).</p>
+<h3>The Purpose</h3>
+<p>SML itself has a goal to create effectively packed lines when being expandable to virtually endless amount of lanes, still keeping joiners simple without adding any mergers. The point of t-SML is the same, it only defines a “perfect packing” and tries to reach it based on released trains into their “planned positions”, not just based on probability that they will eventually reach those spots (which is impossible as classic SML shows).</p>
+<p><a href="images/5ceadc34_PZ13_packing.png"><img src="images/5ceadc34_PZ13_packing.png" alt="Hubs" loading="lazy"></a><br>
+This is the desired “perfect packing”. An amazing look when the game is unpaused :P.</p>
+<p>Theoretically, this eliminates any problems with train acceleration. Although as you could see in PZ13, we used Lev4s with 1 gator for greatly insane acceleration. This was because the train needs to have full speed when joining the ML and we just didn’t want to move all joiners by 50 tiles to make them have enough time to accelerate. Another advantage in such acceleration is when any problem/mistake occurs – trains with better acceleration can unjam faster.</p>
+<h3>How it works</h3>
+<p>After defining the perfect packing (for TL5 it was 5 tile gaps between each train – shorter gaps would fail on diagonals due to <a href="http://bugs.openttd.org/task/1063">FS1063</a> – this means a train head is at every 11th tile), we set a grid, where the join tiles can be – each 10 tiles.<br>
+When the timer is tested and set up, it releases trains from all of these joins at the same time periods. That way we can reach their “ideal spots” because all of them are connected to the same timer.<br>
+<a href="images/e97d7137_PZ13_timer.png"><img src="images/e97d7137_PZ13_timer.png" alt="Hubs" loading="lazy"></a><br>
+The central timer, controlling all of the joiners.<br>
+This also means that we need to have everything synchronized – all ML lines must be equally long in the shifter array areas, and also all of the joins must be the same distance from the ML and on their marked spots by the grid. It is essential to use magic dozer, free terraforming, and 0% slope steepness.</p>
+<h3>Joiners</h3>
+<p>The joiner is supposed to do various things. First of all we need to release a train at the given time we want it to be released (defined by the central timer). A joiner at this state would be far from sufficient because trains must accelerate from 0kmh in order to keep all of the joins synced together.</p>
+<h4>Train Stoppers</h4>
+<h5>Bouncing Train Stopper</h5>
+<p>This thing was first introduced in the hybrid shifter – accelerated join part. It basicaly was a gator set on parameter 3500 that bounced so fast that it was able to stop any train coming to the signal. The largest problem was that it could be stopping the coming train at the same time as the central timer says “go”. That way we need longer period of central timer saying “go” to keep it possible to release trains reasonably well. And longer period of central timer means less precision. So we needed something better.<br>
+<a href="images/4b209909_PZ13_joiners_original.png"><img src="images/4b209909_PZ13_joiners_original.png" alt="Hubs" loading="lazy"></a></p>
+<h5>Station Train Stoper</h5>
+<p>Another not-ideal try was building stations in front of the releaser signals, making trains stop in the stations for just a few ticks. This didn’t really work because the trains still travel about half a tile from the station to the signal, which was enough to accelerate to cause desyncs on the ML. And as a side-effect trains also took some time to stop in the stations, resulting in a very bad throughput.<br>
+<a href="images/be080b65_PZ13_joiners_station.png"><img src="images/be080b65_PZ13_joiners_station.png" alt="Hubs" loading="lazy"></a><br>
+In the station trains were supposed to stop down to 0kmh, setting the station in orders with (no unload and take cargo), timetabling it for a few ticks to stay in the station. (we used 10, but 1 tick might have been enough … the stopper didn’t work anyway :D)</p>
+<h5>On Demand Train Stopper</h5>
+<p>Later on we came up with a different solution. There is a train (Lev3) in a circle, waiting to be released. When a train approaches the joiner, this stopper train gets into it’s path and stops it. This makes perfectly sure that they stop.<br>
+<a href="images/044f0b51_PZ13_joiners_01.png"><img src="images/044f0b51_PZ13_joiners_01.png" alt="Hubs" loading="lazy"></a></p>
+<p>The stopper train is released on demand, just when a train is approaching the joiner, that way stopping it without any exceptions.</p>
+<h3>Possible Flaws</h3>
+<p>Because syncing trains 643kmh fast in speed requires extreme precision, there are various desync sources.</p>
+<h4>Timer Flaw</h4>
+<p>First of them all is wrong timer settings. That is “easily” solved just by testing a better timer. Luckily, in our game we had perfect timer from the start, so we didn’t have any problems with that.</p>
+<h4>Broken Shifter</h4>
+<p>Since we had over 400 shifters, it was really easy to have missing signals or anything similar in them. Although easy to make, hard to spot these mistakes.</p>
+<h4>Joiner Desync</h4>
+<p>A very bad thing is when joiners aren’t precise and they release trains at wrong times or in wrong speeds. This can happen when trains don’t stop down to zero on the joiner-release-signal or just when the joiner makes some mistake.</p>
+<h4>Train Waves</h4>
+<p>Since all trains have some fixed spots where they should get on the ML, it is possible that trains start “favorizing” some times when to join, therefore making a wave. This can result in drastically reducing ML throughput!</p>
+<h3>Various Joiners</h3>
+<p>We solved the train wave problem by having different joiners. Simply put, none of our joiners was able to release trains on every central timer release period. This means that for example we had all joiners able to send trains every 2nd period. What happened was that trains fixed on “joining on odd times” or “joining on even times” and then caused waves. Not very precise but somewhat sufficient solution was varying the joiners – releasing every ~3rd up to 5th periods. Especially when supported by the Waveproof joiners.<br>
+<a href="images/044f0b51_PZ13_joiners_01.png"><img src="images/044f0b51_PZ13_joiners_01.png" alt="Hubs" loading="lazy"></a><br>
+<a href="images/26a0b666_PZ13_joiners_02.png"><img src="images/26a0b666_PZ13_joiners_02.png" alt="Hubs" loading="lazy"></a><br>
+<a href="images/ad54e593_PZ13_joiners_plus1.png"><img src="images/ad54e593_PZ13_joiners_plus1.png" alt="Hubs" loading="lazy"></a><br>
+<a href="images/d33df263_PZ13_joiners_nth.png"><img src="images/d33df263_PZ13_joiners_nth.png" alt="Hubs" loading="lazy"></a><br>
+The first joiner releases up to about every 3rd timer tick, the second one stops the train for a bit longer, reaching about every 4th timer tick release. The third one just adds one more tick when it waits at the entry signal for another tick, making it about 4+1. All of those are just “up to 4th” but it can get more random if for example a train doesn’t arrive in time. The fourth joiner makes it strictly every 5th central timer tick.</p>
+<h4>Waveproof Joiner</h4>
+<p>When there actually occured a wave, we had joiners that didn’t send another train into the wave, but waited for the next possible release time where wouldn’t be any wave. That way if there was a wave, the emptier spaces started to be preferred so the wave got a bit negated.<br>
+<a href="images/c9cdde7a_PZ13_joiners_wave.png"><img src="images/c9cdde7a_PZ13_joiners_wave.png" alt="Hubs" loading="lazy"></a><br>
+The wave detector detects any wave by “looking” at the two outermost lines. If there are trains in both these waves, the OR gate becomes red and makes joining impossible.</p>
+<h3>Causes of Timed SML</h3>
+<p>As this type of network is quite different from others due to some requirements on ML design and such, it has some influence how the ML looks.</p>
+<h4>Insane Precision Requirements</h4>
+<p>Every mechanism has to work absolutely perfectly and be absolutely fail-safe. Any problem on the ML (just one) can result in a jam forever due to evil-mode of joins after the drop station. Also the joiners need absolute precision to make it possible to reach the absolute packing state.</p>
+<h4>Extreme Throughput</h4>
+<p>This t-SML really reaches total packing. Because of that we need the ML to be ready for absolute throughput. Starting from flawless signal gaps, ending with diagonal problems solutions. Particularly diagonals are one big problem.</p>
+<h4>Diagonals</h4>
+<p>You just can’t have trains with our “ideal packing case” on full diagonals. Because of that we had to split trains in front of our curve, then letting them into the drop station, and then merging those split lines back. All this was done while keeping both of the lines synced through all of the drop platforms.<br>
+Also on splits from the ML to the sidelines weren’t unproblematic. We had to split trains from straight tracks – not full diagonals – otherwise they slowed down a bit, resulting in desynchronizations and major issues.</p>
+<h4>Absolute Effectiveness</h4>
+<p>In the past boost games, we have reached up to 100k goods produced as our record. If we measure how many lines lead into the drop, psg121 had 16 lines, psg176 18 lines. In PZ13 we totally destroyed the current record with 200k goods produced per month only from 11 lines! (Note that this comparison can’t be very exact because of different train speeds and wagons used. It just points out how about effective t-SML is though.)</p>
+<h3>Game Stages</h3>
+<p>It is also interesting to note how the game progressed, because the mood among players changed quite a bit throughout the game.</p>
+<h4>New Game?!</h4>
+<p>It doesn’t happen all that often that we have an active PZ game. It also brought quite some surprise and a few people said “another overkill PZ game that isn’t going to be played”. After we succeded to bring this game to life through some positive mood and desire for construction, we started building everything.</p>
+<h4>Building the ML</h4>
+<p>Even though we didn’t use it, this stage was worth of copy&amp;paste patch. Endless amount of shifters, huge station, many joiners, massive splits of almost identical structure. This was quite boring but because we were interested how will this concept turn out, we did some minion-slave-labour until having our backs half-dead and our eyes bleeding.</p>
+<h4>Adjusting Joiners</h4>
+<p>After we had the ML, we started to run trains there. The most intense moment of the whole game – making the t-SML actually work flawlessly. Finding flaws in the shifters, joiners and anything else was quite hard, fixing was usually easier when we knew the issue already. With time we tried a few joiner types in order to reach the flawless ones. This stage lasted basically until the end of the game because we were still improving and modifying the joiners.</p>
+<h4>SL management</h4>
+<p>A very important thing was to keep all primary stations running. Because of the insane amounts of oil required, we had to double some SLs, expand almost all primary pickups, manage train counts, and so on.</p>
+<h4>Crisis Management</h4>
+<p>Once even a little jam occurs, the packed network can’t get rid of it on it’s own. We solved problems via our Emergency Center but even so, any problems were almost immediately serious.<br>
+<a href="images/33e0bd64_PZ13_emergency.png"><img src="images/33e0bd64_PZ13_emergency.png" alt="Hubs" loading="lazy"></a><br>
+These points were connected at a time of jam. That way trains kind of shifted to the emptier lines and unjammed in time.</p>
+<h4>Counting Production</h4>
+<p>In spare time, we recorded how our goods productions raised. We started a record table on 65k when it was clear we are going to reach very high values. Although this “job” might seem easy, you need at least half of the game month in order to count the productions of all ten refineries :D. Also, this also caused the most “HOLY S***!”, “OMFG””, “WOW”, “What, you kidding?” words.</p>
+<h4>Too heavy to play</h4>
+<p>Because SML uses extreme amounts of CPU, we were forced to stop playing over the internet. I loaded the game in singleplayer and with some aid from Vitus, I have fixed the rest of issues and mistakes that were in our game.</p>
+<h3>Conclusion</h3>
+<p>PZ13 was one of those unique games where we test a new idea. If we play the same idea again, it would be boring because it is all the same although for the first try it is amazing such as PSGs 121, 157 or 180. At the same time this game set a new record of 150k goods produced per month, which I can’t really tell how to beat at this moment – because the t-SML shown just incredible results with the probably best even possible performance. This game was just pure insanity at it’s best and I am looking forward to enjoy another game of this kind. 🙂 I would like to thank everyone who helped me in this game, especially Vitus for helping me fixing the game offline, intensive joiner mechanics development and flaw analysis, Razaekel for his endless patience and effort to build a lot of stuff, ^Spike^ for helping with building even when others CPUs were already burning and positive mood in order to make people to play the game, Combuster for great SL management, split enlargements, and his always nice eyecandy works, and Chris Booth for helping me destroy all the cities to reach record world population of 0 :). Thanks guys, this was NUTS! 🙂</p>
+				</div><p class="pagecats">Categories: Community News</p><h2>Comments</h2><ol class="comments"><li><p><strong>Mucht</strong> <small>August 7, 2010 21:12</small></p><div>
+								<div>
+					<p>Wow!</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>August 7, 2010 21:42</small></p><div>
+								<div>
+					<p>😉</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://blog.openttdcoop.org/2010/08/02/prozone-game-13-timed-aka-insane-sml/">http://blog.openttdcoop.org/2010/08/02/prozone-game-13-timed-aka-insane-sml/</a>. Captured 24 December 2022 (<a href="https://web.archive.org/web/20221224143348/http://blog.openttdcoop.org/2010/08/02/prozone-game-13-timed-aka-insane-sml/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

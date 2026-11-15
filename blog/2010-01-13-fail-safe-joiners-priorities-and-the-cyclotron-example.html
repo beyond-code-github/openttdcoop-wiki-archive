@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fail-Safe Joiners, Priorities and the Cyclotron example - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Fail-Safe Joiners, Priorities and the Cyclotron example</h1><p class="postmeta">13 January 2010, by Osai</p><div class="mw-body">
+					<p>Some days ago I stumbled upon openttd wikis page about <a href="http://wiki.openttd.org/Railway_Designs">Railyway Designs</a> and I saw the Cyclotron created by <a href="http://wiki.openttd.org/User:Pitt2">Pitt2</a>. Those high speed injectors are not too new and we experimented with them a lot. Though we don’t use them in most cases, because they are difficult to build, depending on the properties of trains and such. Its just too much work for too less effect and pre-accelerated joiners are the better choice. Though I had a look at the construction and checked how it worked. A little footnote about a fixed bug made me curious, but then I understood that it fixes the issue which occurs if a train wants to join another track but in the same moment the signal turns red and the train stops blocking a complete line. Therefor we have the overtaking lanes in most <a href="../Shift_Mainlines.html">SML</a> constructions. We all like cool words for cool constructions, here they are. Fail-safe Joiners:<br>
+<img src="images/bca00b30_failsafe_joiner.png" alt="" loading="lazy"></p>
+<h3>How it works</h3>
+<p><span></span><br>
+The functionality is as simple as genius. The joining train has influence on the priority line by adding OR logic. The exit-signal of the joining trains track turns green again after a train made a decision. If in the meantime a train on the mainline blocked the entrance it stays green, because the OR logic determines it (the joining train unblocks itself, because the exit-signal turns green). If a train is already on the mainline, both signals are red at the point the joining train has to make the decision and won’t join.<br>
+Well, if you didn’t understand anything its either my english or you should read it again. Though pictures say more then 1k words. Here we go:</p>
+<h4>Situation 0</h4>
+<p>This is a very basic situation, a train is on outer line and wants to go the the waypoint. No trains are coming on the mainline.<br>
+<a href="images/640bb475_fail-safe_joiner_situation_0.png"><img src="images/c55eec12_thumb_fail-safe_joiner_situation_0.png" alt="Fail-Safe Joiner - Situation 0" loading="lazy"></a><br></p>
+<h4>Situation 1</h4>
+<p>The train entered the block with the exit signal and it turns red.<br>
+<a href="images/3efe99bf_fail-safe_joiner_situation_1.png"><img src="images/db57488e_thumb_fail-safe_joiner_situation_1.png" alt="Fail-Safe Joiner - Situation 1" loading="lazy"></a><br></p>
+<h4>Situation 2</h4>
+<p>The length of the track from the exit signal block to the joining block is exactly as long as one train (TL). If you have trains of different sizes on one track you either use the TL sorter first or you have a neat idea. 🙂<br>
+<a href="images/7ae19ab9_fail-safe_joiner_situation_2.png"><img src="images/d8b6b6f5_thumb_fail-safe_joiner_situation_2.png" alt="Fail-Safe Joiner - Situation 2" loading="lazy"></a><br></p>
+<h4>Situation 3</h4>
+<p>The train choses, the correct track. This isn’t too interesting because there isn’t a train on the ML. Though you might have notice that the exit signal turned green again right before the train passes the entrance signal.<br>
+<a href="images/086c8a1a_fail-safe_joiner_situation_3.png"><img src="images/838720ef_thumb_fail-safe_joiner_situation_3.png" alt="Fail-Safe Joiner - Situation 3" loading="lazy"></a><br></p>
+<h4>Situation 4</h4>
+<p>Now we have the same situation as before, but a train is coming on the ML. The train on the sideline already decided to join the ML.<br>
+<a href="images/cecc832b_fail-safe_joiner_situation_4.png"><img src="images/30405422_thumb_fail-safe_joiner_situation_4.png" alt="Fail-Safe Joiner - Situation 4" loading="lazy"></a><br></p>
+<h4>Situation 5</h4>
+<p>The train on the ML now activated the priority line and the entrance signal turned red. This is a bad situation, because the train on the SL wants to join now. and the other train is far away, joining isn’t a problem.<br>
+<a href="images/e60af6f5_fail-safe_joiner_situation_5.png"><img src="images/7fea9a5c_thumb_fail-safe_joiner_situation_5.png" alt="Fail-Safe Joiner - Situation 5" loading="lazy"></a><br></p>
+<h4>Situation 6</h4>
+<p>Luckily in the same moment the exit signal turns green again and therefor also the entrance signal, the train on the SL can join.<br>
+<a href="images/e2b3724f_fail-safe_joiner_situation_6.png"><img src="images/bbfd7e5d_thumb_fail-safe_joiner_situation_6.png" alt="Fail-Safe Joiner - Situation 6" loading="lazy"></a><br></p>
+<p>I really love this behaviour and you can replace joiners with “overtaking space” with this system. You can probably reduce the size of SML layouts we see nowadays and the good old 1&lt;2 join or even more might become attractive again.</p>
+<h3>Quadruple Full-Featured Cyclotron</h3>
+<p>And what I wanted to show you, I modified Pitt2’s Cyclotron, it comes now with 4 entrance possibilities which increases the chance of a join drastically. And for high-speed trains the additional way shouldn’t be a problem.<br>
+<a href="images/5a45e369_quadruple_full_featured_cyclotron.png"><img src="images/f81ca9b0_thumb_quadruple_full_featured_cyclotron.png" alt="Quadruple Full-Featured Cyclotron" loading="lazy"></a><br></p>
+				</div><p class="pagecats">Categories: Community News, Development, Gameplay, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>Ammler</strong> <small>January 13, 2010 10:57</small></p><div>
+								<div>
+					<p>nice article and nice idea, hope to see that in busy network soon 🙂</p>
+				</div>
+			</div></li><li><p><strong>Mark</strong> <small>January 13, 2010 12:02</small></p><div>
+								<div>
+					<p>Very nice concept. The greatest advantage I can see is in SML shifters. Because trains don’t stop at all anymore on the ML, this will improve ML capacity. The benefit is especially big for fast, slowly accelerating trains, such as the lev4. If my understanding is correct a 4 lane SML shifter using fail-save shifts for TL5 would look like this:</p>
+<p>http://wiki.openttdcoop.org/images/8/84/Fail-safe_4-lane_SML_shift.png</p>
+<p>Also note the footprint size reduction.</p>
+<p>Sidelines joining SML network can also be made quite a bit more efficient. In the join below a train will first try to join the ML at full speed, if this fails it will move on to the longer prio and sit there until it has enough space to get to full speed on the ML.</p>
+<p>http://wiki.openttdcoop.org/images/6/63/Fail-safe-SML-join-with-2nd-chance.png</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>January 13, 2010 13:01</small></p><div>
+								<div>
+					<p>Very nice 🙂 gotta try that right now</p>
+				</div>
+			</div></li><li><p><strong>Roysvork</strong> <small>January 13, 2010 13:10</small></p><div>
+								<div>
+					<p>I don’t mean to rain on your parade… but it should really be Fail-safe join : )</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>January 13, 2010 17:33</small></p><div>
+								<div>
+					<p>@Roysvork: Ouch… thank you for the hint. It was very late in the night yesterday… “save” doesn’t make sense 😀 I replace all, thx!</p>
+				</div>
+			</div></li><li><p><strong>Alexander Pas</strong> <small>January 13, 2010 17:43</small></p><div>
+								<div>
+					<p>I believe, if we can combine this, together with http://wiki.openttdcoop.org/File:Same_side_prio.png we can have some great stuff.</p>
+				</div>
+			</div></li><li><p><strong>Patrick</strong> <small>January 13, 2010 19:18</small></p><div>
+								<div>
+					<p>It’s funny actually, I spent a long time on that design, trying to get 2 trains in them at once and so on, and then gave up and used linear injectors instead. </p>
+<p>Then I realised that other bugs (features) with train speed and 45-degree track turns made my goal of ludicrous train density impossible anyway, and abandoned the whole thing.</p>
+				</div>
+			</div></li><li><p><strong>ProZone Game 13: Timed (aka insane) SML at #openttdcoop</strong> <small>August 2, 2010 23:45</small></p><div>
+								<div>
+					<p>[…] it for a bit… It all started back at the time of psg 172 when Osai presented an article about those super clever Fail-safe joiner. That thing is most useful for SML so we used it there. Here I actually realized what happens with […]</p>
+				</div>
+			</div></li><li><p><strong>PhuocLe</strong> <small>May 10, 2014 14:28</small></p><div>
+								<div>
+					<p>Can somebody make and example save game for me.</p>
+<p>I try do this but not success</p>
+<p>Thanks</p>
+				</div>
+			</div></li><li><p><strong>grossws</strong> <small>January 29, 2019 11:57</small></p><div>
+								<div>
+					<p>It seems this joiner has quite annoying failure mode in which secondary line is blocked unless there’s huge gap in primary line (more than prio size).</p>
+<p>If train from secondary line just reached entry pre-signal and cleared failsafe block next train after it can enter that block and close failsafe exit pre-signal thus negating one of OR branches. In that case primary line has absolute prio and can block secondary indefinitely.</p>
+<p>https://wiki.openttdcoop.org/File:Grossws-failsafe-join-failure-tl3.png (signal set is from BRIX and rails are from PURR).</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2010/01/13/fail-safe-joiners-priorities-and-the-cyclotron-example/">https://blog.openttdcoop.org/2010/01/13/fail-safe-joiners-priorities-and-the-cyclotron-example/</a>. Captured 19 May 2026 (<a href="https://web.archive.org/web/20260519062219/https://blog.openttdcoop.org/2010/01/13/fail-safe-joiners-priorities-and-the-cyclotron-example/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

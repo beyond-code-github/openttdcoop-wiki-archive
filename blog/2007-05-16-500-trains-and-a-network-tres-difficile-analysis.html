@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>500 Trains and a network trÃ©s difficile (analysis) - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>500 Trains and a network trÃ©s difficile (analysis)</h1><p class="postmeta">16 May 2007, by Osai</p><div class="mw-body">
+					<p>Finally! We reached 500 trains and Town D is done! Only a SLH in the south is missing. That is a very good news.<br>
+Maybe you recognised the discussions about this network plan. The concept became more and more LLX_XRR, what means we have a normal LL_RR network, for all the primary/raw cargo types like wood and food (we call them 1st tier). The X is an abbreviation for express and all secondary/produced cargo types like goods, steel, paper (we call them 2nd tier). The system was not often used yet and therefor we don’t know very much about it and its ideas. But after hours of discussion (especially Pharzox and me) I want to show you some results…<br>
+And oh… please check the vote, we are very interested in what kind of network you like?<br>
+<span></span></p>
+<h2>An Overview about LLX_XRR</h2>
+<p><a href="images/b4aadd23_llx_xrr.png"><img src="images/28b1e5d7_thumb_llx_xrr.png" alt="scheme of LLX_XRR" loading="lazy"></a>As mentioned above, the network is split into 2 parts – 1st tier &amp; 2nd tier trains. Which (nearly) don’t interact with each other, in a clean LLX__XRR setup. Sometimes it is useful to combine tracks to reduce the size of the network. In case of Public Server Game #40 we merge tracks towards stations coming from the BBHs from 2x(2+1) to 2+2. I hope you understand this formula 🙂 I’ll come to that back later. Because of YAPF and Problems with signals it is almost impossible to combine both networks, what would be really great, but mostly ends up with lost trains.<br>
+The sketch shows you the seperation of both systems (blue = 1st tier; orange = 2nd tier). As you can see, BBHs are easier to build and SLHs are the same thing as in a normal LL_RR-networks ignoring the X track completely.</p>
+<h2>Pro’s and Con’s</h2>
+<p>The concept isn’t too hard to understand, but accidently became overcomplicated in our current game.<br>
+Now I want to show you the good and bad points of this concept.<br>
+<strong><span>Pro’s</span></strong></p>
+<ul>
+<li>seperated tracks make it easy to build BBHs and SLHs</li>
+<li>no gridlocks due to 2nd tier trains waiting for goods while blocking the entrance of 1st tier trains (gridlock)</li>
+<li>easier train management</li>
+<li>high network capacity, because of extra tracks for 2nd tier trains (+30% capacity compared with LL_RR)</li>
+<li>BBHs, SLHs and all other construction are small</li>
+</ul>
+<p><strong><span>Con’s</span></strong></p>
+<ul>
+<li>connecting wrong tracks with eachother will cause a lot of lost trains: a mistake is bigger problem than in conventional networks</li>
+<li>balancing is only possible at the LL__RR part</li>
+<li>the X part has only one track, online prio’s are possible</li>
+<li>high and fast jam risc at the X track if trains  are not managed with waypoints or routed clever somehow else</li>
+<li>the capacity is still limited to LL_RR (expect only 60-70% use the LL_RR part), what gives you 130-140% capacity of a common LL_RR network</li>
+<li>a lot of train management is needed</li>
+</ul>
+<p>Compared with the conventional LL_RR layout this system is way better.<br>
+Explanation for the Calculation:<br>
+– 1st tier trains are 60-70% (depending on the amount of coal trains this can heavily vary)<br>
+– 2nd tier trains are 30-40%<br>
+Compared with LL_RR only 60-70% of all trains use this part -&gt; 30-40% more capacity. All in all this is a solid concept which extends the LL_RR concept. But its not very coopish, because trains use unshared tracks, what is easier to build and doesn’t create the funky network flow. You know what I mean. 😛 (looking at TTT and PSgame#34).</p>
+<h2>Beyond the Horizon</h2>
+<p>I am a fan of fully flexible and balanced network types, therefor we should look at the LLL_RRR concept.<br>
+This idea isn’t that far away, because we just integrate the 2nd tier into the complete network. The main disadvantage, of course, its very hard to build (even I have to cope with it) and those monster constructions are very big.<br>
+The main advantage, compared with LLX_XRR:<br>
+Imagine both 1st tier tracks are blocked, due to heavy load or what happens more often, a wave of trains. The train has to wait until one of both tracks is free to join the mainline. Because of the network style, trains are not allowed in xLL_RR (my new word creation stands for “extended LL_RR” ^^) to join the third track.<br>
+Trains have to wait, even if the third track is free. With a full flexible LLL_RRR network this doesn’t happen as fast as in this case (33% later), because trains are balanced between three tracks. Another point is trains don’t get lost as fast as in xLL_RR if you do a mistake.<br>
+In my opinion the capacity of LLL_RRR is higher than the one of xLL_RR. Compared with LL_RR, we have one more track what means we have 150% of the capacity. That’s 10-20% more than we have with xLL_RR + more flexibility with full load balancers.</p>
+<hr>
+<h2>Leaving this universe…</h2>
+<p>I really like the idea of xLL_RR, but balancers for 2nd tier trains are something significant and they are missing in this concept. And there is one thing to do. Lets add a second track for 2nd tier trains too, and BOOM they are balanced. In fact we have LLXX_XXRR then, which I would call xxLL_RR. Two LL_RR networks layed over eachother, but not combined. This is just an idea, but I want you to think about it.<br>
+Another thing I bear in mind is a real 2xLL_2xRR network, it might be not as difficult as real LLL_RRR, but has gigantic capacities.<br>
+Therefor we need some real good balancers. Maybe you have a great idea? I have one and I’ll show you tomorrow.</p>
+<p>What are you’re thoughts about this thematic? Maybe missed some really important Pro’s and Con’s.<br>
+Just tell us and don’t forget to vote. 😉</p>
+				</div><p class="pagecats">Categories: Community News, Public Server</p><h2>Comments</h2><ol class="comments"><li><p><strong>Phazorx</strong> <small>May 16, 2007 03:54</small></p><div>
+								<div>
+					<p>I’d like to add a few things here… For starters this kind of layout only applicable to cargo games with multiple (at best – paired) drops for same kind of 1st tier cargo.</p>
+<p>Con: lack of ability to balance – meaning ratio between secondary and primary cargo is important. Delivery of only 1st tier goods (such as pax, coal, valuables, water, gold, diamonds) reduces usability of such network type.</p>
+<p>Pro: second tier can be balanced with directions rather lanes. In current game there are 2 close to identical ways for trains to go between A-C and D-B</p>
+<p>Con: BBH complexity is close to LLL_RRR if all directions of ML are equal.</p>
+<p>Pro: Due to separated nature of traffic it is possible to easily use different ML width (number of lanes) and various separation/balancing technique (current game uses thicker ML towards towns from BBHs). In this case balancers are also easier to deploy, but there are tricks on what is adviced to balance – like lanes of same direction should not be muxed at BBHs, this is very likely to become major bottleneck.</p>
+<p>Pro: possibility to relatively easy upgrade to more X lanes between any BBHs (assuming there was room left for that in fitrst place of course).</p>
+<p>Pro: express lane with no joins on SLHs is less vulnerable to any disruption from entering trains and hence less prone to slowdow/stop.</p>
+<p>Pro: posibility to use different lengths and speeds for express and regular traffic. Trains hit different stations, and use different tracks for most part.</p>
+<p>As far as LLXX_XXRR goes – I’m not sure if it is feasible to use 2 tracks for secondary, in case if it is bidirectional cargo traffic (trains go full both ways) – same amount of trains can transfer 50-60% more compared to primary trains that only carry cargo one way. Meaning that if most of traffic oriented for “convertable to second tier”, secondary to primary trains ratio is close to 1:2 and faster X track has adequate ability to cary as much as regular. A hybrid network, where X tracks are available to full first tier trains as well could be more beneficial approach sort of like: LL(X+F)X_X(X+F)RR or even LL(X+F)(X+F)_(X+F)(X+F)RR. However, that greatly complicates SLH design since now they must have SL merger balanced on 3 or 4 tracks.</p>
+				</div>
+			</div></li><li><p><strong>Mucht</strong> <small>May 17, 2007 11:26</small></p><div>
+								<div>
+					<p>Actually, this should have been a Member Zone game…</p>
+				</div>
+			</div></li><li><p><strong>TRauMa</strong> <small>June 22, 2007 15:40</small></p><div>
+								<div>
+					<p>Make the X tracks maglev, and you get an optical distinction and very fast delivery of the 2nd tier goods (= $$$). Of course that won’t work with dbsetxl or other realism mods.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2007/05/16/500-trains-and-a-network-tres-difficile-analysis/">https://blog.openttdcoop.org/2007/05/16/500-trains-and-a-network-tres-difficile-analysis/</a>. Captured 18 March 2021 (<a href="https://web.archive.org/web/20210318064422/https://blog.openttdcoop.org/2007/05/16/500-trains-and-a-network-tres-difficile-analysis/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FIRS industry and cargo chart. - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>FIRS industry and cargo chart.</h1><p class="postmeta">27 January 2012, by Mazur</p><div class="mw-body">
+					<p>Since I usually get a bit overwhelmed when playing a FIRS game, by the complex cargo flows, I decided to make a chart of these flows.  Here is the first result.  Comments and suggestions for improvements are most welcome, but BE SPECIFIC.  If you post something like: “I would prefer it cleaner, clearer.” I can do nothing with it.  Firstly, because different people mean different things with such a statement, and secondly, because I can not look into your head.  Things that need no suggestion, because I will do them already:, or not do at all:</p>
+<p><span></span></p>
+<p> </p>
+<ol>
+<li>Insert tags named the cargoes, as I already intend to add those.</li>
+<li>The same goes for OTTD industry icons.</li>
+<li>Use other or different colours, as I copied these from the OpenTTD chain widgets, I think that’s helpful.</li>
+</ol>
+<p> </p>
+<div><a href="images/8e7d06d4_FIRS.png"><img src="images/d0ba9373_FIRS-1024x558.png" alt="FIRS 0.7.0 cargo flow chart v 0.1.0" loading="lazy"></a><p>FIRS cargo chart</p></div>
+<div><a href="images/ed2c66be_FIRS_chart-0.2.02.png"><img src="images/e35e46c0_FIRS_chart-0.2.02-1024x387.png" alt="FIRS 0.7.0 cargo flow chart v 0.2.0" loading="lazy"></a><p>FIRS 0.7.0 cargo flow chart v 0.2.0</p></div>
+				</div><p class="pagecats">Categories: Community News</p><h2>Comments</h2><ol class="comments"><li><p><strong>V453000</strong> <small>January 27, 2012 11:14</small></p><div>
+								<div>
+					<p>Good effort! I believe it is definitely going to be useful for someone, but I think that when making a plan or something, you usually want to focus on one thing – for example having all food pickups together, or having all industries accepting the same cargo together, and so on. Therefore those are the things that one would like to highlight in the scheme and eventually organize the scheme around that, but there is nothing to do about it. This scheme of course provides it as well. I just wanted to say that it is definitely good, but I just think that for overall planning one still has to make his own 🙂</p>
+				</div>
+			</div></li><li><p><strong>Mazur</strong> <small>January 27, 2012 11:18</small></p><div>
+								<div>
+					<p>Indeed, but what I have is, that when planning I get hopelessly lost trying to disentangle the various cargo flows through the chain widgets, so I need something like this to make my own cargo choices in a FIRS game.  I hope this will help myself and others to do just that.</p>
+<p>M.</p>
+				</div>
+			</div></li><li><p><strong>Mazur</strong> <small>January 27, 2012 12:41</small></p><div>
+								<div>
+					<p>Ammler wondered on #openttdcoop how I made this chart.</p>
+<p>I used Dia, a diagram drawing program on any main platform, and I used gcolor2 on Linux to get all the cargo colours from the game itself.  The industry colours I could retrieve from the NewGRF itself, after a suggestion by planetmaker. One grep+sed+sort took care of that.  😉<br>
+The diagram file is (after some more editing) at: FIRS.dia and the colours are in FIRS.rgb.</p>
+<p>Hope this works.</p>
+<p>M.</p>
+				</div>
+			</div></li><li><p><strong>Thraxian</strong> <small>January 27, 2012 13:36</small></p><div>
+								<div>
+					<p>Out of curiosity, why create a new chart, when there’s already one at http://wiki.openttd.org/FIRS#Cargo_Chart ?  Is that chart lacking one or more industries or cargo types, are we trying to provide an alternate view, or were we simply not aware that such a chart already existed?</p>
+<p>Nice illustration, by the way.  If I were to provide any constructive criticism, it would be to try making the lines a little thinner (so they don’t get all confusing in the middle), and see if there is any way to get rid of all the crossings in the center of the diagram – it gets really cluttered there.  Perhaps try to make all the lines go in the same direction (left-to-right, or top-to-bottom), except where needed.  Having lines come from all sides can be a bit overwhelming.</p>
+				</div>
+			</div></li><li><p><strong>Mazur</strong> <small>January 27, 2012 14:12</small></p><div>
+								<div>
+					<p>As to your first question, I made it because a. I was not aware of that chart, b. I could not find that chart, and c. I was not aware of that chart.</p>
+<p>As to your suggestions: good point, I made them this thick originally to see them more clearly while I was making the connections, but now they’re there, I can make them thinner again.  About getting rid of all the crossings: that was why I posted it, I hoped people would look at it and say things like: If you move industry x to that point, and swap a and b, and route cargo y along the other side of z, it all gets much less cluttered.  After making this in two days, one gets a little blind to even the most obvious simplifications.</p>
+<p>The cargo chart you just mentioned it what I was actually aiming at: simple and clear.  It lacks only a few things: Building Materials delivery, Food Market and Hotel.<br>
+Oh, and, more importantly, Alcohol.  And it does not use the same colours as OpenTTD.  Lastly, using the OTTD industry graphics would be nicer.</p>
+<p>Mazur.</p>
+				</div>
+			</div></li><li><p><strong>Mazur</strong> <small>January 29, 2012 12:07</small></p><div>
+								<div>
+					<p>Inspired by Fry3ks version for 0.5.3 and Thraxians comments, I made a new version:</p>
+<p>v0.2.0, which I appended to the post, as I have a dynamic IP address.</p>
+<p>Mazur</p>
+				</div>
+			</div></li><li><p><strong>ogga</strong> <small>April 9, 2013 03:46</small></p><div>
+								<div>
+					<p>Mazur’s post inspired the creation of an updated chart for FIRS 1.0.</p>
+<p>This is what emerged after couple of days thinking about how to organise it.<br>
+It’s rather differently laid out but we hope you’ll see the logic.</p>
+<p>Passengers and ‘houses’ have deliberately been excluded…</p>
+<p>For now, I’ve left it as simple as possible –<br>
+however, it’s quite concise it may be amenable to the inclusion<br>
+of cargo weight, volume, value, and/or industry multiplier, or whatever.</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>April 9, 2013 07:36</small></p><div>
+								<div>
+					<p>Very messy on the first sight, probably graphically not the most fortunate, I would try to put more emphasis on the industry “groups” like giving farms more clear box in which clearly are farms, etc.<br>
+I would also try to separate goods producing, and supplies producing tertiary industries into 2 groups similarly as above, as it is basically the way you pick when choosing which primary supply do you send where.</p>
+<p>In general it is quite nice, not exactly sure how to majorly improve it, there will always be mess as there is so many things and connections so I would leave major improvements for next tries instead of improving this :P.</p>
+<p>but there is a bigger problem…</p>
+<p>FIRS industries sometimes randomize which cargo they produce. This definitely happens with Recycling Plant and I think also with Ports (which I do not see in your chart; I might be blind though)</p>
+<p>Update: FIRS docs mention Ports to be only in economies and RP to produce what you have in the chart.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://blog.openttdcoop.org/2012/01/27/firs-industry-and-cargo-chart/">http://blog.openttdcoop.org/2012/01/27/firs-industry-and-cargo-chart/</a>. Captured 20 January 2022 (<a href="https://web.archive.org/web/20220120052710/http://blog.openttdcoop.org/2012/01/27/firs-industry-and-cargo-chart/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

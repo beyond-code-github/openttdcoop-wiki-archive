@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Optimization of Logic – Logic Gates [Part II] - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Optimization of Logic – Logic Gates [Part II]</h1><p class="postmeta">18 January 2009, by Osai</p><div class="mw-body">
+					<p>Almost <a href="2008-06-17-the-insane-led-counter-logic-gates-part-1.html">half a year ago I blogged about Logic Gates</a> and already the headline promised that this story is not over yet. Now, I was finally able to concentrate my thoughts about logic gates again and was able to optimize the gates again. As I pointed out earlier the reaction time is too long and gates are reacting too sluggish. The slow processing made the gates only interesting in places which don’t need to be fast. For example the timing of injection. But when it comes to mainlines, sidelines, station entries and many other fancy coop-ish constructions they were more an impediment.<br>
+<strong><a href="https://web.archive.org/web/2/http://blog.openttdcoop.org/files/osai/logic_train.grf">Download Logic Train NewGRF</a></strong></p>
+<p>I hope, this’ll change now, because these new constructions require only one train without any wagons and are extremely small in comparison with the old gates and the once I see nowadays in our games.<br>
+<span></span></p>
+<h3>The Logic Train</h3>
+<p>Especially for faster gates Ammler created a NewGrf for me which replaces MagLev “Lev3 Pegasus” with a “Logic Train”. This trains has a max. speed of 65,918km/h and 65,535hp. In fact insanely fast and accelerating from zero to max speed instantly. The optimized gates also function with normal trains but are not as fast as with the Logic Train and sometimes the evil chooser problem occurs. This somehow doesn’t happen with the Logic Trains, but don’t ask me why. Of course you can download the grf file I used. You’ll need it. As far as I know it is also planned to add a NewGrf file to the #openttdcoop NewGrf Package with certain restrictions. In fact, you are not allowed to add wagons to the train. Lets see if that’s possible.</p>
+<h3>The Not Gate</h3>
+<p><img src="images/06996adf_logic_gates_pt2_not_gate.png" alt="New Not Gate" loading="lazy"><br>
+My new NOT-Gate creation has a size of 3×4 tiles. That’s only three tiles bigger than the smallest circle in which a train can drive. The reaction time is close to zero. The gate requires a <em>logic train</em> and a waypoint. The train needs the waypoint in the order list, otherwise it’ll not work as intended. As you can see the train has to make a choice. The problem we have in normal games, that the signal turns red in the moment the train wants to enter doesn’t occur. I don’t know why, but it just never happened to me, even in long-time tests.</p>
+<p>In this video you can see a comparison to other gate types. The important gates has the Waypoint “C”. At the output comparison you can see its the fastest and always showing the opposite of the entering signal.<br>
+</p>
+<h3>The Or Gate</h3>
+<p><img src="images/cece3886_logic_gates_pt2_or_gate.png" alt="The New OR-Gate" loading="lazy"><br>
+The OR-Gate requires the same things as the NOT-Gate. One <em>logic train</em>, a waypoint and an entrance in the order list. The reaction time is close to zero seconds too, you can see how it works in another video I created.</p>
+
+<h3>Conclusion</h3>
+<p>I hope to see some awesome constructions of all the fans of <a href="http://en.wikipedia.org/wiki/Arithmetic_Logic_Unit">ALUs</a> and logic construction. Since these gates are much smaller and react very fast the possibilities are almost inexhaustible. If you have an awesome construction, post it here, upload it to our wiki or send an email to info [at] openttdcoop.org. I am awaiting your creations.</p>
+				</div><p class="pagecats">Categories: Community News, OpenTTD, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>Ashaw</strong> <small>January 19, 2009 19:40</small></p><div>
+								<div>
+					<p>HOw does ont turn off realistic acceleration in the new UI?</p>
+				</div>
+			</div></li><li><p><strong>Marty</strong> <small>January 23, 2009 17:50</small></p><div>
+								<div>
+					<p>By the way, the NOT gate works well in the transfer stations of a self regulating network.  Basically, a self-regulating mainline can be used with a long multitrain feeder line if the transfer station uses a NOT gate to only let a train from the mainline in when a feeder line train is unloading.  In this case slow response time isn’t a problem since unloading a train takes a lot longer than the gate’s response even with a relatively slow logic engine.</p>
+<p>I have a hunch the tweeked out “logic train” avoids the “evil chooser” problem because it moves a lot more than one map tile per game tick.  Thus the signals in the next tile have no time to change after a train has made a choice.</p>
+				</div>
+			</div></li><li><p><strong>Avdg</strong> <small>January 24, 2009 00:35</small></p><div>
+								<div>
+					<p>I like logics 🙂<br>
+I can’t wait until there is a fast openttd-processor</p>
+				</div>
+			</div></li><li><p><strong>Brianetta</strong> <small>January 27, 2009 23:55</small></p><div>
+								<div>
+					<p>Hopefully you can chain these logic locomotives together to create segments in a high speed seven segment display.</p>
+				</div>
+			</div></li><li><p><strong>Japa</strong> <small>January 29, 2009 08:21</small></p><div>
+								<div>
+					<p>here’s a very messy full adder made using this:</p>
+<p>http://pix.sparky-s.ie/images/oitemrdaiye57jqqvzpp.png</p>
+				</div>
+			</div></li><li><p><strong>mfb</strong> <small>December 10, 2010 23:42</small></p><div>
+								<div>
+					<p>Some more logic gates: http://www.tt-forums.net/viewtopic.php?f=29&amp;t=51710</p>
+<p>&gt;&gt; Hopefully you can chain these logic locomotives together to create segments in a high speed seven segment display.<br>
+You can 😉</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2009/01/18/optimization-of-logic-logic-gates-part-ii/">https://blog.openttdcoop.org/2009/01/18/optimization-of-logic-logic-gates-part-ii/</a>. Captured 12 October 2024 (<a href="https://web.archive.org/web/20241012084257/https://blog.openttdcoop.org/2009/01/18/optimization-of-logic-logic-gates-part-ii/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

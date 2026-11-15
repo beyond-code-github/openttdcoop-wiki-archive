@@ -1,0 +1,197 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Advanced Building Revue 07: Stations - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Advanced Building Revue 07: Stations</h1><p class="postmeta">28 September 2010, by V453000</p><div class="mw-body">
+					<p>Building stations is one of the most essential things in OpenTTD. To build a station doesn’t require any experience (besides knowing which button to press), although construction of a station that works perfectly requires some deeper and in under-rated amount of knowledge. The point of this article isn’t in showing all possibilities how to make a station, but it should note as many things as possible in terms of what to consider when building a station and also, talking about signalling styles which are sadly almost ignored. Here I present to you, ABR07: Stations.<br>
+<a href="images/9ac76da4_ABR07_intro.png"><img src="images/9ac76da4_ABR07_intro.png" alt="Stations" loading="lazy"></a><br>
+<span></span></p>
+<h3>Introduction</h3>
+<p>As building stations is a very complex topic and there isn’t too evolved (or insufficiently for this article) vocabulary, I will define some key elements I see in stations, and attempt to name them appropriately. Some of them might be used already, some might not. I just want to make things clear 😉<br>
+Note: All examples are made for TL3.</p>
+<h5>Incoming Line</h5>
+<p>This is the very busiest line that is coming into the station. It is a line where could be a high density of trains basically. This rail should not ever slow down if we aim for max throughput.<br>
+<a href="images/44bc13e4_ABR07_incoming_02.png"><img src="images/44bc13e4_ABR07_incoming_02.png" alt="Stations" loading="lazy"></a><a href="images/ac084693_ABR07_incoming_01.png"><img src="images/ac084693_ABR07_incoming_01.png" alt="Stations" loading="lazy"></a></p>
+<h5>Buffered entrance</h5>
+<p>An entry into a station where trains are supposed to wait for a free platform in waiting spaces (buffing spaces), until a platforms is free.<br>
+<a href="images/e3b6e3be_ABR07_buffer_01.png"><img src="images/e3b6e3be_ABR07_buffer_01.png" alt="Stations" loading="lazy"></a></p>
+<h5>Direct entrance</h5>
+<p>An entry into a station where trains are supposed not to stop since split from Incoming Line, until reaching their platform.<br>
+<a href="images/59318a26_ABR07_direct_01.png"><img src="images/59318a26_ABR07_direct_01.png" alt="Stations" loading="lazy"></a></p>
+<h5>Platform Distribution</h5>
+<p>The way how to get trains into the platforms. One of the largest concerns when constructing a station entrance.</p>
+<h5>Balanced entrance</h5>
+<p>Usually a station entry where trains from every incoming line are able to join any platform.<br>
+<a href="images/e5986ee8_ABR07_balanced_01.png"><img src="images/e5986ee8_ABR07_balanced_01.png" alt="Stations" loading="lazy"></a></p>
+<h5>Balanced exit</h5>
+<p>An exit where trains are able to choose any outgoing line they want, or at least – providing enough choices as needed. 🙂<br>
+<a href="images/4c8a6b16_ABR07_balanced_02.png"><img src="images/4c8a6b16_ABR07_balanced_02.png" alt="Stations" loading="lazy"></a></p>
+<h5>Full-speed station</h5>
+<p>Also referred to as full-throughput. Simply put, this is a station that will be able to accept fully loaded lines (reasonably full, packed, or whatever – depends on situation) without slowing them down.</p>
+<h5>Synced Station</h5>
+<p>This means that any path through any platform is the same length. In practice it means that trains come out of the station in the same formation as they came in. Just like bridges.<br>
+<a href="images/073ffcfd_ABR07_sync_01.png"><img src="images/073ffcfd_ABR07_sync_01.png" alt="Stations" loading="lazy"></a></p>
+<h5>Entry Check</h5>
+<p>The entry signal in front of the station that allows trains to get inside only if there is space for them. Especially viable with pickup stations where it is possible that they could get completely full.<br>
+<a href="images/2c4ab250_ABR07_check_01.png"><img src="images/2c4ab250_ABR07_check_01.png" alt="Stations" loading="lazy"></a></p>
+<h5>Braking Space</h5>
+<p>A space needed for trains to brake in front of a platform. A full TL braking space is an ideal case, but any other braking space can be useful too, and many times a full braking space isn’t required.<br>
+<a href="images/348a87ab_ABR07_braking_04.png"><img src="images/348a87ab_ABR07_braking_04.png" alt="Stations" loading="lazy"></a></p>
+<h5>Blocking</h5>
+<p>For this article, it means an act when a train stops where it shouldn’t. Mostly caused by two trains attempting to get into the same signal block. After a given time (usually short), the blocked train is able to move again without any player interference.<br>
+<a href="images/05030d8f_ABR07_blocking_01.png"><img src="images/05030d8f_ABR07_blocking_01.png" alt="Stations" loading="lazy"></a></p>
+<h3>The Stations</h3>
+<p>Different stations have different requirements, needs and are expected to perform differently but I will try to describe some things that apply to all standard station types, occasionally explaining when, where and for which stations it applies more or less. As this is the main part of this article and it is fairly long, I will sort things into numbered paragraphs.</p>
+<h3>1. Platform Count</h3>
+<p>What is usually the first question someone asks before building a station?<br>
+“How many platforms per line?”<br>
+<a href="images/83cd2bcf_ABR07_count.png"><img src="images/83cd2bcf_ABR07_count.png" alt="Stations" loading="lazy"></a><br>
+Please note that this sentence makes no sense until you provide all important information on which the platform count actually depends! Basically every station design requires different platform counts. This is caused by different times of trains getting into platforms – faster response, less platforms needed. Balancing station entrance (in appropriate times) should mean that you need less platforms too. How far balanced, how fast the station is, should be up to builder. That way, you can’t really tell him, how many platforms he will need.</p>
+<p>Note: I don’t even mention influence of trains – speed, unloading times, acceleration etc. just because it raises/lowers the platform count requirements, possibly by ridiculous amounts. But always consider what trains you are using! If you don’t know the train set, I strongly recommend to test trains (and with the same settings, such as TL, loaded trains, etc.) because you can be really surprised sometimes.</p>
+<h3>2. Balancing traffic</h3>
+<p>Some stations may be better built with some balancing involved. Too often people think that balancing a station is a must in all cases, although this is very far from truth.</p>
+<h5>2.1. Balancing the entrance</h5>
+<p>Let’s point out what does balancing actually do and why… When we balance entrance tracks, we expect that those lines aren’t going to be fully loaded and that way they need lower average amount of platforms per line. This applies especially if we have for example a factory, with 3 incoming lines. Some of those trains are goods, some are raws. When the goods trains split out, the drop receives only raw trains, therefore the lines can’t be totally full. This is for example a case when it would be really good to balance the station entrance.<br>
+On the other hand if we had separate lines for goods and raws, we could pack them as high as we can and then it wouldn’t be so effective to balance tracks.<br>
+Balanced entrances are quite essential for pickups, where it is likely that trains wait in the platforms and to ensure they don’t block just one line, we make it balanced. This also kind of applies to balanced entrances for drops. If there is any jam or problem, trains just re-balance to the free platforms, possibly making unjamming easier.<br>
+Note: There is one considerable advantage for unbalanced stations: easy expandability by just cloning them.<br>
+<a href="images/7642fcb3_ABR07_balanced_03.png"><img src="images/7642fcb3_ABR07_balanced_03.png" alt="Stations" loading="lazy"></a></p>
+<p>(The most awesome and probably hardest style how to build a balanced station entry. Do not copy unless you really know what is going on. PSG 190, Oil Drop)</p>
+<h5>2.2. Balancing the exit</h5>
+<p>Despite all of the common thoughts, this is quite a lot different from entrance balancing. We don’t really need to make trains be able to join every line, we neither need to make trains able to choose any. The only thing we actually want is just to let trains leave the station. By any means.</p>
+<p>The word balancing in this case means that trains have a choice, which line they will take.<br>
+Mostly when you hear balancing you imagine that every line has equal amount of traffic. This is actually totally different from the actual result. When you balance the exit, you usually make trains able to join here and there, using priorities to check if there is space or not. That way it usually ends up like they fill one line first then move onto another. The true balance in terms of equal traffic could be reached when all of the exiting lines are full.¨</p>
+<p><a href="images/fe592747_ABR07_balanced_04.png"><img src="images/fe592747_ABR07_balanced_04.png" alt="Stations" loading="lazy"></a><br>
+(The old, style of a balanced station exit, PZG05, Factory Drop)</p>
+<p>With balancing, it is some kind of solid stable method how to make an exit. Although in most cases I think it is way enough to make it just like “every Xth platform joins one of the X lines”. But this requires to be quite careful and consider how does the station entry/platform split actually work. If some platforms are more likely to be used due to penalizing or any other reason, you have to consider it when making a forced “balancing” exit.<br>
+<a href="images/8179260b_ABR07_Xth_01.png"><img src="images/8179260b_ABR07_Xth_01.png" alt="Stations" loading="lazy"></a></p>
+<h3>3. Station Shape</h3>
+<p>There is like a million ways how to compose the station, although not all of them are anyhow changing how the station actually works. Using the “right” shape of the station to fit landscape or other needs is and always will be an important task for us station builders, and at the same time – about half the fun in station building. There is often one problem with station shape – many people look only at it, not at how it actually works. Station shape usually determines how compact is the station going to be.</p>
+<p><a href="images/a3aad8e5_ABR07_MAZE.png"><img src="images/a3aad8e5_ABR07_MAZE.png" alt="Stations" loading="lazy"></a><br>
+(Transfer 06 aka MAZE from PSG 175, showing that almost anything is possible.)</p>
+<h5>3.1. Ro-ro station</h5>
+<p>A station where incoming trains don’t block the leaving trains. Roll in – roll out stations are considered standard since they don’t really have any disadvantages.</p>
+<h5>3.2. Terminus Station</h5>
+<p>What is usually an over-rated difference between station shapes, is a terminus station design. The only real difference is that you use the same side for both entrance and exit. That means quite a few disadvantages as you usually have to rebuild both of them in case something breaks, it also is worse (barely possible if you want to keep it reasonably good) for balancing platforms since you have less space there since there is everything in one spot.<br>
+Rather more of a wrong thought is that terminus stations are worse in general in compare with a roro. That is far from truth because first of all, station throughput can be virtually endless, provided you just make them large enough.<br>
+Note: terminus stations tend to have worse platform usage, but if built properly, they are as effective as a roro in total station throughput</p>
+<p><strong>3.2.1. The X</strong><br>
+<a href="images/727a9327_ABR07_X_01.png"><img src="images/727a9327_ABR07_X_01.png" alt="Stations" loading="lazy"></a><br>
+The one place of most problems is the “X” in front of the platforms. At the same time, it is quite dependent on circumstances whether terminus is good or not. Of course, what else would it rely on than trains. Here plays a big role unloading time, speed and acceleration for a bit.<br>
+When we use for example the original train set TL3 2xLev3, we have insane speed, super acceleration and endless unloading times. This means that though this “X” comes only like 2 trains per 2x unloading time + time to get there (small, since trains are fast). In the end we get that the “X” has far better throughput than the two platforms behind it, that way, it doesn’t matter if the station is terminus or not.<br>
+Another note about the X applies to usage of the stupid PBS vs. the pre-signals. It again all depends how fast is the X required. Most of the time the requirements are fulfilled by the seemingly slower pre-signals, therefore PBS doesn’t have to be better.</p>
+<p><strong>3.2.2. X-less terminus</strong><br>
+Another quite powerful trend how to do a terminus station is to eliminate the X. The result is that trains in the past X are now not meeting. This means that platforms can be used as frequently as of a ro-ro station. Another advantage is that you can make a synced terminus this way if you adjust the lengths correctly and make a direct entrance.<br>
+<a href="images/78b0112f_ABR07_Xless.png"><img src="images/78b0112f_ABR07_Xless.png" alt="Stations" loading="lazy"></a></p>
+<h5>3.3. Shaping Your Station</h5>
+<p>With shape there usually come different possibilities in terms of signalling, or how the station is going to work. There is quite no guide to how to do the right station shape because you just have to think about both – how will the station work, and how will it fit there ;).</p>
+<h3>4. Station Purpose</h3>
+<p>I can’t stress it enough how important it is to know what the station is going to do, what is going to be the use, how will it work. It happens too often that a station is copied from someone else without regarding the circumstances, ending up as working not very well despite the original station worked brilliantly.<br>
+The first and probably most important aspect is whether the station is a pickup, a drop, or even both.</p>
+<h5>4.1. Pickup stations</h5>
+<p>The simplest way how to indicate what we need is to ask ourselves – for example “Is it possible that the station could get full” Answer: Of course! It is a pickup, all it takes is one wave of trains and it is full! And that means that we need to use something that doesn’t let trains in if the station is full.<br>
+Or another often problematic thought process: Balance the entrance or not? Answer: Balanced entrance for multi-incoming-line pickups is a must in order to make trains able to use any platform, shall it come from anywhere. Otherwise trains might easily fill all platforms on one half, and the other would be left empty.<br>
+There are of course more aspects to consider, but these two are the most important.</p>
+<h5>4.2. Drop stations</h5>
+<p>The unloading stations can often be made much dirtier since you “just need to drop stuff”.<br>
+In compare with pickups we don’t need any control for letting trains in if station is full – because if it is designed for full throughput, then it should never get full! (only in case of jams and when we build for having jams, something is already wrong)<br>
+Balancing the entrance isn’t that necessary either! It is helpful in most cases, of course, but we can really have an effective station without balancing the traffic. (PZG13 for example)</p>
+<h5>4.3. Other stations</h5>
+<p>The most unique stations are usually having something else – like SRNW stations or stations with refitting depots involved. As another special type I would say pax stations because they usually stay for some extra-long time since they mostly both load and unload. The point is, after all, that we can declare almost every station special or unique, that way copying a station is almost never the right way to go! Note that it usually is better (and more educational) to build your own station, with all the considerations what you need or not, than copying something that doesn’t really fit the situation so well.</p>
+<h3>5. Letting trains in when platforms are full</h3>
+<p>This is an important aspect that isn’t thought about much. Drop stations with platform count high enough shouldn’t need to be stopped in the entrance because they should always find a platform free. In terms of pickup stations, there usually are pre-signals to make sure trains don’t enter the station when they shouldn’t. This has an exception with overflows, where the train has to enter the station at any time – and possibly ending up in the depot, if it fails to join a platform.</p>
+<p><a href="images/4257299c_ABR07_psb_01.png"><img src="images/4257299c_ABR07_psb_01.png" alt="Stations" loading="lazy"></a><br>
+A signaling technique greatly related to this is the Pre-signal Bypass, often looked at as being something awesome. In fact, it doesn’t do all that much wonders, since if it is long enough to accommodate trains inside, it blocks. For drop stations, we should be able to eliminate the first entry signal, and for drops we could either easily use a different design, make some kind of overflow (not necessarily depot!) or just hope we don’t jam :P.</p>
+<h3>6. Platform Distribution</h3>
+<p>All stations consisting of more than one platform need to split the incoming trains into their platforms, possibly to use the platforms as effectively as possible, or just “so that it is enough”.<br>
+There are two main ways how can trains go. Firstly – wait at waiting bays in front of stations until they reach the station. Secondly – making them not stop until they reach the station.</p>
+<h5>6.1. Buffering Entrance</h5>
+<p>Building spaces for trains to let them wait in places you want them to wait should be the most essential thing when building a station. (unless you want no waiting trains in front of a station). Making waiting bays usually applies to stations with balanced entrance and trains with good acceleration. The direct connection is much easier to maintain when the stations aren’t balanced so that multiple trains can’t collide.</p>
+<h5>6.2. Direct Connection</h5>
+<p>Trains don’t have to stop when on the way towards their platform just if we use for example combo signals. This works only for situations (not balanced stations) where the train can’t be disrupted by some other train getting into it’s path and therefore one of them would have to stop. Although for multi-line balanced stations where trains could meet each other in nasty places, we would need to get trains away from the nasty places somehow. Such an anti-blockage mechanism is the fail-safe unblocker.</p>
+<p><strong>6.2.1. Fail-safe unblocker</strong><br>
+This method has been used already a few times on the public server. The purpose is to make trains not stop until they reach the platforms, and if they are forced to stop, then make them stop in safe locations, not blocking or slowing the main line. Works the same as fail-safe joiner.<br>
+<a href="images/0ab05b96_ABR07_failsafe.png"><img src="images/0ab05b96_ABR07_failsafe.png" alt="Stations" loading="lazy"></a><br>
+The whole thing works based on the fact that a train comes to a certain signal, which gets green just when the train is in front of it (marked position) because we know how long the train is, that way we can place an unblocker exit right to the closest free signal block available. On the other hand when the train passes just by, it isn’t green when it shouldn’t because of that unblocker signal, since the train is still blocking it.<br>
+The usage is in any position where it is possible that two trains could meet. Mainly when making a non-stop terminus station (leaving train could meet the entering), or when there are more than one incoming lines.<br>
+Note: The fail-safe mechanism is NOT supposed to prevent trains from stopping completely! It is made so that trains don’t block the input line.</p>
+<h5>6.3. Additions to platform distribution</h5>
+<p>Sometimes you need to make some line less effective than it actually is. This is mainly when you have splits into the station, to make trains choose “better”, but it also applies to the very main ways how to make station entrances.<br>
+<strong>6.3.1. Signal gap – throughput cap</strong><br>
+Just by making a longer signal gap, you can cap the maximum throughput of that piece. That way, this part requires less platforms and so on.<br>
+<strong>6.3.2. Full-speed waiting bays</strong><br>
+This requires only one thing – proper waiting bays. If you can make as tiny signal gaps behind pre-signals as possible, trains could go through one of the choices in their full stream. That way you don’t need to care about distribution among platforms since trains just skip somewhere else when one part is full and they can use that line with great throughput.<br>
+<a href="images/f7003354_ABR07_fastbay_01.png"><img src="images/f7003354_ABR07_fastbay_01.png" alt="Stations" loading="lazy"></a><br>
+High-speed split. The highlights mark the signal gaps which are short enough to allow a “normally” full lane.</p>
+<p><strong>6.3.3. Logic Split</strong><br>
+Sometimes we can use a logic splitter (like flipflop) to distribute trains into platforms properly. There are two cases I can remember in the last games. First one was PSG 189 – rubber/wood drop or PSG 179 Hypnotizer.<br>
+<a href="images/d9bf5c86_ABR07_hypno.png"><img src="images/d9bf5c86_ABR07_hypno.png" alt="Stations" loading="lazy"></a><br>
+Both stations are of a very special kind. We can see that trains “don’t know” what is in the platforms or behind them – especially on the other half of the station where they are supposed to only “sometimes”. And as we later saw, perfect balancing skyrocketed the throughput to a different level. 🙂<br>
+The other one is building crap stations and splitting by logic “just because” just like in the image below (PSG192, Dundale)<br>
+<a href="images/68c1bf63_ABR07_logic_01.png"><img src="images/68c1bf63_ABR07_logic_01.png" alt="Stations" loading="lazy"></a><br>
+This is rather a brain disaster than good way to build in terms of building a station if you keep in mind that the only thing that was actually needed was a proper station entrance, for example like the image below. Additionally, logic should be used when needed, not whenever possible. (signals in circles are one at which trains stop in case station gets full, lines show the 3 tiles where trains stop eventually)<br>
+<a href="images/703646a2_ABR07_logic_02.png"><img src="images/703646a2_ABR07_logic_02.png" alt="Stations" loading="lazy"></a></p>
+<h3>7. Time and platform efficiency</h3>
+<p>Trains use platforms at some rate. This rate differs with each station design. Mostly it is based on how far is the “releaser signal” into the platforms since trains take longer or shorter path to get to the platform. Overall we want to have as high platform usage as possible so we can have lower amount of platforms, although we have to consider the following:<br>
+Train acceleration decides if we want to make waiting bays for example. When we have trains that just accelerate very slowly, waiting bays might slow them down too much! In such cases it might be better to make trains not stop until they reach their platforms. On the other hand if we have trains that are in full speed fast, we can make waiting bays with great efficiency because they don’t mind that much.<br>
+Another decisive thing is how long do our trains stay in the station. If they have fast loading times, we need the station to be able to feed trains faster to the platforms. This can be key in some situations, such as using the direct connecting without stopping trains on the way.<br>
+One of possible improvements (not always! – train acceleration is important) is making waiting bays right in front of the platforms. That way trains get into the platforms right after they get free. Just like in the image below.<br>
+<a href="images/10da8765_ABR07_buffer_02.png"><img src="images/10da8765_ABR07_buffer_02.png" alt="Stations" loading="lazy"></a></p>
+<h3>8. Synced Station</h3>
+<p>Just like syncing bridges, this makes trains come out in the same formation as they came in. This means all platforms take equally long path to go into and out of in total. From the way how it works we can say that you have to use the direct entrance. Any balancing could break it since there would be a possibility that trains could meet, therefore one would have to stop. Another thing to consider is that we need to have all trains stay in the station (load/unload) for equally long time. (easiest to just send there trains of one cargo type)<br>
+Naturally, having synced station is quite useful especially for fast and badly accelerating trains just because they don’t have to stop.<br>
+A perfect example of a synced station is probably nothing else than our drop in PZG13 – trains were fast and mainly – they were so packed that any stop in a wrong spot would mean jam. The station worked on the same pattern as the image below, but it was further doubled because of extreme train inflow.<br>
+<a href="images/eb1ba75e_ABR07_sync_02.png"><img src="images/eb1ba75e_ABR07_sync_02.png" alt="Stations" loading="lazy"></a></p>
+<h3>9. Slowing down or jamming</h3>
+<p>Mainly talking about larger Main Stations, they must never slow down the input line. The first thought of an unexperienced player would be probably saying that we need a larger station because this one is too small. This can be true, but I will rather note things that aren’t considered all that often, other than “being large enough”.</p>
+<h5>9.1. Signal Gaps</h5>
+<p>Over all, a signal gap is an array of missing signals, possibly slowing trains down if the gap is too long for the required throughput.<br>
+The most important gaps that often occur in stations are mainly pre-signal long arrays, reacting slowly, just like this one:<br>
+<a href="images/e06cf046_ABR07_gap_01.png"><img src="images/e06cf046_ABR07_gap_01.png" alt="Stations" loading="lazy"></a></p>
+<p>The longer this station is, the slower the pre-signals will be, thus making packed line throughput impossible. Theoretically, the only slow parts are the later platforms. That means if trains swap between slower and faster platforms, they don’t mind the signal gap. It can be reinforced by penalties, penalizing the faster tracks more, so trains use the gap anytime they can. (sometimes referred to as “valhallasw style”) A more reliable solution is making the gaps in the beginning of the entrance. For example – if you need to split one line into 6 platforms, you can first split in half, then each line goes to 3, just like the example below, making the first split gaps so long that the later ones don’t matter.<br>
+<a href="images/2162ca4d_ABR07_gap_02.png"><img src="images/2162ca4d_ABR07_gap_02.png" alt="Stations" loading="lazy"></a></p>
+<h5>9.2. Braking Spaces</h5>
+<p>One of the things that are usually ignored, wrongly understood, or just explained differently. Some people just know that the train is going to stop in the station soon anyway so why would they make braking spaces? Please note that this has nothing to do with station design and throughput!!! The train does indeed stop in the station. But before slowing down, we need to make sure that it doesn’t slow down the rest of trains coming into the station. First rule should be that we need to keep trains at least one TL from the main line and platform.</p>
+<p>We could say that braking space requirement depends on trains in terms of TL, acceleration, speed, and mainly – their purpose, usually set by their position. Train Length because we need how long the spaces should be. Greater acceleration usually makes trains come closer together, which also requires more proper construction quite often. And their speed in which they are coming is also important because the higher speed, the more proper braking spaces we need (just because there is a faster – and greater difference from full-speed and station-braking-speed).</p>
+<p>How long the braking spaces should be depends on how far traffic is expected to be there. But not in terms of the whole station, but in terms of that exact line from which trains enter the platforms.<br>
+For example this station (image below) has trains joining platforms directly from the main line. This means that we require full braking spaces (1x TL).<br>
+<a href="images/a6c2a867_ABR07_braking_01.png"><img src="images/a6c2a867_ABR07_braking_01.png" alt="Stations" loading="lazy"></a></p>
+<p>Although if we split the station into two, we can see that the first array has longer braking spaces than the second one. This is because we need a full TL from the first entry signal towards the platform. But the other array is expected to have only ~half amount of trains and is far enough from the main split to actually slow down the line.<br>
+<a href="images/7d07bdbc_ABR07_braking_03.png"><img src="images/7d07bdbc_ABR07_braking_03.png" alt="Stations" loading="lazy"></a></p>
+<p>Braking spaces don’t always apply only to slowing down the line though! Some areas on the stations can tend to be under more stress and you might want these places to be as fast as possible. Braking spaces can (and should) also help there when needed. For example you want trains to be as fast as they can on the X.<br>
+<a href="images/0e809e70_ABR07_braking_02.png"><img src="images/0e809e70_ABR07_braking_02.png" alt="Stations" loading="lazy"></a></p>
+<h5>9.3. Blocking trains</h5>
+<p>When multiple trains enter multiple areas which lead to one signal block, only one of them can follow at a time. This means the trains block for a while and have to wait. Such behavior can be seen in stations lacking careful signalling or it is expected not to make so many trouble. Usually it occurs with stations where trains aren’t supposed to stop until reaching the platforms – getting stuck halfway through. Most of such cases are easily solved by proper waiting bays.<br>
+Note: when talking about self-blocking, it usually means totally stuck trains never getting from their stuck position – that is a generally serious flaw for any kind of construction so I will not talk about it here</p>
+<h3>Conclusion</h3>
+<p>This guide is basically something like finding the perfect station. By reading this part of article, you should already be aware of like endless possible flaws of some station, knowing the requirements, and might want to combine them all together. Please keep always in mind that as long as the station works, it is fine. These points I talked about are just many aspects that can make the station work or not, but they are no rules! Actually, knowing what you can make “less proper” is also very useful, because you might save some space with it. If someone builds a station not according to this guide and it works, please leave it alone ;).<br>
+Now what are you waiting for? Let’s go make some super insane station! 🙂</p>
+				</div><p class="pagecats">Categories: Community News, Gameplay, OpenTTD, ProZone, Public Server, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>Paltala</strong> <small>September 28, 2010 18:29</small></p><div>
+								<div>
+					<p>I resent the comment about Dundale, PSG192 D: The idea of that was to get a perfectly even train split across all the platforms as that station served something like 200+ trains</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>September 29, 2010 17:34</small></p><div>
+								<div>
+					<p>which is exactly possible just by using brain and correct signalling 🙂</p>
+				</div>
+			</div></li><li><p><strong>Paltala</strong> <small>October 1, 2010 17:55</small></p><div>
+								<div>
+					<p>hey, using the double flip flops and compacting them was awesome though (you used an early version of the station D:)</p>
+				</div>
+			</div></li><li><p><strong>Paltala</strong> <small>October 1, 2010 17:56</small></p><div>
+								<div>
+					<p>I forgot, in the early stages we had an inconsistant train flow but still wanted perfect distribution, hence, flipflops =3</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>October 3, 2010 08:48</small></p><div>
+								<div>
+					<p>which is possible just by using brain and correct signalling 🙂</p>
+				</div>
+			</div></li><li><p><strong>Paltala</strong> <small>October 3, 2010 19:26</small></p><div>
+								<div>
+					<p>either way, saying it was crap is harsh considering how many trains were being pushed through just 20 platforms or so</p>
+				</div>
+			</div></li><li><p><strong>V453000</strong> <small>October 5, 2010 11:58</small></p><div>
+								<div>
+					<p>why would I lie 🙂</p>
+				</div>
+			</div></li><li><p><strong>Anonymouse</strong> <small>April 14, 2017 23:57</small></p><div>
+								<div>
+					<p>Helps me a lot! thanks!</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://blog.openttdcoop.org/2010/09/28/advanced-building-revue-07-stations/">http://blog.openttdcoop.org/2010/09/28/advanced-building-revue-07-stations/</a>. Captured 24 January 2025 (<a href="https://web.archive.org/web/20250124085034/http://blog.openttdcoop.org/2010/09/28/advanced-building-revue-07-stations/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

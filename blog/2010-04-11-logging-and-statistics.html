@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Logging and statistics - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Logging and statistics</h1><p class="postmeta">11 April 2010, by ODM</p><div class="mw-body">
+					<p>As most of our players will know, we keep a log of activity on our <a href="https://web.archive.org/web/2/http://openttdcoop.org/?page=servers&amp;s=ps">Public Server</a>. Few however know how it works, what is being stored and what we do with it. That’s why this blog will explain the basics of our logging functionality and what that means for openttdcoop and its players.</p>
+<p><a href="images/d03145e5_Logexample.png"><img src="images/d03145e5_Logexample.png" alt="Example of a logfile." loading="lazy"></a></p>
+<p><span></span><br>
+<strong>Logging</strong></p>
+<p>The rule on our servers is you sign your own work. This way we can see who’s done what. But it’s not a foolproof system, as players with bad intentions will most likely not sign their destruction, or respond to inquiries of other players. Because of this, admins had to guess who was responsible for such actions, which generally resulted in kicking the player who was the least known. Obviously this is not a fail-safe solution.</p>
+<p>To combat this problem our server runs with a custom-written patch. This patch outputs certain game information to a logfile, one file for each game. Firstly it logs information from the server itself. Think of error reports, leaving and joining players, game status and password changes. Secondly it logs all the actions by the players, with their respective price tags and parameters like game tiles. And thirdly all in game chat is also logged. With this information we can accurately determine the culprit, ban him and then reload the game from an autosave to undo any bad changes. This way we are pretty much covered against any sort of in game mishap.</p>
+<p><strong>Privacy</strong></p>
+<p>Now you could consider me a privacy nut, I’m apparently one of the few who thinks it’s important and shouldn’t be given up so easily as it has been in the previous years. With that in mind I’d like to highlight the privacy side of this situation to calm the uneasy feeling you might get of the idea of being watched in game.</p>
+<p>While we are logging everything that goes on in-game, only members, players that have shown to be trustworthy, get access to the log files. And they are not staring at it all the time either, because frankly, there are better things to do then stare at up to 20 Megabytes of text. The way the log is used is that we browse it with a tool whenever we notice bad behaviour on the server. This tool looks at the last X lines in the log, highlighting actions that could be the bad behaviour we are looking for. Think of the levelling of land, actions with huge price-tags and demolitions. This saves us the work of actually having to search for these things ourselves. Basically, we don’t look at the building in progress, we only search for abuse when it’s needed. Last but not least, logs will be deleted after a while. Generally we keep around 5-10 games worth of logs and the rest is discarded.</p>
+<p><strong>Statistics</strong></p>
+<p>The majority of our playerbase comes with a background in exact sciences, like me. With this in mind, I thought it would be a good idea to generate statistics from our logfiles. Because who doesn’t like statistics? So more then half a year ago I decided to write a program in Java that parses those log files and generates statistics out of them, like the number of lines typed and money spent. </p>
+<p><a href="images/25fa2b5c_Statsexample.png"><img src="images/25fa2b5c_Statsexample.png" alt="Generated statistics." loading="lazy"></a></p>
+<p>The program is now hosted on our own <a href="https://web.archive.org/web/2/http://dev.openttdcoop.org/projects/loganalyzer">Dev server</a>. After a long time of neglecting it’s maintenance, a rewrite to compensate in a change of style and the fixing of some bad bugs, the program is finally up-to-date and all logs excluding the current one are processed. The results of this can be found <a href="https://web.archive.org/web/2/http://ps.openttdcoop.org/public/stats/">here</a>. And no, this is not useful. But it’s always interesting to have a look.</p>
+<p><strong>Future work</strong></p>
+<p>Right now I am working on a system that plots the tile information of actions into an image. Combined with some image processing, it should be possible to build a mini-mini-map, not based on how it looks, but based on how much has changed. This is an example of how such a map could look like:</p>
+<p><a href="images/6b3b694b_Activitymap.png"><img src="images/6b3b694b_Activitymap.png" alt="An activitymap." loading="lazy"></a></p>
+<p>I wonder if anyone can guess the game number from that image. But once again, not useful, but probably interesting to see. Besides that there is some work to be done on the usability of the program itself and adapting it for use on other servers as well. If you have any more ideas, comments or suggestions, feel free to post your them in the comments or let me know on IRC.</p>
+				</div><p class="pagecats">Categories: Development, Gameplay, Patches, Public Server</p><h2>Comments</h2><ol class="comments"><li><p><strong>V453000</strong> <small>April 11, 2010 15:15</small></p><div>
+								<div>
+					<p>Very nice article 🙂 But what the hell is the first image! 😀 😛</p>
+				</div>
+			</div></li><li><p><strong>frosch</strong> <small>April 11, 2010 15:41</small></p><div>
+								<div>
+					<p>To identify bad/good guys you could also colour the mini-mini-map according to the last user who modified a tile.</p>
+				</div>
+			</div></li><li><p><strong>Radicalimero</strong> <small>April 11, 2010 17:34</small></p><div>
+								<div>
+					<p>nice article. I can guess the game number, it’s 147. The first openttdcoop game i played.</p>
+				</div>
+			</div></li><li><p><strong>MrRuben5</strong> <small>April 13, 2010 02:15</small></p><div>
+								<div>
+					<p>Very nice! I also like how the statistics file keeps info on slaps etc. (most hated person ^^). Looking forward to see the activitymap.</p>
+				</div>
+			</div></li><li><p><strong>bofh</strong> <small>April 13, 2010 10:27</small></p><div>
+								<div>
+					<p>Privacy nut and not blurring the IPs of the connected users? Tsk tsk 😉</p>
+<p>And yes, an activity map sounds really cool!</p>
+				</div>
+			</div></li><li><p><strong>Ammler</strong> <small>April 13, 2010 11:27</small></p><div>
+								<div>
+					<p>That is the point about logging, why should we mask the IPs?</p>
+<p>(The users of the example are members and are aware of it, I guess, those even are changed too.)</p>
+<p>If you care about IP and privacy, please use Tor.</p>
+				</div>
+			</div></li><li><p><strong>ODM</strong> <small>April 13, 2010 19:23</small></p><div>
+								<div>
+					<p>Thanks for the replies. It was indeed game 147, well spotted. That’s when i first started working on the map thingy.</p>
+<p>About the IP’s: I changed them. I could’ve blurred them out, but that wouldve spoiled the image. Also, what Ammler says, IP’s arent hard to come around really.</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>April 14, 2010 11:30</small></p><div>
+								<div>
+					<p>Nice summary article. And indeed these logging things made administration in case of disputes / grievers so much easier. And the summaries for games are an interesting feat 🙂</p>
+<p>Privacy is not a concern as we don’t publish private information (those screenshots show what is unavailable to the general public, only digests will be made available)</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2010/04/11/logging-and-statistics/">https://blog.openttdcoop.org/2010/04/11/logging-and-statistics/</a>. Captured 03 December 2021 (<a href="https://web.archive.org/web/20211203065413/https://blog.openttdcoop.org/2010/04/11/logging-and-statistics/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

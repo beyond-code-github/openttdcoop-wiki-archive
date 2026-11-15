@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Busses, Highways and the common Bus Driver - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Busses, Highways and the common Bus Driver</h1><p class="postmeta">20 July 2008, by Osai</p><div class="mw-body">
+					<p>Today planetmaker and I did a nice test game to prepare for another competition against NoAI opponents. Of course we are interested in a real comparable competition and want, therefore, only build road vehicles. A wise preparation is necessary, otherwise we might get a nasty surprise.<br>
+We tested the behavior of road vehicles, intersections and bus stops.</p>
+<p><a href="images/179925ca_busses_advancedterminal.png"><img src="images/179925ca_busses_advancedterminal.png" alt="Bus Stop" loading="lazy"></a><br>
+<small><a href="images/179925ca_busses_advancedterminal.png">A Bus Terminal</a></small><br>
+<span></span></p>
+<p>We decided to create a similar setup to the one we used yesterday. Instead of the monorail inter-city connection we used busses and a highway this time. Before you build a bigger bus station (lets say a station having more than two bus stops) you should be aware of the following (rough) facts:</p>
+<ol>
+<li>A bus station can consist of 16 bus stops only, not more.</li>
+<li>Drive-through road stops <span>are not</span> supporting the queueing features (finding the next empty stop). Busses will act strange if you use them: i.e. queueing up, ignoring other (free) drive-through stops and causing terribly jams.</li>
+<li>If you are using LV4, the best bus is `Leyland Olympian` and beyond 2020 the `Dolphin Intercity Bus` (<a href="http://george.zernebok.net/transport/longvehicles.html">vehicle details</a>).</li>
+<li>Busses slowdown at curves.</li>
+</ol>
+<h4>Bus Stations</h4>
+<p>Planetmaker and I experimented a lot with several different layouts of bus stations. Unluckily we did not find an optimal and highly efficient station layout. This is caused by the facts that drive-through road stops cause the bus drivers to go crazy (driving infinite loops, stopping at stations and whatnot) and the standard bus stations are not heaving such a high throughput (joining and leaving takes too long). The layout shown above is probably the most effective so far (until devs develop better features). If a station is crowded all stops will be used, the busses hopefully don’t queue up and if something went wrong the backup loop can correct the mistake. For the better structure, the station follows the principles of RoRo-stations. You can test terminus style too, but don’t employe any drunken bus drivers. Thanks.</p>
+<h4>Highways</h4>
+<p>Its questionable whether highways must consist of two one-way roads or not. Since all the busses will have the same speed, it is highly unlikely that they will ever overtake. Though we used them for a better structure. In the beginning of the game I doubt thats its necessary. Building 200 tiles of road costs approximately 100.000$. The double amount could cause a time of struggling in the beginning. In my opinion it is much more important to build straight road. Avoiding too many curves is much better, because busses slow down heavily.</p>
+<h4>Intersections / Junctions</h4>
+<p>Again we experimented a lot. And came to the conclusion that it is not necessary to build difficult and complex junctions. Road vehicles are more flexible than trains, the no-clip mode is turned on and in most cases they pass an intersection really smoothly. Thinking competitive (maximizing the profit) it is better to build a simple junction, because:</p>
+<ul>
+<li>Its definitely cheaper</li>
+<li>Its definitely built faster</li>
+<li>Its as effective as complex junction</li>
+</ul>
+<p><a href="images/62e0f6b6_highway_simplecrossing.png"><img src="images/2c8398ec_thumb_highway_simplecrossing.png" alt="A Simple Crossing" loading="lazy"></a><br><small>A Simple Crossing you should prefer.</small></p>
+<p>The only case when more complex junctions are better is when eyecandy comes into play.</p>
+<p><a href="images/f0863fe5_highway_advancedcrossing.png"><img src="images/afbc2ac8_thumb_highway_advancedcrossing.png" alt="A Complex Crossing" loading="lazy"></a><br><br>
+If you’ve read this article you are ready for the competition against NoAI. 🙂</p>
+				</div><p class="pagecats">Categories: Community News, Coopetition, OpenTTD, Tutorial</p><h2>Comments</h2><ol class="comments"><li><p><strong>Ammler</strong> <small>July 20, 2008 14:09</small></p><div>
+								<div>
+					<p>Maybe, you should take a look on our archive game: http://www.openttdcoop.org/wiki/PublicServer:Archive_-_Games_51_-_60#gameid_53</p>
+<p>It is very old but there are working examples of drive through stations.</p>
+<p>Edit, also a blog post about: http://blog.openttdcoop.org/2007/08/03/rails-who-needs-rails-a-new-kind-of-game-for-coopers/</p>
+				</div>
+			</div></li><li><p><strong>XeryusTC</strong> <small>July 20, 2008 14:16</small></p><div>
+								<div>
+					<p>I’ve made a proper working setup with drive through stations made in Public Server game #101, you can see it in the games screenshot. The station is able to handle around 80 local trams with ease and might be able to handle alot more.<br>
+It is setup like this:</p>
+<pre>  |
+--+--
+XX|XX
+XX|XX
+--+--
+  |</pre>
+<p>Where | + – are normal roads (including junctions) and X is a drive through station. The trams picked both sides about equally without causing any major jams because every platform was about an equal distance away from their arival point. Also note that the entire station is bi-directional and trams could come in from both directions and they didn’t conflict with each other that much.</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>July 20, 2008 14:22</small></p><div>
+								<div>
+					<p>XeryusTC, we tested exactly the layout you described – it somewhat comes naturally when thinking of RV stations :). Indeed it was the very first layout we built. It didn’t work at all with busses, causing huge queues and jams. We didn’t test with trams where you basically have no other choice.</p>
+				</div>
+			</div></li><li><p><strong>XeryusTC</strong> <small>July 20, 2008 15:14</small></p><div>
+								<div>
+					<p>I have been experimenting a bit with this layout and I noticed that it worked way better with a through lane (no stops) which is directly in line with the entry lanes. If you do build stops there it breaks quite bad. It might be true that it works better with trams though, I haven’t tested it with RVs but technically they’re the same (except that trams cant turn around everywhere, but that is not relevant here).</p>
+				</div>
+			</div></li><li><p><strong>Yexo</strong> <small>July 20, 2008 21:55</small></p><div>
+								<div>
+					<p>Nice to see you are preparing for a next match. However, there is one very important thing you obviously didn’t know: there is no way for AIs to detect and/or build one-way roads. This means that it’ll see one-way roads you build as normal roads, and tries to use them both ways. So if you only use them near your own stations, it might go ok, but the AIs might need some help so fix roads if some of them are one-way.</p>
+<p>Nice article, it explains very well what you’ve tested and why different layouts work / don’t work. At least I don’t have to experiment myself for improvements in my AI.</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>July 21, 2008 08:44</small></p><div>
+								<div>
+					<p>Yexo: I was aware of that. Thats why I bought the land surrounding the bus station. The AI should not be hampered by that.<br>
+Therefore I would propose only one road as a highway (as a normal road) and not two roads each one-way, because it might be destroyed by the AI anyway.</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2008/07/20/busses-highways-and-the-common-bus-driver/">https://blog.openttdcoop.org/2008/07/20/busses-highways-and-the-common-bus-driver/</a>. Captured 18 March 2021 (<a href="https://web.archive.org/web/20210318065911/https://blog.openttdcoop.org/2008/07/20/busses-highways-and-the-common-bus-driver/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Complex Orders and Improved S-Bahn Concept - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Complex Orders and Improved S-Bahn Concept</h1><p class="postmeta">20 October 2008, by Osai</p><div class="mw-body">
+					<p>Another great and useful feature which one or two didn’t recognize yet are <strong>Conditional Order Jumps</strong>. They are not available in OpenTTD 0.6.3 but if you are playing with recent nightly builds you should definitely use their advantages. As the name says you can use these special entries in the list to jump to a certain order.<br>
+Lets get an overview about the usage first and therefor we start with the types of conditions.<br>
+<img src="images/2b57a466_order_jumps_teaser.png" alt="Conditional Order Jumps" loading="lazy"><br>
+<span></span></p>
+<h3>Condition Types</h3>
+<ul>
+<li>Load percentage &gt; Integer</li>
+<li>Reliability &gt; Integer</li>
+<li>Maximum Speed &gt; Integer</li>
+<li>Vehicle age (years) &gt; Integer</li>
+<li>Requires service &gt; Boolean</li>
+<li>Always</li>
+</ul>
+<p>Integers can have the following options: equal (=), not equal (!=), less than (&lt;), less or equal to (&lt;=), more than (&gt;), more or equal to (&gt;=).<br>
+Boolean: is true, is false<br>
+<em>Hint: Always means always jumping.</em></p>
+<h3>Usage</h3>
+<p>Instead of <strong><em>Go To</em></strong> click the drop down button and choose <strong>Conditional Order Jump</strong>. Now you have to choose the order you want to jump to. Inserting an Order Jump into the list is as easy as inserting a regular order. Just click the order before which you want to insert the new one and it’ll happen. After inserting the order choose the type of condition and adjust it to your needs until it fits.</p>
+<h3>Complex System</h3>
+<p><strong>The Improved S-Bahn Concept</strong><br>
+This is a heavy one. We always had the problem with S-Bahn loops and bad ratings at station too close to the transfer drop because the trains were fully loaded. In ancient times they even stopped at these stations and and fully unloaded and reloaded. This is a waste of time and causes bad ratings at stations and many waiting passengers which were not transfered to the Central Stations. Here comes my idea into play. Every S-Bahn stations has its own by-pass and after every Go To Next S-Bahn Station a Conditional Order Jump proves whether it makes sense to enter the next S-Bahn Station (i.e. not fully loaded) or directly go to the Central Station.</p>
+<p><a href="images/9544556e_improved_sbahn.png"><img src="images/b721172d_thumb_improved_sbahn.png" alt="Improved S-Bahn Concept" loading="lazy"></a><br><br>
+<small>Basic example of the Improved S-Bahn Concept</small></p>
+<p><strong>Speed Switchers</strong><br>
+Tonight we talked about how sweet it would be to have switchers sorting trains by speed to ease up the handling of trains with different speeds in the same network. One possible solution could be the usage of Conditional Order Jumps. It would be possible to add orders according to the max speed of a train and e.g. jump to a certain waypoint for a track with common speeds. I am not sure how and if it works but it could make some things easier for us.</p>
+<h3>Last But not Least… a video</h3>
+
+				</div><p class="pagecats">Categories: Community News, OpenTTD, ProZone, Tutorial, Video</p><h2>Comments</h2><ol class="comments"><li><p><strong>Rob</strong> <small>October 21, 2008 01:09</small></p><div>
+								<div>
+					<p>That’s a good idea for a speed switcher. Leaving stations, or at certain points in the middle of long stretches, you could split a track into a double track. All trains below a certain speed could be sent to a “slow” waypoint on one of the tracks. That track could also have a penalty to prevent other trains from taking it. When the “slow” track joins back into the ML, you give a prio to the “fast” track. The problem would be that you’d have to give enough room on the “slow” track to hold enough trains so that it didn’t back up and block the ML.</p>
+<p>Alternatively, give the “fast” track the penalty, and use a “fast” waypoint for the trains that you want to have prio. That way if the “slow” track filled up, then the slow trains could still pass through the penaltied “fast” track.</p>
+				</div>
+			</div></li><li><p><strong>planetmaker</strong> <small>October 21, 2008 11:06</small></p><div>
+								<div>
+					<p>Conditional orders indeed make a good example for s-bahn layouts. The last game with s-bahn layouts I played though, I found it even better wrt station rating to combine it with a time-tabled loading time, e.g. allowing only very short loading times (a few ticks for each station) such that a train never can reach full load in a single station or maybe even two (depending upon the number of stations in its schedule). Otherwise a gradient in the station rating will establish where still the last station is serviced worst as fewer trains go there and cargo waits longer.</p>
+				</div>
+			</div></li><li><p><strong>Mucht</strong> <small>October 26, 2008 20:28</small></p><div>
+								<div>
+					<p>It’s a long time by now since my last login to OpenTTD. It seems like this is a major argument to have a look at the game again!</p>
+				</div>
+			</div></li><li><p><strong>andyp</strong> <small>November 4, 2008 02:37</small></p><div>
+								<div>
+					<p>I may be missing something, but how would conditional orders be any better than traditional orders for speed switching using waypoints?</p>
+				</div>
+			</div></li><li><p><strong>thomashauk</strong> <small>November 21, 2008 19:10</small></p><div>
+								<div>
+					<p>@ above, say you had a mixed group of trains with differing top speeds but all with shared orders. You could force the slower ones into a service stop easily for upgrading/removal without affecting the faster by creating a conditional jump in the shared orders</p>
+				</div>
+			</div></li><li><p><strong>bluerab</strong> <small>October 30, 2010 22:51</small></p><div>
+								<div>
+					<p>I’ve tried to set up a speed switcher.<br>
+You can watch this : http://img824.imageshack.us/img824/5627/dutwaytransport29thsep1.png</p>
+<p>May it will help you 🙂</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2008/10/20/complex-orders-and-improved-s-bahn-concept/">https://blog.openttdcoop.org/2008/10/20/complex-orders-and-improved-s-bahn-concept/</a>. Captured 19 May 2026 (<a href="https://web.archive.org/web/20260519073712/https://blog.openttdcoop.org/2008/10/20/complex-orders-and-improved-s-bahn-concept/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reduce Server CPU-Usage drastically - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Reduce Server CPU-Usage drastically</h1><p class="postmeta">4 September 2006, by Osai</p><div class="mw-body">
+					<p>Since the high number of trains in our games and the complexity of our networks, CPU-Usage is a real problem! Therefor we reduced the number of trains to 400 on the sandbox! But this will probably change within the next days. Today we found something out, all of you and especially the Server Hosts should be interested in. </p>
+<p><strong>NOTE: this code parts belong to a dedicated server:</strong></p>
+<p>All of you know this part of <a href="http://wiki.openttd.org/index.php/Openttd.cfg">openttd.cfg</a><br>
+<code><br>
+[misc]<br>
+display_opt = SHOW_TOWN_NAMES|SHOW_STATION_NAMES|SHOW_SIGNS|FULL_ANIMATION|FULL_DETAIL<br>
+resolution = 1680,967<br>
+</code></p>
+<p>Today we changed this excerpt to this:<br>
+<code><br>
+[misc]<br>
+display_opt =<br>
+resolution = 1,1<br>
+</code></p>
+<p>And now the magic starts, <strong>the CPU-Usage dropped from an average of 83%-87% to <em>unbelievable 47%</em><br>
+That’s amazing!</strong><br>
+Only one strange thing: the <a href="http://wiki.openttd.org/index.php/Resolution">description page for the resolution</a> of the official Wiki says its a client-only setting. But as our tests show, this is somehow not true.</p>
+<p>All of you Server Hosts out there, should change the config! Also the coopetition branch is on the way and will probably show up this week! We will have a look at this and try to deactivate the gfx rendering completely!</p>
+<p>Stay tuned, Osai.</p>
+				</div><p class="pagecats">Categories: OpenTTD</p><h2>Comments</h2><ol class="comments"><li><p><strong>Brianetta</strong> <small>September 4, 2006 22:18</small></p><div>
+								<div>
+					<p>Well, there goes my plan for online screenshotting for the chatlogs…  a resolution of 1×1 will make them rather uninteresting.</p>
+				</div>
+			</div></li><li><p><strong>DaleStan</strong> <small>September 4, 2006 23:12</small></p><div>
+								<div>
+					<p>They *ARE* client only-settings. And the dedicated server is a client.<br>
+The only difference between a dedicated server and a non-dedicated server is that the actual putting-the-graphics-on-the-monitor bits don’t run. Apparently, the get-ready-to-put-the-graphics-on-the-monitor bits do run, and therefore setting the server to “display” less information (display_opt=) over a smaller area (resolution =1,1) will make it go faster, since there’s less work to be done.</p>
+				</div>
+			</div></li><li><p><strong>Osai</strong> <small>September 5, 2006 20:31</small></p><div>
+								<div>
+					<p>yep, but in fact a server-side graphic calculation is total useless! For what do we need it? This should be real difference between a client and a server – no GUI stuff to cope with!<br>
+For screenshots, a temporary rendering of an area would be nice:<br>
+<b>screenshot ‘giant|normal’ ‘resolution’ ‘coordinate’</b> would be nice, but as this is not possible yet! Something like this would already be enough and thats my solution for your Autopilot Brianetta:</p>
+<p>– pause<br>
+– _change the resoultion somehow_<br>
+– scrollto 0xFFFF<br>
+– screenshot no_con<br>
+– _change the resoultion somehow_<br>
+– unpause</p>
+				</div>
+			</div></li><li><p><strong>Brianetta</strong> <small>September 5, 2006 22:06</small></p><div>
+								<div>
+					<p>As it is, I’m saving myself some work by removing the screenshot feature.  It’s only half complete at the moment, so it’s not a biggy.  I hadn’t told anybody that I’d designed it (although they might have wondered at the “screen” field in the database) so there are no dashed hopes either.</p>
+				</div>
+			</div></li><li><p><strong>TheDancinZerg</strong> <small>September 6, 2006 23:03</small></p><div>
+								<div>
+					<p>Did you try to change each of the options one at a time?  So that way we would know if one particular option creates heavy cpu usage for servers.  But still really good work! =)</p>
+				</div>
+			</div></li><li><p><strong>YOYO</strong> <small>December 30, 2006 19:48</small></p><div>
+								<div>
+					<p>Did make the changes to my server CFG</p>
+<p>unfortunaly it doesnt work here.<br>
+Could it be that im running windows or something like that?</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/http://blog.openttdcoop.org/2006/09/04/reduce-server-cpu-usage-drastically/">http://blog.openttdcoop.org/2006/09/04/reduce-server-cpu-usage-drastically/</a>. Captured 21 March 2021 (<a href="https://web.archive.org/web/20210321002211/http://blog.openttdcoop.org/2006/09/04/reduce-server-cpu-usage-drastically/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

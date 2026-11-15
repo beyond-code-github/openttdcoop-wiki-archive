@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Patch: Train Collision Cache - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Patch: Train Collision Cache</h1><p class="postmeta">7 June 2007, by Osai</p><div class="mw-body">
+					<p>stillunknown created an awesome patch which reduces the CPU usage quite a bit. The idea is to reduce the train collision checks with a sort of cache instead of a an on-going loop (<a href="http://www.tt-forums.net/viewtopic.php?t=32319">details @ tt-forums</a>).<br>
+Tonight we did some tests how this patch affects the game and it is quite impressing. I don’t want to say this is was a real performance test, but we checked the CPU load with a patched and an unpatched version of OpenTTD (r10048). My local machine was used as the server (PPC G5 2GHz) and as references we used Public Server <a href="http://openttdcoop.ppcis.org/wiki/index.php/PublicServer:Archive_-_Games_01_-_10#gameid_09">Game #09</a> and <a href="http://openttdcoop.ppcis.org/wiki/index.php/PublicServer:Archive_-_Games_31_-_40#gameid_34">Game #34</a>.</p>
+<p>The Results (vary with network layout, amount of trains and so on):<br>
+<small>cpu usage in percent</small><br>
+Game#34: w/o patch: ~45%; patched: ~40% (~700 trains)<br>
+Game#09: w/o patch: ~67%; patched: ~50% (~1300 trains)</p>
+<p>Especially games with a big mainline loop profit from this great patch.</p>
+				</div><p class="pagecats">Categories: OpenTTD, Patches</p><h2>Comments</h2><ol class="comments"><li><p><strong>Phazorx</strong> <small>June 8, 2007 04:36</small></p><div>
+								<div>
+					<p>Did some tests on XP with w32 port builds 10048 and 10048M (build provided by Xeryus) And here are the load decrease from original to patched – </p>
+<p>Client:<br>
+Game#34: ~30-40% to ~12-20% (~700 trains)<br>
+Express vs Local: 100% to ~50% (~600 trains)<br>
+Game#09: 100% to ~50% (~1400 trains)</p>
+<p>Server:<br>
+Game#34: ~15% to 10-12%<br>
+E vs L: ~55 to ~25-30%<br>
+Game#09: ~70 to ~25%</p>
+<p>Differences between these games arefollowing. #34 is a game with high number of train / medium amount of tracks, E vs L – high trains / high tracks, #09 ultra high trains / high tracks. Basicaly, benefit increases with amount of trains AND size of network/amount of junctions. </p>
+<p>Well done stillunknown!</p>
+				</div>
+			</div></li><li><p><strong>Zojj</strong> <small>June 8, 2007 17:58</small></p><div>
+								<div>
+					<p>I made a performance meter that displays game ticks / second.<br>
+http://www.tt-forums.net/viewtopic.php?p=594775#594775</p>
+<p>Local copy:<br>
+Without cache:  43.4 ticks/second<br>
+With cache:  71.4 ticks/second<br>
+Difference: 64.5% faster</p>
+				</div>
+			</div></li><li><p><strong>Phazorx</strong> <small>June 12, 2007 05:36</small></p><div>
+								<div>
+					<p>Did some testing with another patch (hash optimization) and here are results:</p>
+<p>Game#09:<br>
+10048 ~70%<br>
+10048 + stillunknown’s patch ~25%<br>
+10104 + peter’s patch  ~15%</p>
+<p>Game#34: ~15% to 10-12%<br>
+10048 ~15%<br>
+10048 + stillunknown’s patch 10-12%<br>
+10104 + peter’s patch  ~5%</p>
+<p>E vs L:<br>
+10048 ~55%<br>
+10048 + stillunknown’s patch 25-30%<br>
+10104 + peter’s patch  ~4%</p>
+<p>must say – I like new numbers very much</p>
+				</div>
+			</div></li></ol></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2007/06/07/patch-train-collision-cache/">https://blog.openttdcoop.org/2007/06/07/patch-train-collision-cache/</a>. Captured 18 March 2021 (<a href="https://web.archive.org/web/20210318065836/https://blog.openttdcoop.org/2007/06/07/patch-train-collision-cache/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>

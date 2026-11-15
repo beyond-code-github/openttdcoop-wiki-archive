@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Advanced Building Revue 10: Invisible Hubs - #openttdcoop blog (archive)</title><link rel="icon" href="../assets/original/favicon.ico"><link rel="stylesheet" href="../style.css"><script src="../search.js" defer></script></head><body><header id="top"><button id="menu" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button><a class="brand" href="index.html"><svg class="logo" viewBox="0 0 34 34" width="34" height="34" aria-hidden="true"><rect width="34" height="34" rx="7" fill="#2f6fab"/><rect y="27" width="34" height="7" rx="3" fill="#b1e100"/><path d="M6 20h22M9 14l3-5h10l3 5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="22" r="0"/></svg><span><b>#openttdcoop</b> blog <em>archive</em></span></a></header><div id="layout"><nav id="sidebar" aria-label="Blog navigation"><h2>Blog</h2><ul><li><a href="index.html">All posts</a></li><li><a href="index.html#y2017">2017 <span class="n">3</span></a></li><li><a href="index.html#y2015">2015 <span class="n">2</span></a></li><li><a href="index.html#y2014">2014 <span class="n">5</span></a></li><li><a href="index.html#y2013">2013 <span class="n">14</span></a></li><li><a href="index.html#y2012">2012 <span class="n">21</span></a></li><li><a href="index.html#y2011">2011 <span class="n">18</span></a></li><li><a href="index.html#y2010">2010 <span class="n">26</span></a></li><li><a href="index.html#y2009">2009 <span class="n">40</span></a></li><li><a href="index.html#y2008">2008 <span class="n">77</span></a></li><li><a href="index.html#y2007">2007 <span class="n">100</span></a></li><li><a href="index.html#y2006">2006 <span class="n">65</span></a></li></ul><h2>Wiki archive</h2><ul><li><a href="../index.html">Wiki home</a></li></ul></nav><main id="main"><article><h1>Advanced Building Revue 10: Invisible Hubs</h1><p class="postmeta">2 June 2011, by V453000</p><div class="mw-body">
+					<p>This time I am going to show a technique of building hubs called “Invisible Hubs”. Their name comes from the fact that one part of the hub is basically all hidden under bridges or in tunnels. An introduction to yet another interesting technique how to build hubs, particularly regarding SLHs. You might have already noticed one such hub as <a href="images/9958cdff_ABR10_SLH03.png">SLH03 in psg204</a>. Due to various reasons, those hubs are rather situational because of dependencies not only on space and composition, but also high dependence on trains. <a href="2011-06-02-advanced-building-revue-10-invisible-hubs.html">Read further for details…</a></p>
+<p><a href="images/18ab084f_ABR10_intro.png"><img src="images/18ab084f_ABR10_intro.png" alt="InvisibleHubs" loading="lazy"></a></p>
+<p><span></span></p>
+<h1>Introduction</h1>
+<p>The defining aspect of this hub is making one part pretty much invisible. To reach this effect, we basically tunnel the whole hub through from one end to another. This creates space atop of the tunnels, allowing to build other connections there. The common advantage is making the hub short as it has just split, tunnel, and minimal merge that is majorly “hidden” on the tunnels.<br>
+Note: the article mentions bridges and tunnels. It is meant to be the long split part unless stated otherwise. That part can be made by both bridges or tunnels of course.</p>
+<h1>How does it look:</h1>
+<p><a href="images/ab6b4f38_ABR10_tunnelhub_signs.png"><img src="images/ab6b4f38_ABR10_tunnelhub_signs.png" alt="InvisibleHubs" loading="lazy"></a></p>
+<h5>Underground part</h5>
+<ul>The part with tunnels is very simple, there is just: 
+<li><strong>1. split</strong></li>
+<p>Due to having tunnels, we can just space them out and make the split lines there.</p>
+<li><strong>2. tunnels</strong></li>
+<p>Because we expect the tunnels to be long, triple tunnels are very likely. (depends on TL)</p>
+<li><strong>3. merge</strong></li>
+<p>The tunnels just end. That is all that makes the merger. We also assign the priority role to the tunnels.</p></ul>
+<h5>Surface part</h5>
+<ul>This is where we are having some real stuffing going on. We need to place basically all of the hub center and two mergers here: 
+<li><strong>1. left hand traffic</strong></li>
+<p>Because trains first split and then merge, it will create some left hand driving. Because we want to save space atop of the tunnels, it is wise to cross the lines later on…</p>
+<li><strong>2. merges</strong></li>
+<p>This is the most pain of this hub. We need to make trains divide into the tunneled lines in minimal space.</p>
+<li><strong>3. outside of the hub</strong></li>
+<p>The third merger will of course be outside the hub, where it can feel quite comfortable because there is sufficient amount of space.</p></ul>
+<h1>Situational</h1>
+<p>There are some aspects that affect the effectiveness of this technique dramatically. The main factor are trains. Not just simply said “TL5 or greater will do best with these hubs” – the key thing is ratio of curve length: train acceleration.</p>
+<h5>Curve : Acceleration Ratio</h5>
+<p>Because priorities have to be quite long due to the tunnels, it tends to be more effective with rather badly accelerating trains. On the other hand, the shorter curve lengths, the shorter the tunnels. So ideal cases would be for example TL2 monorail – accelerating badly, but having short curves and waiting bays. Or just like in psg206, TL6 CL2 with great acceleration but due to being long these trains still need a long priority compared to their curve length. Another example could be TL5 2x Lev3 maglev – those have quite a long curve length already, but accelerate so badly that the prio is fine.</p>
+<h5>Train length effect:</h5>
+<p>As a matter of fact, shorter trains require more tunnels in general. Therefore we could easily get 4 tunnels for TL2 which is quite high. This unfortunately not only increases the size of the hub, but also drastically increases the priority size.</p>
+<ul><strong>Advantages:</strong> 
+<li>+ very short hub</li>
+<li>+ super small SLH to build</li>
+<li>+ well readable as one part is invisible (if using tunnels)</li>
+<li>+ hidden hub (if using bridges)</li>
+<li>+ positive WTF and Sparta values</li>
+</ul>
+<ul><strong>Disadvantages:</strong> 
+<li>– strongly dependant on trains</li>
+<li>– unfriendly with larger line counts</li>
+<li>– BBH merger atop of the tunnels can be a pain</li>
+<li>– not very expandable</li>
+<li>– fixed minimal prio size</li>
+</ul>
+<h1>Other thoughts</h1>
+<p><strong>Too long bridges? Why don’t I just cut them in half!</strong><br>
+When the bridges just exceed some limited length we have to solve it either by adding another bridge or cut them in half to make them shorter. Adding another bridge is probably the simplest option. Another way could be making there a “cut section” which would be tunnelled by the other hub parts.<br>
+<strong>Bridges or Tunnels?</strong><br>
+As always, bridges allow for much more flexible placement. This can get tremendously helpful in this kind of hubs, so bridges can become preferred easily. On the other hand tunnels make it look clean ;). It also depends on the landscape of course…<br>
+<strong>How do I know if it is the right time for this hub?</strong><br>
+Choosing the right time and place when to build this junction is also very key. It is quite hard to say universally when to build it, so the only way to discover is just to try probably.<br>
+<strong>Alright, where do I start building?</strong><br>
+When I was building those hubs I usually found it rather confusing to start. One of the main problems lies within quite unknown amount of bridges required. If you build half of the junction and suddenly discover that your double bridges need tripling, some F-word storm might get heard.<br>
+I tried to build them from the outside part (the opposite of where the actual SL is heading) because that makes the left-hand traffic inside and you just add up the other pieces onto it from the outside. The sequence probably doesn’t matter as you will likely need to move many things around until reaching satisfactory results.</p>
+<h1>Examples</h1>
+<p>Pictures! Here goes one TL5 SLH.<br>
+<a href="images/882c8cce_ABR10_TL5.gif"><img src="images/f2701e22_ABR10_TL5static.png" alt="InvisibleHubs" loading="lazy"></a><br>
+And here we have a TL2 version of a SLH. (some bridges might be too long)<br>
+<a href="images/8bc7fea6_ABR10_TL2.gif"><img src="images/bb57233f_ABR10_TL2static.png" alt="InvisibleHubs" loading="lazy"></a></p>
+<h1>Conclusion</h1>
+<p>The invisible hubs are certainly helpful when it comes to making short hubs and saving ML space but at the same time they definitely aren’t the ultimate solution. Their main downside is the very specific usability and their usually hard expanding. Over all, it definitely is a nice addition to our games and I believe it will earn it’s place. 🙂 Now thank you for reading and let’s go build some!</p>
+				</div><p class="pagecats">Categories: Community News</p></article><footer id="site-footer"><p class="archive-note"><strong>Unofficial archive.</strong> Source: <a href="https://web.archive.org/web/2/https://blog.openttdcoop.org/2011/06/02/advanced-building-revue-10-invisible-hubs/">https://blog.openttdcoop.org/2011/06/02/advanced-building-revue-10-invisible-hubs/</a>. Captured 18 March 2021 (<a href="https://web.archive.org/web/20210318193742/https://blog.openttdcoop.org/2011/06/02/advanced-building-revue-10-invisible-hubs/">Wayback capture</a>). Content by the #openttdcoop community. Licence: no licence statement exists on the original wiki. Its page footer reads &quot;© 2005 - 2026 The #openttdcoop Blog &amp; Wiki | based on the &quot;dark&quot; theme &amp; Bartelme Design&quot; (all rights as stated there; the year changes with the capture). Individual pages may state their own terms.</p></footer></main></div></body></html>
