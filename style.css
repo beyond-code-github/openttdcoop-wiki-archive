@@ -83,3 +83,9 @@ table.tutorialsavegame_menu td.center{text-align:center;font-weight:600}table.tu
 /* The page card contains its floated menus and boxes. */
 .mw-body{display:flow-root}
 table.gamearchive_menu th{padding:.18rem .8rem}
+.abr{margin:1.6rem 0}.abr>h2{margin-top:0}
+.abr-post{padding:.4rem 0 1.1rem;border-bottom:1px solid var(--border)}.abr-post:last-child{border-bottom:0}
+.abr-post h2{border:0;margin:1rem 0 .1rem;padding:0;font-size:1.3rem}
+.abr-post p{margin:.4rem 0}.abr-meta{color:var(--muted);font-size:.85rem}
+.abr-img{display:block;max-width:100%;height:auto;max-height:360px;border:1px solid var(--border);box-shadow:var(--shadow);background:var(--code)}
+.abr-more{font-weight:600}
